@@ -1,0 +1,231 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const blogPosts = [
+  {
+    slug: 'best-free-ai-chatbots-2025',
+    title: 'Best Free AI Chatbots in 2025: Complete Guide',
+    excerpt: 'Discover the top free AI chatbots available in 2025. Compare features, capabilities, and find the perfect AI assistant for your needs without spending a dime.',
+    date: '2025-01-15',
+    readTime: '8 min read',
+    category: 'Free Tools',
+    image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop',
+    author: 'AIChatWindow Team'
+  },
+  {
+    slug: 'chatgpt-vs-claude-vs-bard-comparison',
+    title: 'ChatGPT vs Claude vs Bard: Ultimate AI Comparison 2025',
+    excerpt: 'In-depth comparison of the three leading AI chatbots. We test ChatGPT, Claude, and Google Bard across multiple categories to help you choose the best AI assistant.',
+    date: '2025-01-12',
+    readTime: '12 min read',
+    category: 'Comparisons',
+    image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop',
+    author: 'AIChatWindow Team'
+  },
+  {
+    slug: 'enterprise-ai-chatbot-implementation-guide',
+    title: 'Enterprise AI Chatbot Implementation: Complete Guide',
+    excerpt: 'Learn how to successfully implement AI chatbots in enterprise environments. Best practices, security considerations, and ROI optimization strategies.',
+    date: '2025-01-10',
+    readTime: '15 min read',
+    category: 'Enterprise',
+    image: 'https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop',
+    author: 'AIChatWindow Team'
+  },
+  {
+    slug: 'ai-chatbot-privacy-security-guide',
+    title: 'AI Chatbot Privacy & Security: What You Need to Know',
+    excerpt: 'Comprehensive guide to AI chatbot privacy and security. Learn how to protect your data when using AI assistants and choose privacy-focused alternatives.',
+    date: '2025-01-08',
+    readTime: '10 min read',
+    category: 'Security',
+    image: 'https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop',
+    author: 'AIChatWindow Team'
+  },
+  {
+    slug: 'future-of-ai-chatbots-2025-predictions',
+    title: 'The Future of AI Chatbots: 2025 Predictions and Trends',
+    excerpt: 'Explore the future of AI chatbots with expert predictions for 2025. Discover emerging trends, new technologies, and what to expect from AI assistants.',
+    date: '2025-01-05',
+    readTime: '9 min read',
+    category: 'Trends',
+    image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop',
+    author: 'AIChatWindow Team'
+  },
+  {
+    slug: 'how-to-choose-right-ai-chatbot',
+    title: 'How to Choose the Right AI Chatbot for Your Needs',
+    excerpt: 'Step-by-step guide to selecting the perfect AI chatbot. Compare features, pricing, and use cases to make an informed decision.',
+    date: '2025-01-03',
+    readTime: '11 min read',
+    category: 'Guides',
+    image: 'https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop',
+    author: 'AIChatWindow Team'
+  }
+];
+
+const categories = ['All', 'Free Tools', 'Comparisons', 'Enterprise', 'Security', 'Trends', 'Guides'];
+---
+
+<Layout title="AI Chatbot Blog - Latest News, Reviews & Guides | AIChatWindow">
+  <Header />
+  
+  <main class="min-h-screen bg-gradient-to-br from-gray-50 to-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+      
+      <!-- Blog Header -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+          AI Chatbot Blog
+        </h1>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Stay updated with the latest AI chatbot news, in-depth reviews, comparisons, 
+          and expert guides to help you navigate the world of artificial intelligence.
+        </p>
+      </div>
+
+      <!-- Category Filter -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12">
+        {categories.map(category => (
+          <button 
+            class={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 ${
+              category === 'All' 
+                ? 'bg-black text-white' 
+                : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-100'
+            }`}
+            onclick={`filterPosts('${category}')`}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      <!-- Featured Post -->
+      <div class="mb-16">
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
+          <div class="md:flex">
+            <div class="md:w-1/2">
+              <img 
+                src={blogPosts[0].image} 
+                alt={blogPosts[0].title}
+                class="w-full h-64 md:h-full object-cover"
+              />
+            </div>
+            <div class="md:w-1/2 p-8">
+              <div class="flex items-center space-x-2 mb-4">
+                <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full">
+                  Featured
+                </span>
+                <span class="px-3 py-1 bg-gray-100 text-gray-800 text-xs font-medium rounded-full">
+                  {blogPosts[0].category}
+                </span>
+              </div>
+              <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                <a href={`/blog/${blogPosts[0].slug}`} class="hover:text-primary-600 transition-colors">
+                  {blogPosts[0].title}
+                </a>
+              </h2>
+              <p class="text-gray-600 mb-6 leading-relaxed">
+                {blogPosts[0].excerpt}
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4 text-sm text-gray-500">
+                  <span>{blogPosts[0].date}</span>
+                  <span>•</span>
+                  <span>{blogPosts[0].readTime}</span>
+                  <span>•</span>
+                  <span>{blogPosts[0].author}</span>
+                </div>
+                <a 
+                  href={`/blog/${blogPosts[0].slug}`}
+                  class="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-sm font-medium"
+                >
+                  Read More
+                  <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog Posts Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        {blogPosts.slice(1).map(post => (
+          <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300 group">
+            <div class="relative">
+              <img 
+                src={post.image} 
+                alt={post.title}
+                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div class="absolute top-3 left-3">
+                <span class="px-2 py-1 bg-white bg-opacity-90 text-gray-800 text-xs font-medium rounded-full">
+                  {post.category}
+                </span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-lg text-gray-900 mb-3 line-clamp-2">
+                <a href={`/blog/${post.slug}`} class="hover:text-primary-600 transition-colors">
+                  {post.title}
+                </a>
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                {post.excerpt}
+              </p>
+              <div class="flex items-center justify-between text-xs text-gray-500">
+                <span>{post.date}</span>
+                <span>{post.readTime}</span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Newsletter Signup -->
+      <div class="bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl p-8 text-white text-center">
+        <h2 class="text-2xl font-bold mb-4">Stay Updated with AI Trends</h2>
+        <p class="text-lg opacity-90 mb-6 max-w-2xl mx-auto">
+          Get the latest AI chatbot news, reviews, and guides delivered to your inbox weekly.
+        </p>
+        <form class="max-w-md mx-auto flex gap-3">
+          <input 
+            type="email" 
+            placeholder="Enter your email"
+            class="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+          />
+          <button 
+            type="submit"
+            class="px-6 py-3 bg-white text-primary-600 rounded-lg hover:bg-gray-100 transition-colors font-medium"
+          >
+            Subscribe
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  function filterPosts(category) {
+    // Update active button
+    document.querySelectorAll('button[onclick*="filterPosts"]').forEach(btn => {
+      btn.classList.remove('bg-black', 'text-white');
+      btn.classList.add('bg-white', 'text-gray-600', 'border', 'border-gray-200');
+    });
+    
+    event.target.classList.remove('bg-white', 'text-gray-600', 'border', 'border-gray-200');
+    event.target.classList.add('bg-black', 'text-white');
+    
+    // Filter logic would go here in a real implementation
+    console.log('Filtering by:', category);
+  }
+</script>
