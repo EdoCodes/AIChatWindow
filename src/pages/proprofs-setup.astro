@@ -1,0 +1,203 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="ProProfs Chat Setup Guide - AIChatWindow">
+  <Header />
+  
+  <main class="min-h-screen bg-gradient-to-br from-gray-50 to-white py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+      
+      <!-- Setup Guide Header -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+          ProProfs Chat Setup Guide
+        </h1>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Follow these steps to connect your ProProfs Chat account and enable live chat functionality on your website.
+        </p>
+      </div>
+
+      <!-- Step-by-Step Guide -->
+      <div class="space-y-8">
+        
+        <!-- Step 1 -->
+        <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 bg-primary-500 text-white rounded-full flex items-center justify-center font-bold">
+              1
+            </div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold text-gray-900 mb-4">Create ProProfs Chat Account</h3>
+              <p class="text-gray-600 mb-4">
+                Sign up for a ProProfs Chat account if you don't have one already.
+              </p>
+              <a href="https://www.proprofs.com/chat/" target="_blank" class="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
+                Sign Up for ProProfs Chat
+                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 bg-primary-500 text-white rounded-full flex items-center justify-center font-bold">
+              2
+            </div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold text-gray-900 mb-4">Get Your Chat Widget Code</h3>
+              <p class="text-gray-600 mb-4">
+                In your ProProfs Chat dashboard:
+              </p>
+              <ol class="list-decimal list-inside space-y-2 text-gray-600 mb-4">
+                <li>Go to <strong>Settings</strong> → <strong>Installation</strong></li>
+                <li>Copy your <strong>Chat Widget ID</strong> or <strong>Embed URL</strong></li>
+                <li>It should look like: <code class="bg-gray-100 px-2 py-1 rounded">https://secure.proprofs.com/chat/web/YOUR_ID</code></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 bg-primary-500 text-white rounded-full flex items-center justify-center font-bold">
+              3
+            </div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold text-gray-900 mb-4">Update Your Website Configuration</h3>
+              <p class="text-gray-600 mb-4">
+                Replace the placeholder URL in your chat components with your actual ProProfs Chat URL:
+              </p>
+              <div class="bg-gray-100 rounded-lg p-4 mb-4">
+                <code class="text-sm">
+                  // In src/components/FunctionalChatWindow.astro<br/>
+                  // Replace this line:<br/>
+                  embedUrl = "https://secure.proprofs.com/chat/web/1234567"<br/>
+                  <br/>
+                  // With your actual URL:<br/>
+                  embedUrl = "https://secure.proprofs.com/chat/web/YOUR_ACTUAL_ID"
+                </code>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 bg-primary-500 text-white rounded-full flex items-center justify-center font-bold">
+              4
+            </div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold text-gray-900 mb-4">Configure Chat Settings</h3>
+              <p class="text-gray-600 mb-4">
+                In your ProProfs Chat dashboard, customize:
+              </p>
+              <ul class="list-disc list-inside space-y-2 text-gray-600 mb-4">
+                <li><strong>Chat Widget Appearance:</strong> Colors, position, and style</li>
+                <li><strong>Welcome Messages:</strong> Greeting text for visitors</li>
+                <li><strong>Operating Hours:</strong> When chat is available</li>
+                <li><strong>Agent Assignment:</strong> Who handles different types of chats</li>
+                <li><strong>Automated Responses:</strong> FAQ and common questions</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">
+              ✓
+            </div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold text-gray-900 mb-4">Test Your Chat Integration</h3>
+              <p class="text-gray-600 mb-4">
+                After updating your configuration:
+              </p>
+              <ol class="list-decimal list-inside space-y-2 text-gray-600 mb-4">
+                <li>Deploy your updated website</li>
+                <li>Visit your chat page to test the integration</li>
+                <li>Send a test message to ensure everything works</li>
+                <li>Check your ProProfs dashboard to see the conversation</li>
+              </ol>
+              <a href="/chat" class="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                Test Chat Now
+                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Features Section -->
+      <div class="mt-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-xl p-8 text-white">
+        <h2 class="text-2xl font-bold mb-6 text-center">ProProfs Chat Features</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="text-center">
+            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+            </div>
+            <h3 class="font-semibold mb-2">Live Chat</h3>
+            <p class="text-sm opacity-90">Real-time conversations with your visitors</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+            <h3 class="font-semibold mb-2">Analytics</h3>
+            <p class="text-sm opacity-90">Track chat performance and visitor insights</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
+              </svg>
+            </div>
+            <h3 class="font-semibold mb-2">Customization</h3>
+            <p class="text-sm opacity-90">Match your brand colors and style</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Support Section -->
+      <div class="mt-12 text-center">
+        <h3 class="text-xl font-bold text-gray-900 mb-4">Need Help?</h3>
+        <p class="text-gray-600 mb-6">
+          If you encounter any issues during setup, check out these resources:
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://www.proprofs.com/chat/help/" target="_blank" class="inline-flex items-center px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
+            ProProfs Documentation
+            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+          <a href="/blog" class="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
+            Read Our Blog
+            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
