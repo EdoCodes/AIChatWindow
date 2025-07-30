@@ -1,0 +1,221 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Corporate AI Tools - AIChatWindow">
+  <Header />
+  
+  <main class="min-h-screen bg-gradient-to-br from-gray-50 to-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+      
+      <!-- Page Header -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+          Corporate AI Tools
+        </h1>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Enterprise-grade AI solutions for business automation, customer service, 
+          and team productivity. Trusted by Fortune 500 companies.
+        </p>
+      </div>
+
+      <!-- Corporate Tools Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        
+        <!-- Microsoft Copilot -->
+        <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300">
+          <div class="relative">
+            <img src="https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Microsoft Copilot" class="w-full h-48 object-cover">
+            <div class="absolute top-3 right-3">
+              <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
+                Enterprise
+              </span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-bold text-lg text-gray-900 mb-2">Microsoft Copilot</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              AI-powered assistant integrated with Microsoft 365 for enhanced productivity.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">$30/user/month</span>
+              <a href="https://copilot.microsoft.com" target="_blank" class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Salesforce Einstein -->
+        <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300">
+          <div class="relative">
+            <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Salesforce Einstein" class="w-full h-48 object-cover">
+            <div class="absolute top-3 right-3">
+              <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
+                Enterprise
+              </span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-bold text-lg text-gray-900 mb-2">Salesforce Einstein</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              AI-powered CRM with predictive analytics and automated customer insights.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">Custom pricing</span>
+              <a href="https://salesforce.com/products/einstein" target="_blank" class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- IBM Watson -->
+        <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300">
+          <div class="relative">
+            <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="IBM Watson" class="w-full h-48 object-cover">
+            <div class="absolute top-3 right-3">
+              <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
+                Enterprise
+              </span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-bold text-lg text-gray-900 mb-2">IBM Watson</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Enterprise AI platform for natural language processing and data analysis.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">Custom pricing</span>
+              <a href="https://ibm.com/watson" target="_blank" class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Google Cloud AI -->
+        <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300">
+          <div class="relative">
+            <img src="https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Google Cloud AI" class="w-full h-48 object-cover">
+            <div class="absolute top-3 right-3">
+              <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
+                Enterprise
+              </span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-bold text-lg text-gray-900 mb-2">Google Cloud AI</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Comprehensive AI platform with machine learning and natural language APIs.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">Pay-as-you-go</span>
+              <a href="https://cloud.google.com/ai" target="_blank" class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Amazon Lex -->
+        <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300">
+          <div class="relative">
+            <img src="https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Amazon Lex" class="w-full h-48 object-cover">
+            <div class="absolute top-3 right-3">
+              <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
+                Enterprise
+              </span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-bold text-lg text-gray-900 mb-2">Amazon Lex</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Build conversational interfaces using voice and text with AWS infrastructure.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">Usage-based</span>
+              <a href="https://aws.amazon.com/lex" target="_blank" class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zendesk Answer Bot -->
+        <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300">
+          <div class="relative">
+            <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Zendesk Answer Bot" class="w-full h-48 object-cover">
+            <div class="absolute top-3 right-3">
+              <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
+                Enterprise
+              </span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-bold text-lg text-gray-900 mb-2">Zendesk Answer Bot</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              AI-powered customer service automation with intelligent ticket routing.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">$50/agent/month</span>
+              <a href="https://zendesk.com/answer-bot" target="_blank" class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Enterprise Features -->
+      <div class="bg-white rounded-xl shadow-lg p-8 mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Enterprise AI Benefits</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-2">Security</h3>
+            <p class="text-gray-600 text-sm">Enterprise-grade security with compliance certifications.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-2">Scalability</h3>
+            <p class="text-gray-600 text-sm">Scale from hundreds to millions of users seamlessly.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-2">Customization</h3>
+            <p class="text-gray-600 text-sm">Tailor AI solutions to your specific business needs.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 100 19.5 9.75 9.75 0 000-19.5z" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-2">Support</h3>
+            <p class="text-gray-600 text-sm">24/7 dedicated support and professional services.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
