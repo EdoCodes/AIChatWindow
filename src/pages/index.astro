@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import HeroSection from '../components/HeroSection.astro';
+import FeaturesSection from '../components/FeaturesSection.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="AIChatWindow - Your Gateway to AI Chat Solutions">
+  <Header />
+  <main>
+    <HeroSection />
+    <FeaturesSection />
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  import { analytics } from '../lib/analytics';
+  
+  // Make analytics available globally for chat windows
+  window.analyticsTracker = analytics;
+  
+  // Track page view
+  console.log('AIChatWindow - Your Gateway to AI Chat Solutions');
+</script>

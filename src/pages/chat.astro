@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import FunctionalChatWindow from '../components/FunctionalChatWindow.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Free AI Chat - AIChatWindow">
+  <Header />
+  
+  <main class="min-h-screen bg-gradient-to-br from-gray-50 to-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Page Header -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+          Free AI Chat Assistant
+        </h1>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Chat with our AI assistant powered by advanced language models. 
+          No registration required - start chatting immediately!
+        </p>
+      </div>
+
+      <!-- Chat Interface -->
+      <div class="flex justify-center">
+        <FunctionalChatWindow 
+          title="AI Assistant" 
+          model="microsoft/DialoGPT-medium"
+        />
+      </div>
+
+      <!-- Features -->
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div class="text-center p-6 bg-white rounded-lg shadow-sm border border-gray-200">
+          <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">100% Free</h3>
+          <p class="text-gray-600 text-sm">No API keys, no registration, no hidden costs. Just start chatting!</p>
+        </div>
+
+        <div class="text-center p-6 bg-white rounded-lg shadow-sm border border-gray-200">
+          <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Instant Response</h3>
+          <p class="text-gray-600 text-sm">Get immediate responses powered by Microsoft's DialoGPT model.</p>
+        </div>
+
+        <div class="text-center p-6 bg-white rounded-lg shadow-sm border border-gray-200">
+          <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Privacy First</h3>
+          <p class="text-gray-600 text-sm">Your conversations are not stored. Chat with complete privacy.</p>
+        </div>
+      </div>
+
+      <!-- Integration Guide -->
+      <div class="mt-16 bg-white rounded-xl shadow-lg border border-gray-200 p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Easy Integration</h2>
+        <p class="text-gray-600 mb-6">
+          Want to add this chat to your own website? It's simple! Just copy the component and API endpoint.
+        </p>
+        
+        <div class="bg-gray-50 rounded-lg p-4 mb-4">
+          <h3 class="font-semibold text-gray-900 mb-2">What you get:</h3>
+          <ul class="space-y-1 text-sm text-gray-600">
+            <li>• Fully functional chat interface</li>
+            <li>• Free Hugging Face AI integration</li>
+            <li>• Responsive design</li>
+            <li>• No external dependencies</li>
+            <li>• Easy to customize</li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/" class="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors duration-200">
+            <span>View Demo Platform</span>
+            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+          <a href="https://github.com" class="inline-flex items-center px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors duration-200">
+            <svg class="mr-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd" />
+            </svg>
+            <span>View Source Code</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
