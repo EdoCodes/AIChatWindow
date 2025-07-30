@@ -1,5 +1,6 @@
 ---
 import LoadingSpinner from './LoadingSpinner.astro';
+import FunctionalChatWindow from './FunctionalChatWindow.astro';
 
 export interface Props {
   serviceId: string;
@@ -12,57 +13,7 @@ export interface Props {
 const { serviceId, serviceName, displayName, embedUrl, description } = Astro.props;
 ---
 
-<div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-xl group">
-  <div class="bg-gradient-to-r from-primary-50 to-secondary-50 px-6 py-4 border-b border-gray-200">
-    <div class="flex items-center justify-between">
-      <div>
-        <h3 class="font-semibold text-gray-900 group-hover:text-primary-600 transition-colors duration-200">
-          {displayName}
-        </h3>
-        <p class="text-sm text-gray-600 mt-1">{description}</p>
-      </div>
-      <div class="flex items-center space-x-2">
-        <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse-subtle"></div>
-        <span class="text-xs text-gray-500">Online</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="relative h-96 bg-gray-50">
-    <div id={`loading-${serviceId}`} class="absolute inset-0 z-10 bg-white">
-      <div class="flex items-center justify-center h-full">
-        <div class="text-center">
-          <div class="w-8 h-8 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin mx-auto mb-4"></div>
-          <p class="text-sm text-gray-600">Loading chat...</p>
-        </div>
-      </div>
-    </div>
-    
-    <iframe
-      id={`chat-${serviceId}`}
-      src="https://secure.proprofs.com/chat/web/1234567"
-      class="w-full h-full border-0 opacity-0 transition-opacity duration-500"
-      allow="microphone; camera"
-      referrerpolicy="no-referrer-when-downgrade"
-      sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
-      onload={`
-        document.getElementById('loading-${serviceId}').style.display = 'none';
-        this.style.opacity = '1';
-      `}
-      onerror={`
-        document.getElementById('loading-${serviceId}').innerHTML = '<div class="flex items-center justify-center h-full"><div class="text-center"><div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4"><svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div><p class="text-sm text-gray-600 mb-2">Chat temporarily unavailable</p><button onclick="location.reload()" class="text-xs text-primary-600 hover:text-primary-700 underline">Retry</button></div></div>';
-      `}
-    ></iframe>
-  </div>
-
-  <div class="px-6 py-4 bg-gray-50 border-t border-gray-200">
-    <div class="flex items-center justify-between">
-      <div class="flex items-center space-x-4">
-        <span class="text-xs text-gray-500">Powered by ProProfs Chat</span>
-      </div>
-      <div class="flex items-center space-x-1">
-        <div class="w-2 h-2 bg-green-400 rounded-full"></div>
-        <span class="text-xs text-gray-500">Live Support</span>
-      </div>
-    </div>
-  </div>
+<FunctionalChatWindow 
+  title={displayName}
+  serviceId={serviceId}
+/>

@@ -1,14 +1,12 @@
 ---
 export interface Props {
   title?: string;
-  proprofsId?: string;
-  embedUrl?: string;
+  serviceId?: string;
 }
 
 const { 
   title = "AI Chat Assistant", 
-  proprofsId = "default",
-  embedUrl = "https://secure.proprofs.com/chat/web/1234567" 
+  serviceId = "default"
 } = Astro.props;
 ---
 
@@ -24,39 +22,204 @@ const {
     </div>
   </div>
 
-  <!-- ProProfs Chat Embed -->
-  <div class="relative h-80 bg-gray-50">
-    <div id={`loading-${proprofsId}`} class="absolute inset-0 z-10 bg-white flex items-center justify-center">
-      <div class="text-center">
-        <div class="w-8 h-8 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin mx-auto mb-4"></div>
-        <p class="text-sm text-gray-600">Connecting to chat...</p>
+  <!-- Chat Messages Container -->
+  <div id={`chat-messages-${serviceId}`} class="h-80 overflow-y-auto p-4 space-y-3 bg-gray-50">
+    <div class="flex items-start space-x-2">
+      <div class="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center flex-shrink-0">
+        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+      </div>
+      <div class="bg-white rounded-lg px-3 py-2 border border-gray-200 max-w-xs">
+        <p class="text-sm text-gray-700">Hello! I'm your AI assistant. How can I help you today?</p>
       </div>
     </div>
-    
-    <iframe
-      id={`chat-iframe-${proprofsId}`}
-      src={embedUrl}
-      class="w-full h-full border-0 opacity-0 transition-opacity duration-500"
-      allow="microphone; camera"
-      referrerpolicy="no-referrer-when-downgrade"
-      sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
-      onload={`
-        document.getElementById('loading-${proprofsId}').style.display = 'none';
-        this.style.opacity = '1';
-      `}
-      onerror={`
-        document.getElementById('loading-${proprofsId}').innerHTML = '<div class="flex items-center justify-center h-full"><div class="text-center"><div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4"><svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div><p class="text-sm text-gray-600 mb-2">Chat temporarily unavailable</p><button onclick="location.reload()" class="text-xs text-primary-600 hover:text-primary-700 underline">Retry</button></div></div>';
-      `}
-    ></iframe>
+  </div>
+
+  <!-- Chat Input -->
+  <div class="border-t border-gray-200 p-4 bg-white">
+    <form id={`chat-form-${serviceId}`} class="flex space-x-2">
+      <input
+        type="text"
+        id={`chat-input-${serviceId}`}
+        placeholder="Type your message..."
+        class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-gray-700"
+        autocomplete="off"
+      />
+      <button
+        type="submit"
+        id={`send-button-${serviceId}`}
+        class="px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        Send
+      </button>
+    </form>
   </div>
 
   <!-- Chat Info Footer -->
-  <div class="px-4 py-3 bg-gray-50 border-t border-gray-200">
+  <div class="px-4 py-2 bg-gray-50 border-t border-gray-200">
     <div class="flex items-center justify-between text-xs text-gray-500">
-      <span>Powered by ProProfs Chat</span>
+      <span>Powered by Hugging Face AI</span>
       <div class="flex items-center space-x-1">
         <div class="w-2 h-2 bg-green-400 rounded-full"></div>
-        <span>Live Support</span>
+        <span>Free AI Chat</span>
       </div>
     </div>
   </div>
+</div>
+
+<script define:vars={{ serviceId }}>
+  class ChatInterface {
+    constructor(serviceId) {
+      this.serviceId = serviceId;
+      this.messagesContainer = document.getElementById(`chat-messages-${serviceId}`);
+      this.chatForm = document.getElementById(`chat-form-${serviceId}`);
+      this.chatInput = document.getElementById(`chat-input-${serviceId}`);
+      this.sendButton = document.getElementById(`send-button-${serviceId}`);
+      
+      if (this.chatForm && this.chatInput && this.sendButton && this.messagesContainer) {
+        this.init();
+      }
+    }
+
+    init() {
+      this.chatForm.addEventListener('submit', (e) => this.handleSubmit(e));
+      this.chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          this.handleSubmit(e);
+        }
+      });
+    }
+
+    async handleSubmit(e) {
+      e.preventDefault();
+      
+      const message = this.chatInput.value.trim();
+      if (!message) return;
+
+      // Add user message to chat
+      this.addMessage(message, 'user');
+      this.chatInput.value = '';
+      this.setLoading(true);
+
+      try {
+        // Send message to our API
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ 
+            message,
+            model: 'microsoft/DialoGPT-medium'
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to get response');
+        }
+
+        const data = await response.json();
+        this.addMessage(data.response, 'assistant');
+      } catch (error) {
+        console.error('Chat error:', error);
+        this.addMessage("I'm sorry, I'm having trouble responding right now. Please try again in a moment.", 'assistant');
+      } finally {
+        this.setLoading(false);
+      }
+    }
+
+    addMessage(content, role) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = 'flex items-start space-x-2';
+      
+      if (role === 'user') {
+        messageDiv.className += ' justify-end';
+        messageDiv.innerHTML = `
+          <div class="bg-primary-500 text-white rounded-lg px-3 py-2 max-w-xs">
+            <p class="text-sm">${this.escapeHtml(content)}</p>
+          </div>
+          <div class="w-8 h-8 bg-gray-300 rounded-lg flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </div>
+        `;
+      } else {
+        messageDiv.innerHTML = `
+          <div class="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <div class="bg-white rounded-lg px-3 py-2 border border-gray-200 max-w-xs">
+            <p class="text-sm text-gray-700">${this.escapeHtml(content)}</p>
+          </div>
+        `;
+      }
+
+      this.messagesContainer.appendChild(messageDiv);
+      this.scrollToBottom();
+    }
+
+    setLoading(loading) {
+      if (loading) {
+        this.sendButton.disabled = true;
+        this.chatInput.disabled = true;
+        this.sendButton.textContent = 'Sending...';
+        
+        // Add typing indicator
+        const typingDiv = document.createElement('div');
+        typingDiv.id = `typing-${this.serviceId}`;
+        typingDiv.className = 'flex items-start space-x-2';
+        typingDiv.innerHTML = `
+          <div class="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <div class="bg-white rounded-lg px-3 py-2 border border-gray-200">
+            <div class="flex space-x-1">
+              <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+              <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+              <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+            </div>
+          </div>
+        `;
+        this.messagesContainer.appendChild(typingDiv);
+        this.scrollToBottom();
+      } else {
+        this.sendButton.disabled = false;
+        this.chatInput.disabled = false;
+        this.sendButton.textContent = 'Send';
+        this.chatInput.focus();
+        
+        // Remove typing indicator
+        const typingIndicator = document.getElementById(`typing-${this.serviceId}`);
+        if (typingIndicator) {
+          typingIndicator.remove();
+        }
+      }
+    }
+
+    scrollToBottom() {
+      this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
+    }
+
+    escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+  }
+
+  // Initialize chat when DOM is loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      new ChatInterface(serviceId);
+    });
+  } else {
+    new ChatInterface(serviceId);
+  }
+</script>
