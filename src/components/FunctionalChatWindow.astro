@@ -1,4 +1,6 @@
 ---
+import { SimpleChatBot } from '../lib/simple-chat';
+
 export interface Props {
   title?: string;
   serviceId?: string;
@@ -69,21 +71,114 @@ const {
 </div>
 
 <script define:vars={{ serviceId }}>
-  class SimpleChatInterface {
+  // Import the chat bot functionality
+  class SimpleChatBot {
+    constructor() {
+      this.responses = {
+        greetings: [
+          "Hello! I'm your AI assistant. How can I help you today?",
+          "Hi there! What would you like to know about AI chatbots?",
+          "Welcome! I'm here to help you with any questions about AI tools.",
+          "Greetings! How can I assist you with AI-related questions?"
+        ],
+        
+        questions: [
+          "That's a great question! Based on what I know about AI chatbots, I'd recommend exploring our free AI tools section.",
+          "Interesting question! Let me help you with that. Have you checked out our comparison of different AI models?",
+          "I'd be happy to help you understand that better. Our blog has detailed guides on AI chatbot selection.",
+          "Great question! AI technology is evolving rapidly. What specific aspect interests you most?"
+        ],
+        
+        aiTopics: [
+          "AI chatbots are fascinating! We have a comprehensive guide to the best free AI tools available in 2025.",
+          "There are many great AI chatbots available. Would you like to know about free options like Google Bard or Character.AI?",
+          "AI technology is advancing rapidly. Our platform helps you compare different AI assistants to find the perfect one for your needs.",
+          "The AI landscape is exciting! From ChatGPT to Claude to Bard, each has unique strengths."
+        ],
+        
+        help: [
+          "I'm here to help! You can ask me about AI chatbots, compare different tools, or learn about implementation.",
+          "Need assistance? I can help you understand AI chatbots, their features, and how to choose the right one.",
+          "How can I assist you? I specialize in AI chatbot information and recommendations.",
+          "I'm your AI guide! Ask me anything about chatbots, AI tools, or getting started with AI assistants."
+        ],
+        
+        thanks: [
+          "You're welcome! Is there anything else you'd like to know about AI chatbots?",
+          "Happy to help! Feel free to ask more questions about AI tools.",
+          "Glad I could assist! What else would you like to explore about AI technology?",
+          "You're very welcome! Any other AI-related questions I can help with?"
+        ],
+        
+        defaults: [
+          "That's interesting! Tell me more about what you're looking for in an AI assistant.",
+          "I understand. What specific aspect of AI chatbots would you like to explore?",
+          "Thanks for sharing that. How can I assist you further with AI tools?",
+          "That's a good point. Have you tried any of the free AI chatbots we recommend?",
+          "I see what you mean. Our platform offers comparisons of over 50 different AI tools.",
+          "Interesting perspective! What would you like to know about AI chatbot capabilities?",
+          "I appreciate your input. How can I help you find the right AI solution?",
+          "That makes sense. Would you like recommendations for specific AI tools?"
+        ]
+      };
+    }
+
+    generateResponse(message) {
+      const lowerMessage = message.toLowerCase().trim();
+      
+      // Greetings
+      if (this.matchesPatterns(lowerMessage, ['hello', 'hi', 'hey', 'greetings', 'good morning', 'good afternoon'])) {
+        return this.getRandomResponse('greetings');
+      }
+      
+      // Thanks
+      if (this.matchesPatterns(lowerMessage, ['thank', 'thanks', 'appreciate', 'grateful'])) {
+        return this.getRandomResponse('thanks');
+      }
+      
+      // Help requests
+      if (this.matchesPatterns(lowerMessage, ['help', 'assist', 'support', 'guide', 'how to'])) {
+        return this.getRandomResponse('help');
+      }
+      
+      // Questions
+      if (lowerMessage.includes('?') || this.matchesPatterns(lowerMessage, ['what', 'how', 'why', 'when', 'where', 'which', 'can you', 'do you'])) {
+        return this.getRandomResponse('questions');
+      }
+      
+      // AI-related topics
+      if (this.matchesPatterns(lowerMessage, ['ai', 'chatbot', 'chat', 'artificial intelligence', 'machine learning', 'gpt', 'claude', 'bard'])) {
+        return this.getRandomResponse('aiTopics');
+      }
+      
+      // Default responses
+      return this.getRandomResponse('defaults');
+    }
+
+    matchesPatterns(message, patterns) {
+      return patterns.some(pattern => message.includes(pattern));
+    }
+
+    getRandomResponse(category) {
+      const responses = this.responses[category];
+      return responses[Math.floor(Math.random() * responses.length)];
+    }
+  }
+
+  class ChatInterface {
     constructor(serviceId) {
       this.serviceId = serviceId;
+      this.chatBot = new SimpleChatBot();
       this.messagesContainer = document.getElementById(`chat-messages-${serviceId}`);
       this.chatForm = document.getElementById(`chat-form-${serviceId}`);
       this.chatInput = document.getElementById(`chat-input-${serviceId}`);
       this.sendButton = document.getElementById(`send-button-${serviceId}`);
       
-      console.log('Initializing chat with serviceId:', serviceId);
-      
       if (this.chatForm && this.chatInput && this.sendButton && this.messagesContainer) {
         this.init();
-        console.log('Chat initialized successfully');
+        console.log('Chat initialized successfully for:', serviceId);
       } else {
-        console.error('Failed to find chat elements');
+        console.error('Failed to find chat elements for:', serviceId);
       }
     }
 
@@ -97,7 +192,7 @@ const {
       });
     }
 
-    handleSubmit(e) {
+    async handleSubmit(e) {
       e.preventDefault();
       
       const message = this.chatInput.value.trim();
@@ -110,57 +205,18 @@ const {
       this.chatInput.value = '';
       this.setLoading(true);
 
-      // Simple client-side responses (no API calls)
+      // Generate AI response with realistic delay
       setTimeout(() => {
-        const response = this.generateResponse(message);
-        this.addMessage(response, 'assistant');
-        this.setLoading(false);
-      }, 1000);
-    }
-
-    generateResponse(message) {
-      const lowerMessage = message.toLowerCase();
-      
-      // Greeting responses
-      if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
-        const greetings = [
-          "Hello! I'm your AI assistant. How can I help you today?",
-          "Hi there! What would you like to know about AI chatbots?",
-          "Welcome! I'm here to help you with any questions about AI tools."
-        ];
-        return greetings[Math.floor(Math.random() * greetings.length)];
-      }
-      
-      // Question responses
-      if (lowerMessage.includes('?') || lowerMessage.includes('what') || lowerMessage.includes('how') || lowerMessage.includes('why')) {
-        const questions = [
-          "That's a great question! Based on what I know about AI chatbots, I'd recommend exploring our free AI tools section.",
-          "Interesting question! Let me help you with that. Have you checked out our comparison of different AI models?",
-          "I'd be happy to help you understand that better. Our blog has detailed guides on AI chatbot selection."
-        ];
-        return questions[Math.floor(Math.random() * questions.length)];
-      }
-      
-      // AI-related responses
-      if (lowerMessage.includes('ai') || lowerMessage.includes('chatbot') || lowerMessage.includes('chat')) {
-        const aiResponses = [
-          "AI chatbots are fascinating! We have a comprehensive guide to the best free AI tools available in 2025.",
-          "There are many great AI chatbots available. Would you like to know about free options like Google Bard or Character.AI?",
-          "AI technology is advancing rapidly. Our platform helps you compare different AI assistants to find the perfect one for your needs."
-        ];
-        return aiResponses[Math.floor(Math.random() * aiResponses.length)];
-      }
-      
-      // Default responses
-      const defaults = [
-        "That's interesting! Tell me more about what you're looking for in an AI assistant.",
-        "I understand. What specific aspect of AI chatbots would you like to explore?",
-        "Thanks for sharing that. How can I assist you further with AI tools?",
-        "That's a good point. Have you tried any of the free AI chatbots we recommend?",
-        "I see what you mean. Our platform offers comparisons of over 50 different AI tools."
-      ];
-      
-      return defaults[Math.floor(Math.random() * defaults.length)];
+        try {
+          const response = this.chatBot.generateResponse(message);
+          this.addMessage(response, 'assistant');
+        } catch (error) {
+          console.error('Error generating response:', error);
+          this.addMessage("I apologize, but I'm having trouble processing your message. Please try again.", 'assistant');
+        } finally {
+          this.setLoading(false);
+        }
+      }, 800 + Math.random() * 1200); // Random delay between 0.8-2 seconds
     }
 
     addMessage(content, role) {
@@ -250,11 +306,9 @@ const {
   // Initialize chat when DOM is loaded
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-      console.log('DOM loaded, initializing chat');
-      new SimpleChatInterface(serviceId);
+      new ChatInterface(serviceId);
     });
   } else {
-    console.log('DOM already loaded, initializing chat immediately');
-    new SimpleChatInterface(serviceId);
+    new ChatInterface(serviceId);
   }
 </script>

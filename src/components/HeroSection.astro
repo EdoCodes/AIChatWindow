@@ -216,6 +216,7 @@ import CommunityShowcase from './CommunityShowcase.astro';
   // Chat Interface
   class HeroChatInterface {
     constructor() {
+      this.chatBot = this.createChatBot();
       this.messagesContainer = document.getElementById('chat-messages-hero');
       this.chatForm = document.getElementById('chat-form-hero');
       this.chatInput = document.getElementById('chat-input-hero');
@@ -236,6 +237,65 @@ import CommunityShowcase from './CommunityShowcase.astro';
       });
     }
 
+    createChatBot() {
+      return {
+        responses: {
+          greetings: [
+            "SYSTEM INITIALIZED. HOW CAN I ASSIST YOU TODAY?",
+            "GREETINGS, USER. AI ASSISTANT ONLINE AND READY.",
+            "HELLO. WHAT INFORMATION DO YOU REQUIRE?",
+            "WELCOME TO THE AI INTERFACE. HOW MAY I HELP?"
+          ],
+          questions: [
+            "PROCESSING QUERY... BASED ON AVAILABLE DATA, I RECOMMEND EXPLORING OUR AI TOOLS SECTION.",
+            "ANALYZING REQUEST... OUR PLATFORM OFFERS COMPREHENSIVE AI COMPARISONS.",
+            "QUERY RECEIVED. CHECK OUR BLOG FOR DETAILED AI IMPLEMENTATION GUIDES.",
+            "INFORMATION REQUEST ACKNOWLEDGED. WHAT SPECIFIC AI CAPABILITIES INTEREST YOU?"
+          ],
+          aiTopics: [
+            "AI SYSTEMS ARE RAPIDLY EVOLVING. OUR DATABASE CONTAINS 50+ AI TOOL COMPARISONS.",
+            "ARTIFICIAL INTELLIGENCE QUERY DETECTED. RECOMMEND: CHATGPT, CLAUDE, BARD ANALYSIS.",
+            "AI TECHNOLOGY STATUS: ADVANCING. MULTIPLE FREE OPTIONS AVAILABLE FOR EVALUATION.",
+            "MACHINE LEARNING SYSTEMS ONLINE. WOULD YOU LIKE SPECIFIC TOOL RECOMMENDATIONS?"
+          ],
+          defaults: [
+            "INPUT RECEIVED. PLEASE SPECIFY YOUR AI REQUIREMENTS FOR OPTIMAL ASSISTANCE.",
+            "PROCESSING... WHAT TYPE OF AI SOLUTION ARE YOU SEEKING?",
+            "DATA ANALYZED. HOW CAN I HELP YOU NAVIGATE AI TOOLS?",
+            "SYSTEM READY. WHAT AI-RELATED INFORMATION DO YOU NEED?",
+            "QUERY UNDERSTOOD. OUR PLATFORM SPECIALIZES IN AI TOOL COMPARISONS."
+          ]
+        },
+        
+        generateResponse(message) {
+          const lowerMessage = message.toLowerCase().trim();
+          
+          if (this.matchesPatterns(lowerMessage, ['hello', 'hi', 'hey', 'greetings'])) {
+            return this.getRandomResponse('greetings');
+          }
+          
+          if (lowerMessage.includes('?') || this.matchesPatterns(lowerMessage, ['what', 'how', 'why', 'when', 'where'])) {
+            return this.getRandomResponse('questions');
+          }
+          
+          if (this.matchesPatterns(lowerMessage, ['ai', 'chatbot', 'chat', 'artificial', 'machine learning', 'gpt', 'claude', 'bard'])) {
+            return this.getRandomResponse('aiTopics');
+          }
+          
+          return this.getRandomResponse('defaults');
+        },
+        
+        matchesPatterns(message, patterns) {
+          return patterns.some(pattern => message.includes(pattern));
+        },
+        
+        getRandomResponse(category) {
+          const responses = this.responses[category];
+          return responses[Math.floor(Math.random() * responses.length)];
+        }
+      };
+    }
+
     async handleSubmit(e) {
       e.preventDefault();
       
@@ -247,31 +307,18 @@ import CommunityShowcase from './CommunityShowcase.astro';
       this.chatInput.value = '';
       this.setLoading(true);
 
-      try {
-        // Send message to our API
-        const response = await fetch('/api/chat', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ 
-            message,
-            model: 'microsoft/DialoGPT-medium'
-          }),
-        });
-
-        if (!response.ok) {
-          throw new Error('Failed to get response');
+      // Generate AI response with realistic delay
+      setTimeout(() => {
+        try {
+          const response = this.chatBot.generateResponse(message);
+          this.addMessage(response, 'assistant');
+        } catch (error) {
+          console.error('Chat error:', error);
+          this.addMessage("SYSTEM ERROR. REBOOTING... PLEASE TRY AGAIN.", 'assistant');
+        } finally {
+          this.setLoading(false);
         }
-
-        const data = await response.json();
-        this.addMessage(data.response, 'assistant');
-      } catch (error) {
-        console.error('Chat error:', error);
-        this.addMessage("SYSTEM ERROR. PLEASE TRY AGAIN.", 'assistant');
-      } finally {
-        this.setLoading(false);
-      }
+      }, 1000 + Math.random() * 1500);
     }
 
     addMessage(content, role) {
