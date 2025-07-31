@@ -154,41 +154,41 @@ import CommunityShowcase from './CommunityShowcase.astro';
       "ANALYZING REQUEST... AI CHATBOTS ARE THE FUTURE OF DIGITAL COMMUNICATION.",
       "PROCESSING... RECOMMEND EXPLORING FREE AI TOOLS: GOOGLE BARD, CHARACTER.AI, PERPLEXITY.",
       "SYSTEM RESPONSE: AI TECHNOLOGY ADVANCING RAPIDLY. CHATGPT, CLAUDE, BARD LEADING INNOVATION.",
-      "DATA RETRIEVED: OVER 50 AI CHATBOTS AVAILABLE. EACH WITH UNIQUE CAPABILITIES.",
-      "QUERY PROCESSED: AI ASSISTANTS REVOLUTIONIZING CUSTOMER SERVICE AND PRODUCTIVITY.",
-      "INFORMATION COMPILED: FREE AI TOOLS DEMOCRATIZING ACCESS TO ARTIFICIAL INTELLIGENCE.",
-      "ANALYSIS COMPLETE: ENTERPRISE AI SOLUTIONS TRANSFORMING BUSINESS OPERATIONS.",
-      "SYSTEM UPDATE: AI CHATBOTS BECOMING ESSENTIAL FOR MODERN DIGITAL EXPERIENCES."
-    ];
-    
-    function addMessage(content, isUser = false) {
-      const messageDiv = document.createElement('div');
-      messageDiv.className = 'flex items-start space-x-2';
-      
-      if (isUser) {
-        messageDiv.className += ' justify-end';
-        messageDiv.innerHTML = `
-          <div class="bg-green-400/20 border border-green-400/30 rounded-lg p-3 max-w-xs">
-            <p class="text-sm text-green-300 font-mono">${content.toUpperCase()}</p>
-          </div>
-          <div class="w-8 h-8 bg-green-400/20 border border-green-400/30 rounded-full flex items-center justify-center text-green-400 text-sm font-bold">
-            U
-          </div>
-        `;
-      } else {
-        messageDiv.innerHTML = `
-          <div class="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center text-black text-sm font-bold">
-            AI
-          </div>
-          <div class="bg-green-900/50 border border-green-500/30 rounded-lg p-3 max-w-xs">
-            <p class="text-sm text-green-300 font-mono">${content}</p>
-          </div>
-        `;
-      }
-      
-      messagesContainer.appendChild(messageDiv);
-      messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    }
+       "DATA RETRIEVED: OVER 50 AI CHATBOTS AVAILABLE. EACH WITH UNIQUE CAPABILITIES.",
+       "QUERY PROCESSED: AI ASSISTANTS REVOLUTIONIZING CUSTOMER SERVICE AND PRODUCTIVITY.",
+       "INFORMATION COMPILED: FREE AI TOOLS DEMOCRATIZING ACCESS TO ARTIFICIAL INTELLIGENCE.",
+       "ANALYSIS COMPLETE: ENTERPRISE AI SOLUTIONS TRANSFORMING BUSINESS OPERATIONS.",
+       "SYSTEM UPDATE: AI CHATBOTS BECOMING ESSENTIAL FOR MODERN DIGITAL EXPERIENCES."
+     ];
+     
+     function addMessage(content, isUser = false) {
+       const messageDiv = document.createElement('div');
+       messageDiv.className = 'flex items-start space-x-2';
+       
+       if (isUser) {
+         messageDiv.className += ' justify-end';
+         messageDiv.innerHTML = `
+           <div class="bg-green-400/20 border border-green-400/30 rounded-lg p-3 max-w-xs">
+             <p class="text-sm text-green-300 font-mono">${content.toUpperCase()}</p>
+           </div>
+           <div class="w-8 h-8 bg-green-400/20 border border-green-400/30 rounded-full flex items-center justify-center text-green-400 text-sm font-bold">
+             U
+           </div>
+         `;
+       } else {
+         messageDiv.innerHTML = `
+           <div class="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center text-black text-sm font-bold">
+             AI
+           </div>
+           <div class="bg-green-900/50 border border-green-500/30 rounded-lg p-3 max-w-xs">
+             <p class="text-sm text-green-300 font-mono">${content}</p>
+           </div>
+         `;
+       }
+       
+       messagesContainer.appendChild(messageDiv);
+       messagesContainer.scrollTop = messagesContainer.scrollHeight;
+     }
     
     function showTypingIndicator() {
       const typingDiv = document.createElement('div');
