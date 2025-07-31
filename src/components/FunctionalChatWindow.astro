@@ -22,21 +22,228 @@ const {
     </div>
   </div>
 
-  <!-- Chat Messages Area with Elfsight Integration -->
-  <div class="h-80 bg-white relative">
-    <!-- Elfsight AI Chatbot | Untitled AI Chatbot -->
-    <script src="https://static.elfsight.com/platform/platform.js" async></script>
-    <div class="elfsight-app-a5726298-4c2f-41c3-811e-2878a68d5362" data-elfsight-app-lazy style="width: 100%; height: 100%; border: none;"></div>
+  <!-- Chat Messages Area -->
+  <div id={`chat-messages-${serviceId}`} class="h-80 bg-gray-50 p-4 overflow-y-auto">
+    <div class="space-y-4">
+      <!-- Welcome Message -->
+      <div class="flex items-start space-x-2">
+        <div class="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
+          AI
+        </div>
+        <div class="bg-white rounded-lg p-3 shadow-sm border border-gray-200 max-w-xs">
+          <p class="text-sm text-gray-700">Hello! I'm your AI assistant. How can I help you today?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chat Input -->
+  <div class="border-t border-gray-200 p-4">
+    <div class="flex space-x-2">
+      <input 
+        type="text" 
+        id={`chat-input-${serviceId}`}
+        placeholder="Type your message..." 
+        class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+      />
+      <button 
+        id={`chat-send-${serviceId}`}
+        class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors"
+      >
+        Send
+      </button>
+    </div>
   </div>
 
   <!-- Chat Info Footer -->
   <div class="px-4 py-2 bg-gray-50 border-t border-gray-200">
     <div class="flex items-center justify-between text-xs text-gray-500">
-      <span>Powered by Elfsight AI</span>
+      <span>Powered by AI Assistant</span>
       <div class="flex items-center space-x-1">
         <div class="w-2 h-2 bg-green-400 rounded-full"></div>
-        <span>AI Chatbot</span>
+        <span>Ready to chat</span>
       </div>
     </div>
   </div>
 </div>
+
+<script define:vars={{ serviceId }}>
+  class SimpleChatBot {
+    constructor() {
+      this.responses = {
+        greetings: [
+          "Hello! I'm your AI assistant. How can I help you today?",
+          "Hi there! What would you like to know about AI chatbots?",
+          "Welcome! I'm here to help you with any questions about AI tools.",
+          "Greetings! How can I assist you with AI-related questions?"
+        ],
+        
+        questions: [
+          "That's a great question! Based on what I know about AI chatbots, I'd recommend exploring our free AI tools section.",
+          "Interesting question! Let me help you with that. Have you checked out our comparison of different AI models?",
+          "I'd be happy to help you understand that better. Our blog has detailed guides on AI chatbot selection.",
+          "Great question! AI technology is evolving rapidly. What specific aspect interests you most?"
+        ],
+        
+        aiTopics: [
+          "AI chatbots are fascinating! We have a comprehensive guide to the best free AI tools available in 2025.",
+          "There are many great AI chatbots available. Would you like to know about free options like Google Bard or Character.AI?",
+          "AI technology is advancing rapidly. Our platform helps you compare different AI assistants to find the perfect one for your needs.",
+          "The AI landscape is exciting! From ChatGPT to Claude to Bard, each has unique strengths."
+        ],
+        
+        help: [
+          "I'm here to help! You can ask me about AI chatbots, compare different tools, or learn about implementation.",
+          "Need assistance? I can help you understand AI chatbots, their features, and how to choose the right one.",
+          "How can I assist you? I specialize in AI chatbot information and recommendations.",
+          "I'm your AI guide! Ask me anything about chatbots, AI tools, or getting started with AI assistants."
+        ],
+        
+        thanks: [
+          "You're welcome! Is there anything else you'd like to know about AI chatbots?",
+          "Happy to help! Feel free to ask more questions about AI tools.",
+          "Glad I could assist! What else would you like to explore about AI technology?",
+          "You're very welcome! Any other AI-related questions I can help with?"
+        ],
+        
+        defaults: [
+          "That's interesting! Tell me more about what you're looking for in an AI assistant.",
+          "I understand. What specific aspect of AI chatbots would you like to explore?",
+          "Thanks for sharing that. How can I assist you further with AI tools?",
+          "That's a good point. Have you tried any of the free AI chatbots we recommend?",
+          "I see what you mean. Our platform offers comparisons of over 50 different AI tools.",
+          "Interesting perspective! What would you like to know about AI chatbot capabilities?",
+          "I appreciate your input. How can I help you find the right AI solution?",
+          "That makes sense. Would you like recommendations for specific AI tools?"
+        ]
+      };
+    }
+
+    generateResponse(message) {
+      const lowerMessage = message.toLowerCase().trim();
+      
+      // Greetings
+      if (this.matchesPatterns(lowerMessage, ['hello', 'hi', 'hey', 'greetings', 'good morning', 'good afternoon'])) {
+        return this.getRandomResponse('greetings');
+      }
+      
+      // Thanks
+      if (this.matchesPatterns(lowerMessage, ['thank', 'thanks', 'appreciate', 'grateful'])) {
+        return this.getRandomResponse('thanks');
+      }
+      
+      // Help requests
+      if (this.matchesPatterns(lowerMessage, ['help', 'assist', 'support', 'guide', 'how to'])) {
+        return this.getRandomResponse('help');
+      }
+      
+      // Questions
+      if (lowerMessage.includes('?') || this.matchesPatterns(lowerMessage, ['what', 'how', 'why', 'when', 'where', 'which', 'can you', 'do you'])) {
+        return this.getRandomResponse('questions');
+      }
+      
+      // AI-related topics
+      if (this.matchesPatterns(lowerMessage, ['ai', 'chatbot', 'chat', 'artificial intelligence', 'machine learning', 'gpt', 'claude', 'bard'])) {
+        return this.getRandomResponse('aiTopics');
+      }
+      
+      // Default responses
+      return this.getRandomResponse('defaults');
+    }
+
+    matchesPatterns(message, patterns) {
+      return patterns.some(pattern => message.includes(pattern));
+    }
+
+    getRandomResponse(category) {
+      const responses = this.responses[category];
+      return responses[Math.floor(Math.random() * responses.length)];
+    }
+  }
+
+  // Initialize chat functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const chatBot = new SimpleChatBot();
+    const messagesContainer = document.getElementById(`chat-messages-${serviceId}`);
+    const chatInput = document.getElementById(`chat-input-${serviceId}`);
+    const sendButton = document.getElementById(`chat-send-${serviceId}`);
+
+    if (!messagesContainer || !chatInput || !sendButton) return;
+
+    function addMessage(content, isUser = false) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = 'flex items-start space-x-2';
+      
+      if (isUser) {
+        messageDiv.className += ' justify-end';
+        messageDiv.innerHTML = `
+          <div class="bg-primary-500 text-white rounded-lg p-3 shadow-sm max-w-xs">
+            <p class="text-sm">${content}</p>
+          </div>
+          <div class="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center text-white text-sm font-bold">
+            U
+          </div>
+        `;
+      } else {
+        messageDiv.innerHTML = `
+          <div class="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
+            AI
+          </div>
+          <div class="bg-white rounded-lg p-3 shadow-sm border border-gray-200 max-w-xs">
+            <p class="text-sm text-gray-700">${content}</p>
+          </div>
+        `;
+      }
+      
+      messagesContainer.appendChild(messageDiv);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    function showTypingIndicator() {
+      const typingDiv = document.createElement('div');
+      typingDiv.className = 'flex items-start space-x-2 typing-indicator';
+      typingDiv.innerHTML = `
+        <div class="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
+          AI
+        </div>
+        <div class="bg-white rounded-lg p-3 shadow-sm border border-gray-200">
+          <div class="flex space-x-1">
+            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+          </div>
+        </div>
+      `;
+      messagesContainer.appendChild(typingDiv);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      return typingDiv;
+    }
+
+    function handleSend() {
+      const message = chatInput.value.trim();
+      if (!message) return;
+
+      // Add user message
+      addMessage(message, true);
+      chatInput.value = '';
+
+      // Show typing indicator
+      const typingIndicator = showTypingIndicator();
+
+      // Generate and show AI response after delay
+      setTimeout(() => {
+        typingIndicator.remove();
+        const response = chatBot.generateResponse(message);
+        addMessage(response, false);
+      }, 800 + Math.random() * 1200); // Random delay between 0.8-2 seconds
+    }
+
+    // Event listeners
+    sendButton.addEventListener('click', handleSend);
+    chatInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        handleSend();
+      }
+    });
+  });
+</script>
