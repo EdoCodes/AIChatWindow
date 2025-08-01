@@ -3,6 +3,7 @@ export async function GET() {
   
   // Define all your pages with their priorities and change frequencies
   const pages = [
+    // Main pages
     {
       url: '',
       changefreq: 'weekly',
@@ -39,6 +40,19 @@ export async function GET() {
       priority: '0.9',
       lastmod: new Date().toISOString().split('T')[0]
     },
+    {
+      url: '/search',
+      changefreq: 'monthly',
+      priority: '0.6',
+      lastmod: new Date().toISOString().split('T')[0]
+    },
+    {
+      url: '/proprofs-setup',
+      changefreq: 'monthly',
+      priority: '0.7',
+      lastmod: new Date().toISOString().split('T')[0]
+    },
+    
     // Blog posts
     {
       url: '/blog/best-free-ai-chatbots-2025',
@@ -75,9 +89,36 @@ export async function GET() {
       changefreq: 'monthly',
       priority: '0.8',
       lastmod: '2025-01-03'
+    },
+    
+    // Additional important pages
+    {
+      url: '/about',
+      changefreq: 'monthly',
+      priority: '0.6',
+      lastmod: new Date().toISOString().split('T')[0]
+    },
+    {
+      url: '/contact',
+      changefreq: 'monthly',
+      priority: '0.6',
+      lastmod: new Date().toISOString().split('T')[0]
+    },
+    {
+      url: '/privacy',
+      changefreq: 'yearly',
+      priority: '0.4',
+      lastmod: new Date().toISOString().split('T')[0]
+    },
+    {
+      url: '/terms',
+      changefreq: 'yearly',
+      priority: '0.4',
+      lastmod: new Date().toISOString().split('T')[0]
     }
   ];
 
+  // Generate XML sitemap with proper formatting
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${pages.map(page => `  <url>
@@ -91,7 +132,8 @@ ${pages.map(page => `  <url>
   return new Response(sitemap, {
     headers: {
       'Content-Type': 'application/xml',
-      'Cache-Control': 'public, max-age=3600'
+      'Cache-Control': 'public, max-age=3600',
+      'X-Robots-Tag': 'noindex'
     }
   });
 }

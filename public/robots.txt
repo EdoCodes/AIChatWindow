@@ -11,10 +11,10 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-# Disallow admin or private areas (if any)
-# User-agent: *
-# Disallow: /admin/
-# Disallow: /private/
+# Disallow verification files and debug pages
+Disallow: /google*.html
+Disallow: /debug-*.html
+Disallow: /test-*.html
 
 # Crawl delay (optional)
 Crawl-delay: 1
