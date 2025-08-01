@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="wkxFBgTwEZhp_gfBVL0jpbPir7ge1pk8TX4ExD9bZTI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Meta Tag - AIChatWindow</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .success { color: green; font-weight: bold; }
+        .error { color: red; font-weight: bold; }
+        code { background: #f5f5f5; padding: 2px 4px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h1>Google Verification Meta Tag Debug</h1>
+    <p>This page tests if the Google verification meta tag is working correctly.</p>
+    
+    <h2>Expected Meta Tag:</h2>
+    <code>&lt;meta name="google-site-verification" content="wkxFBgTwEZhp_gfBVL0jpbPir7ge1pk8TX4ExD9bZTI" /&gt;</code>
+    
+    <h2>Test Results:</h2>
+    <div id="results">Testing...</div>
+    
+    <h2>Instructions:</h2>
+    <ol>
+        <li>Check if the meta tag appears above (should show green success message)</li>
+        <li>View page source (Ctrl+U or Cmd+U) and look for the meta tag in the &lt;head&gt; section</li>
+        <li>If this page shows the meta tag but your main site doesn't, there's a build issue</li>
+    </ol>
+    
+    <script>
+        // Check if meta tag exists
+        const metaTag = document.querySelector('meta[name="google-site-verification"]');
+        const resultsDiv = document.getElementById('results');
+        
+        if (metaTag) {
+            resultsDiv.innerHTML = '<p class="success">✅ SUCCESS: Meta tag found with content: ' + metaTag.content + '</p>';
+            console.log('✅ Google verification meta tag found:', metaTag.content);
+        } else {
+            resultsDiv.innerHTML = '<p class="error">❌ ERROR: Meta tag NOT found in DOM</p>';
+            console.log('❌ Google verification meta tag NOT found');
+        }
+        
+        // Also check in document.head
+        const headMetaTags = document.head.querySelectorAll('meta');
+        console.log('All meta tags in head:', headMetaTags);
+    </script>
+</body>
+</html>
