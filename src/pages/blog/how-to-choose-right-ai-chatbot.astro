@@ -15,40 +15,94 @@ import Footer from '../../components/Footer.astro';
         <div class="flex items-center space-x-2 mb-4">
           <a href="/blog" class="text-primary-600 hover:text-primary-700 text-sm font-medium">← Back to Blog</a>
         </div>
-        <div class="flex items-center space-x-2 mb-4">
+        <div class="flex items-center space-x-2 mb-6">
           <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">Guides</span>
           <span class="text-gray-500 text-sm">January 3, 2025</span>
           <span class="text-gray-300">•</span>
           <span class="text-gray-500 text-sm">11 min read</span>
+          <span class="text-gray-300">•</span>
+          <span class="text-gray-500 text-sm">Expert Guide</span>
         </div>
-        <h1 class="text-4xl font-bold text-gray-900 mb-6 leading-tight">
+        <h1 class="text-5xl font-bold text-gray-900 mb-6 leading-tight bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
           How to Choose the Right AI Chatbot for Your Needs
         </h1>
-        <p class="text-xl text-gray-600 leading-relaxed">
+        <p class="text-xl text-gray-600 leading-relaxed mb-8">
           Step-by-step guide to selecting the perfect AI chatbot. Compare features, pricing, 
-          and use cases to make an informed decision.
+          and use cases to make an informed decision that saves you time and money.
         </p>
+        
+        <!-- Key Benefits Box -->
+        <div class="bg-green-50 border-l-4 border-green-400 p-6 rounded-r-lg mb-8">
+          <h3 class="text-lg font-semibold text-green-900 mb-3">🎯 What You'll Learn</h3>
+          <ul class="text-green-800 space-y-2 text-sm">
+            <li>• Complete decision framework with scoring system</li>
+            <li>• Real-world testing methodology and results</li>
+            <li>• Cost analysis including hidden expenses</li>
+            <li>• Common mistakes that cost businesses thousands</li>
+          </ul>
+        </div>
       </header>
 
       <!-- Featured Image -->
       <div class="mb-12">
-        <img 
-          src="https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop" 
-          alt="How to Choose the Right AI Chatbot"
-          class="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg"
-        />
+        <figure>
+          <img 
+            src="https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop" 
+            alt="Decision matrix and comparison charts for choosing AI chatbots"
+            class="w-full h-64 md:h-96 object-cover rounded-xl shadow-2xl"
+            loading="eager"
+          />
+          <figcaption class="text-center text-sm text-gray-500 mt-3 italic">
+            Making the right AI chatbot choice requires systematic evaluation and testing
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Table of Contents -->
+      <div class="bg-gray-50 rounded-xl p-6 mb-12 border border-gray-200">
+        <h2 class="text-lg font-semibold text-gray-900 mb-4">📋 Complete Guide Contents</h2>
+        <nav class="grid grid-cols-1 md:grid-cols-2 gap-2">
+          <a href="#decision-framework" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">1. The AI Decision Framework</a>
+          <a href="#requirements" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">2. Define Your Requirements</a>
+          <a href="#key-features" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">3. Evaluate Key Features</a>
+          <a href="#popular-options" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">4. Compare Popular Options</a>
+          <a href="#pricing-models" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">5. Consider Pricing Models</a>
+          <a href="#testing-framework" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">6. Test and Compare</a>
+          <a href="#decision-matrix" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">7. Decision Matrix Template</a>
+          <a href="#common-mistakes" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">8. Avoid Common Mistakes</a>
+        </nav>
       </div>
 
       <!-- Article Content -->
       <article class="prose prose-lg max-w-none">
         
-        <h2>The AI Chatbot Decision Framework</h2>
+        <h2 id="decision-framework">The AI Chatbot Decision Framework</h2>
         
-        <p>With over 50 AI chatbots available in 2025, choosing the right one can feel overwhelming. Each platform offers unique features, pricing models, and capabilities. This comprehensive guide will help you navigate the selection process and find the perfect AI assistant for your specific needs.</p>
+        <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-xl mb-8 border border-blue-200">
+          <p class="text-lg text-gray-800 mb-6">With over 50 AI chatbots available in 2025, choosing the right one can feel overwhelming. Each platform offers unique features, pricing models, and capabilities. This comprehensive guide will help you navigate the selection process and find the perfect AI assistant for your specific needs.</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+              <div class="text-3xl mb-2">🎯</div>
+              <div class="font-semibold text-gray-900">Define Goals</div>
+              <div class="text-sm text-gray-600">Clear objectives first</div>
+            </div>
+            <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+              <div class="text-3xl mb-2">⚖️</div>
+              <div class="font-semibold text-gray-900">Compare Options</div>
+              <div class="text-sm text-gray-600">Systematic evaluation</div>
+            </div>
+            <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+              <div class="text-3xl mb-2">🧪</div>
+              <div class="font-semibold text-gray-900">Test & Validate</div>
+              <div class="text-sm text-gray-600">Real-world testing</div>
+            </div>
+          </div>
+        </div>
 
         <p>Whether you're an individual looking for personal assistance, a business seeking customer service automation, or a developer building AI-powered applications, this guide will provide the framework you need to make an informed decision.</p>
 
-        <h2>Step 1: Define Your Requirements</h2>
+        <h2 id="requirements">Step 1: Define Your Requirements</h2>
 
         <h3>Identify Your Primary Use Cases</h3>
         
