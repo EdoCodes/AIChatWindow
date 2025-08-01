@@ -15,28 +15,77 @@ import Footer from '../../components/Footer.astro';
         <div class="flex items-center space-x-2 mb-4">
           <a href="/blog" class="text-primary-600 hover:text-primary-700 text-sm font-medium">← Back to Blog</a>
         </div>
-        <div class="flex items-center space-x-2 mb-4">
+        <div class="flex items-center space-x-2 mb-6">
           <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded-full">Enterprise</span>
           <span class="text-gray-500 text-sm">January 10, 2025</span>
           <span class="text-gray-300">•</span>
           <span class="text-gray-500 text-sm">15 min read</span>
+          <span class="text-gray-300">•</span>
+          <span class="text-gray-500 text-sm">Implementation Expert</span>
         </div>
-        <h1 class="text-4xl font-bold text-gray-900 mb-6 leading-tight">
+        <h1 class="text-5xl font-bold text-gray-900 mb-6 leading-tight bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
           Enterprise AI Chatbot Implementation: Complete Guide
         </h1>
-        <p class="text-xl text-gray-600 leading-relaxed">
+        <p class="text-xl text-gray-600 leading-relaxed mb-8">
           Learn how to successfully implement AI chatbots in enterprise environments. 
-          From planning to deployment, we cover everything you need to know.
+          From planning to deployment, we cover everything you need to know to achieve 30% cost savings and 24/7 availability.
         </p>
+        
+        <!-- ROI Preview Box -->
+        <div class="bg-purple-50 border-l-4 border-purple-400 p-6 rounded-r-lg mb-8">
+          <h3 class="text-lg font-semibold text-purple-900 mb-3">💰 Expected ROI & Benefits</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+            <div class="text-center">
+              <div class="font-bold text-purple-700 text-xl">30%</div>
+              <div class="text-purple-600">Cost Reduction</div>
+            </div>
+            <div class="text-center">
+              <div class="font-bold text-purple-700 text-xl">24/7</div>
+              <div class="text-purple-600">Availability</div>
+            </div>
+            <div class="text-center">
+              <div class="font-bold text-purple-700 text-xl">85%</div>
+              <div class="text-purple-600">Query Resolution</div>
+            </div>
+          </div>
+        </div>
       </header>
 
       <!-- Featured Image -->
       <div class="mb-12">
-        <img 
-          src="https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop" 
-          alt="Enterprise AI Chatbot Implementation"
-          class="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg"
-        />
+        <figure>
+          <img 
+            src="https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop" 
+            alt="Enterprise team implementing AI chatbot system with dashboards and analytics"
+            class="w-full h-64 md:h-96 object-cover rounded-xl shadow-2xl"
+            loading="eager"
+          />
+          <figcaption class="text-center text-sm text-gray-500 mt-3 italic">
+            Successful enterprise AI implementation requires strategic planning and systematic execution
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Implementation Phases Overview -->
+      <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-8 mb-12 border border-purple-200">
+        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">🚀 6-Phase Implementation Process</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+            <div class="text-2xl mb-2">📋</div>
+            <div class="font-semibold text-gray-900">Phase 1-2</div>
+            <div class="text-sm text-gray-600">Planning & Technology Selection</div>
+          </div>
+          <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+            <div class="text-2xl mb-2">🛠️</div>
+            <div class="font-semibold text-gray-900">Phase 3-4</div>
+            <div class="text-sm text-gray-600">Design & Implementation</div>
+          </div>
+          <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+            <div class="text-2xl mb-2">🚀</div>
+            <div class="font-semibold text-gray-900">Phase 5-6</div>
+            <div class="text-sm text-gray-600">Deployment & Optimization</div>
+          </div>
+        </div>
       </div>
 
       <!-- Article Content -->

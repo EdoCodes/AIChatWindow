@@ -15,28 +15,69 @@ import Footer from '../../components/Footer.astro';
         <div class="flex items-center space-x-2 mb-4">
           <a href="/blog" class="text-primary-600 hover:text-primary-700 text-sm font-medium">← Back to Blog</a>
         </div>
-        <div class="flex items-center space-x-2 mb-4">
+        <div class="flex items-center space-x-2 mb-6">
           <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded-full">Trends</span>
           <span class="text-gray-500 text-sm">January 5, 2025</span>
           <span class="text-gray-300">•</span>
           <span class="text-gray-500 text-sm">9 min read</span>
+          <span class="text-gray-300">•</span>
+          <span class="text-gray-500 text-sm">Future Insights</span>
         </div>
-        <h1 class="text-4xl font-bold text-gray-900 mb-6 leading-tight">
+        <h1 class="text-5xl font-bold text-gray-900 mb-6 leading-tight bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
           The Future of AI Chatbots: 2025 Predictions and Trends
         </h1>
-        <p class="text-xl text-gray-600 leading-relaxed">
+        <p class="text-xl text-gray-600 leading-relaxed mb-8">
           Explore the future of AI chatbots with expert predictions for 2025. Discover emerging trends, 
-          new technologies, and what to expect from AI assistants.
+          new technologies, and what to expect from AI assistants based on industry research and expert analysis.
         </p>
+        
+        <!-- Future Predictions Box -->
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 border-l-4 border-purple-400 p-6 rounded-r-lg mb-8">
+          <h3 class="text-lg font-semibold text-purple-900 mb-3">🔮 Key Predictions for 2025</h3>
+          <ul class="text-purple-800 space-y-2 text-sm">
+            <li>• Multimodal AI will become standard across all platforms</li>
+            <li>• Real-time information access will eliminate knowledge cutoffs</li>
+            <li>• AI agents will autonomously complete complex tasks</li>
+            <li>• Privacy-first design will become a competitive advantage</li>
+          </ul>
+        </div>
       </header>
 
       <!-- Featured Image -->
       <div class="mb-12">
-        <img 
-          src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop" 
-          alt="Future of AI Chatbots 2025"
-          class="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg"
-        />
+        <figure>
+          <img 
+            src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop" 
+            alt="Futuristic AI interface with holographic displays showing advanced chatbot capabilities"
+            class="w-full h-64 md:h-96 object-cover rounded-xl shadow-2xl"
+            loading="eager"
+          />
+          <figcaption class="text-center text-sm text-gray-500 mt-3 italic">
+            The future of AI chatbots promises revolutionary advances in capability and accessibility
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Timeline Preview -->
+      <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-8 mb-12 border border-blue-200">
+        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">📅 AI Evolution Timeline</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+            <div class="text-2xl mb-2">🎯</div>
+            <div class="font-bold text-blue-700">Late 2025</div>
+            <div class="text-sm text-blue-600">Multimodal AI Standard</div>
+          </div>
+          <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+            <div class="text-2xl mb-2">🤖</div>
+            <div class="font-bold text-purple-700">2026-2027</div>
+            <div class="text-sm text-purple-600">Autonomous AI Agents</div>
+          </div>
+          <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+            <div class="text-2xl mb-2">🌐</div>
+            <div class="font-bold text-green-700">2028+</div>
+            <div class="text-sm text-green-600">Universal AI Integration</div>
+          </div>
+        </div>
       </div>
 
       <!-- Article Content -->
