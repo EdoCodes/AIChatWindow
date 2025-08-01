@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="wkxFBgTwEZhp_gfBVL0jpbPir7ge1pk8TX4ExD9bZTI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Verification Test - AIChatWindow</title>
+</head>
+<body>
+    <h1>Google Verification Test Page</h1>
+    <p>This page is used to test Google site verification.</p>
+    <p>The meta tag should be visible in the page source.</p>
+    <p><strong>Meta tag content:</strong> wkxFBgTwEZhp_gfBVL0jpbPir7ge1pk8TX4ExD9bZTI</p>
+    
+    <script>
+        // Check if meta tag exists
+        const metaTag = document.querySelector('meta[name="google-site-verification"]');
+        if (metaTag) {
+            console.log('✅ Google verification meta tag found:', metaTag.content);
+            document.body.innerHTML += '<p style="color: green;">✅ Meta tag found in DOM</p>';
+        } else {
+            console.log('❌ Google verification meta tag NOT found');
+            document.body.innerHTML += '<p style="color: red;">❌ Meta tag NOT found in DOM</p>';
+        }
+    </script>
+</body>
+</html>
