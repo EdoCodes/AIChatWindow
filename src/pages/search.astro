@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Get search query from URL parameters
+const url = new URL(Astro.request.url);
+const query = url.searchParams.get('q') || '';
+---
+
+<Layout title={`Search Results for "${query}" | AIChatWindow`}>
+  <Header />
+  
+  <main class="min-h-screen bg-gradient-to-br from-gray-50 to-white py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+      
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+          Search Results
+        </h1>
+        {query && (
+          <p class="text-lg text-gray-600">
+            Showing results for: <strong>"{query}"</strong>
+          </p>
+        )}
+      </div>
+
+      <!-- Search Form -->
+      <div class="mb-12">
+        <form method="GET" action="/search" class="max-w-2xl mx-auto">
+          <div class="flex gap-4">
+            <input 
+              type="text" 
+              name="q" 
+              value={query}
+              placeholder="Search AI tools, guides, and resources..."
+              class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+            />
+            <button 
+              type="submit"
+              class="px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-medium"
+            >
+              Search
+            </button>
+          </div>
+        </form>
+      </div>
+
+      {query ? (
+        <div class="space-y-8">
+          <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+            <h2 class="text-xl font-bold text-gray-900 mb-4">Search functionality coming soon!</h2>
+            <p class="text-gray-600 mb-4">
+              We're working on implementing full-text search across our AI tools and blog content.
+            </p>
+            <p class="text-gray-600">
+              In the meantime, you can browse our categories:
+            </p>
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <a href="/free-ai-tools" class="block p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors">
+                <h3 class="font-semibold text-green-800">Free AI Tools</h3>
+                <p class="text-green-600 text-sm">Discover free AI chatbots and tools</p>
+              </a>
+              <a href="/blog" class="block p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
+                <h3 class="font-semibold text-blue-800">Blog & Guides</h3>
+                <p class="text-blue-600 text-sm">AI tutorials and comparisons</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div class="text-center">
+          <p class="text-gray-600">Enter a search term to find AI tools, guides, and resources.</p>
+        </div>
+      )}
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
