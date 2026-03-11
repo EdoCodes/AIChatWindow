@@ -82,10 +82,24 @@ import Footer from '../../components/Footer.astro';
         </div>
       </div>
 
+      <!-- Table of Contents -->
+      <div class="bg-gray-50 rounded-xl p-6 mb-12 border border-gray-200">
+        <h2 class="text-lg font-semibold text-gray-900 mb-4">📋 Table of Contents</h2>
+        <nav class="space-y-2">
+          <a href="#ai-landscape" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">1. The AI Chatbot Landscape in 2025</a>
+          <a href="#comparison-overview" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">2. Comprehensive Comparison Overview</a>
+          <a href="#chatgpt-pioneer" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">3. ChatGPT: The Pioneer</a>
+          <a href="#claude-assistant" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">4. Claude: The Thoughtful Assistant</a>
+          <a href="#bard-information" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">5. Google Bard: The Information Hub</a>
+          <a href="#testing-results" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">6. Head-to-Head Testing Results</a>
+          <a href="#which-choose" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">7. Which AI Chatbot Should You Choose?</a>
+        </nav>
+      </div>
+
       <!-- Article Content -->
       <article class="prose prose-lg max-w-none">
-        
-        <h2>The AI Chatbot Landscape in 2025</h2>
+
+        <h2 id="ai-landscape" class="scroll-mt-20">The AI Chatbot Landscape in 2025</h2>
         
         <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-8 mb-8">
           <p class="text-lg text-gray-800 mb-6">The AI chatbot market has exploded in 2025, with three clear leaders emerging: OpenAI's ChatGPT, Anthropic's Claude, and Google's Bard. Each brings unique strengths and capabilities to the table, making the choice between them more nuanced than ever.</p>
@@ -109,7 +123,7 @@ import Footer from '../../components/Footer.astro';
           </div>
         </div>
 
-        <h2>Comprehensive Comparison Overview</h2>
+        <h2 id="comparison-overview" class="scroll-mt-20">Comprehensive Comparison Overview</h2>
 
         <div class="overflow-x-auto mb-12 bg-white rounded-xl shadow-lg border border-gray-200">
           <table class="w-full">
@@ -162,7 +176,7 @@ import Footer from '../../components/Footer.astro';
           </table>
         </div>
 
-        <h2>ChatGPT: The Pioneer</h2>
+        <h2 id="chatgpt-pioneer" class="scroll-mt-20">ChatGPT: The Pioneer</h2>
 
         <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-8 mb-8 border border-blue-200">
           <div class="flex items-start space-x-6">
@@ -205,7 +219,7 @@ import Footer from '../../components/Footer.astro';
           </div>
         </div>
 
-        <h2>Claude: The Thoughtful Assistant</h2>
+        <h2 id="claude-assistant" class="scroll-mt-20">Claude: The Thoughtful Assistant</h2>
 
         <div class="bg-gradient-to-r from-purple-50 to-purple-100 rounded-xl p-8 mb-8 border border-purple-200">
           <div class="flex items-start space-x-6">
@@ -248,7 +262,7 @@ import Footer from '../../components/Footer.astro';
           </div>
         </div>
 
-        <h2>Google Bard: The Information Hub</h2>
+        <h2 id="bard-information" class="scroll-mt-20">Google Bard: The Information Hub</h2>
 
         <div class="bg-gradient-to-r from-green-50 to-green-100 rounded-xl p-8 mb-8 border border-green-200">
           <div class="flex items-start space-x-6">
@@ -291,7 +305,7 @@ import Footer from '../../components/Footer.astro';
           </div>
         </div>
 
-        <h2>Head-to-Head Testing Results</h2>
+        <h2 id="testing-results" class="scroll-mt-20">Head-to-Head Testing Results</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <!-- Creative Writing Test -->
@@ -491,7 +505,7 @@ import Footer from '../../components/Footer.astro';
           </div>
         </div>
 
-        <h2>Which AI Chatbot Should You Choose?</h2>
+        <h2 id="which-choose" class="scroll-mt-20">Which AI Chatbot Should You Choose?</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <!-- ChatGPT Recommendation -->
@@ -561,7 +575,7 @@ import Footer from '../../components/Footer.astro';
           </div>
         </div>
 
-        <h2>The Verdict</h2>
+        <h2 id="verdict" class="scroll-mt-20">The Verdict</h2>
 
         <div class="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-8 mb-8 border border-yellow-200">
           <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">🏆 Final Recommendations</h3>
@@ -589,7 +603,7 @@ import Footer from '../../components/Footer.astro';
           </div>
         </div>
 
-        <h2>Future Outlook</h2>
+        <h2 id="future-outlook" class="scroll-mt-20">Future Outlook</h2>
 
         <p>As we progress through 2025, expect to see:</p>
 
@@ -663,6 +677,28 @@ import Footer from '../../components/Footer.astro';
         </div>
       </div>
 
+      <!-- Newsletter Signup -->
+      <div class="mt-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl p-8 text-white text-center">
+        <h3 class="text-2xl font-bold mb-4">🚀 Stay Updated on AI Chatbot Innovations</h3>
+        <p class="text-lg opacity-90 mb-6 max-w-2xl mx-auto">
+          Get weekly comparisons, feature updates, and exclusive AI chatbot insights delivered to your inbox.
+        </p>
+        <form class="max-w-md mx-auto flex gap-3">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            class="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+          />
+          <button
+            type="submit"
+            class="px-6 py-3 bg-white text-blue-600 rounded-lg hover:bg-gray-100 transition-colors font-medium"
+          >
+            Subscribe Free
+          </button>
+        </form>
+        <p class="text-xs opacity-75 mt-3">No spam, unsubscribe anytime. Join 12,000+ AI enthusiasts.</p>
+      </div>
+
     </div>
   </main>
 
@@ -673,31 +709,31 @@ import Footer from '../../components/Footer.astro';
   .prose {
     @apply text-gray-700 leading-relaxed;
   }
-  
+
   .prose h2 {
-    @apply text-3xl font-bold text-gray-900 mt-16 mb-8;
+    @apply text-3xl font-bold text-gray-900 mt-16 mb-8 scroll-mt-20;
   }
-  
+
   .prose h3 {
     @apply text-2xl font-bold text-gray-900 mt-12 mb-6;
   }
-  
+
   .prose h4 {
     @apply text-xl font-bold text-gray-900 mt-8 mb-4;
   }
-  
+
   .prose p {
     @apply mb-6 text-lg leading-relaxed;
   }
-  
+
   .prose ul, .prose ol {
     @apply mb-6 pl-6;
   }
-  
+
   .prose li {
     @apply mb-2;
   }
-  
+
   .prose strong {
     @apply font-semibold text-gray-900;
   }
@@ -705,8 +741,13 @@ import Footer from '../../components/Footer.astro';
   .prose table {
     @apply w-full mb-8;
   }
-  
+
   .prose th, .prose td {
     @apply text-sm;
+  }
+
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
   }
 </style>

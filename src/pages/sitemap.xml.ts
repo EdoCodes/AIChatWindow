@@ -90,7 +90,13 @@ export async function GET() {
       priority: '0.8',
       lastmod: '2025-01-03'
     },
-    
+    {
+      url: '/blog/proprofs-chat-comprehensive-review-2025',
+      changefreq: 'monthly',
+      priority: '0.8',
+      lastmod: '2025-01-20'
+    },
+
     // Additional important pages
     {
       url: '/about',
