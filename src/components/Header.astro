@@ -1,119 +1,73 @@
 ---
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-gray-900 border-b border-green-400/30 relative overflow-hidden">
-  <!-- PCB Background Pattern -->
-  <div class="absolute inset-0 opacity-20">
-    <svg class="w-full h-full" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
-      <!-- Circuit traces -->
-      <defs>
-        <pattern id="pcb-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-          <!-- Horizontal traces -->
-          <line x1="0" y1="20" x2="100" y2="20" stroke="#00ff41" stroke-width="0.5" opacity="0.6"/>
-          <line x1="0" y1="40" x2="100" y2="40" stroke="#00ff41" stroke-width="0.3" opacity="0.4"/>
-          <line x1="0" y1="60" x2="100" y2="60" stroke="#00ff41" stroke-width="0.5" opacity="0.6"/>
-          <line x1="0" y1="80" x2="100" y2="80" stroke="#00ff41" stroke-width="0.3" opacity="0.4"/>
-          
-          <!-- Vertical traces -->
-          <line x1="25" y1="0" x2="25" y2="100" stroke="#00ff41" stroke-width="0.3" opacity="0.4"/>
-          <line x1="50" y1="0" x2="50" y2="100" stroke="#00ff41" stroke-width="0.5" opacity="0.6"/>
-          <line x1="75" y1="0" x2="75" y2="100" stroke="#00ff41" stroke-width="0.3" opacity="0.4"/>
-          
-          <!-- Circuit nodes -->
-          <circle cx="25" cy="20" r="1.5" fill="#00ff41" opacity="0.8"/>
-          <circle cx="50" cy="40" r="1.5" fill="#00ff41" opacity="0.8"/>
-          <circle cx="75" cy="60" r="1.5" fill="#00ff41" opacity="0.8"/>
-          <circle cx="25" cy="80" r="1.5" fill="#00ff41" opacity="0.8"/>
-          
-          <!-- Small components -->
-          <rect x="45" y="18" width="10" height="4" fill="none" stroke="#00ff41" stroke-width="0.3" opacity="0.5"/>
-          <rect x="20" y="58" width="10" height="4" fill="none" stroke="#00ff41" stroke-width="0.3" opacity="0.5"/>
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#pcb-pattern)"/>
-    </svg>
-  </div>
-
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="flex justify-between items-center h-16">
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
       <!-- Logo -->
       <div class="flex items-center">
-        <a href="/" class="flex items-center space-x-3">
-          <div class="w-10 h-10 bg-green-400 rounded-lg flex items-center justify-center relative">
-            <!-- Circuit pattern in logo -->
-            <svg class="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
+        <a href="/" class="flex items-center space-x-3 group">
+          <div class="w-11 h-11 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-200">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
               <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
               <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z" />
             </svg>
-            <!-- Small circuit traces on logo -->
-            <div class="absolute inset-0 opacity-30">
-              <svg class="w-full h-full" viewBox="0 0 40 40">
-                <line x1="5" y1="10" x2="35" y2="10" stroke="#000" stroke-width="0.5"/>
-                <line x1="5" y1="30" x2="35" y2="30" stroke="#000" stroke-width="0.5"/>
-                <line x1="10" y1="5" x2="10" y2="35" stroke="#000" stroke-width="0.5"/>
-                <line x1="30" y1="5" x2="30" y2="35" stroke="#000" stroke-width="0.5"/>
-              </svg>
-            </div>
           </div>
-          <span class="text-2xl font-bold text-green-400 font-mono tracking-wider">AIChatWindow</span>
+          <span class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">AIChatWindow</span>
         </a>
       </div>
-      
+
       <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center space-x-8">
-        <a href="/free-ai-tools" class="text-green-300 hover:text-green-400 font-mono font-medium transition-colors duration-200 relative group">
+      <nav class="hidden md:flex items-center space-x-1">
+        <a href="/free-ai-tools" class="px-4 py-2 text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 rounded-lg hover:bg-blue-50">
           Free AI Tools
-          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-400 transition-all duration-200 group-hover:w-full"></span>
         </a>
-        <a href="/corporate-ai-tools" class="text-green-300 hover:text-green-400 font-mono font-medium transition-colors duration-200 relative group">
-          Corporate AI Tools
-          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-400 transition-all duration-200 group-hover:w-full"></span>
+        <a href="/corporate-ai-tools" class="px-4 py-2 text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 rounded-lg hover:bg-blue-50">
+          Corporate Tools
         </a>
-        <a href="/paid-ai-tools" class="text-green-300 hover:text-green-400 font-mono font-medium transition-colors duration-200 relative group">
-          Paid AI Tools
-          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-400 transition-all duration-200 group-hover:w-full"></span>
+        <a href="/paid-ai-tools" class="px-4 py-2 text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 rounded-lg hover:bg-blue-50">
+          Paid Tools
         </a>
-        <a href="/blog" class="text-green-300 hover:text-green-400 font-mono font-medium transition-colors duration-200 relative group">
+        <a href="/blog" class="px-4 py-2 text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 rounded-lg hover:bg-blue-50">
           Blog
-          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-400 transition-all duration-200 group-hover:w-full"></span>
         </a>
       </nav>
 
       <!-- CTA Button -->
       <div class="flex items-center space-x-4">
-        <a href="/chat" class="hidden sm:inline-flex items-center px-6 py-2 bg-green-400 text-gray-900 rounded-lg hover:bg-green-300 transition-all duration-200 font-mono font-bold border border-green-400 hover:shadow-lg hover:shadow-green-400/20">
-          <span>TRY FREE CHAT</span>
+        <a href="/chat" class="hidden sm:inline-flex items-center px-6 py-2.5 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl hover:scale-105">
+          <span>Try Free Chat</span>
           <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
         </a>
-        
+
         <!-- Mobile Menu Button -->
-        <button id="mobile-menu-button" class="md:hidden text-green-300 hover:text-green-400 transition-colors duration-200">
+        <button id="mobile-menu-button" class="md:hidden p-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
     </div>
-    
+
     <!-- Mobile Navigation Menu -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-green-400/30 bg-gray-900/95 backdrop-blur-sm">
-      <div class="px-4 py-4 space-y-3">
-        <a href="/free-ai-tools" class="block text-green-300 hover:text-green-400 font-mono font-medium py-2 transition-colors duration-200">
+    <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-white">
+      <div class="px-4 py-4 space-y-2">
+        <a href="/free-ai-tools" class="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium rounded-lg transition-colors duration-200">
           Free AI Tools
         </a>
-        <a href="/corporate-ai-tools" class="block text-green-300 hover:text-green-400 font-mono font-medium py-2 transition-colors duration-200">
+        <a href="/corporate-ai-tools" class="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium rounded-lg transition-colors duration-200">
           Corporate AI Tools
         </a>
-        <a href="/paid-ai-tools" class="block text-green-300 hover:text-green-400 font-mono font-medium py-2 transition-colors duration-200">
+        <a href="/paid-ai-tools" class="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium rounded-lg transition-colors duration-200">
           Paid AI Tools
         </a>
-        <a href="/blog" class="block text-green-300 hover:text-green-400 font-mono font-medium py-2 transition-colors duration-200">
+        <a href="/blog" class="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium rounded-lg transition-colors duration-200">
           Blog
         </a>
-        <a href="/chat" class="block w-full text-center px-4 py-2 bg-green-400 text-gray-900 rounded-lg hover:bg-green-300 transition-colors duration-200 font-mono font-bold mt-4">
-          TRY FREE CHAT
+        <a href="/chat" class="block w-full text-center px-4 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors duration-200 font-semibold mt-4 shadow-lg">
+          Try Free Chat
         </a>
       </div>
     </div>

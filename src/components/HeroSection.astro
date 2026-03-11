@@ -2,70 +2,130 @@
 import CommunityShowcase from './CommunityShowcase.astro';
 ---
 
-<section class="pt-20 pb-8 bg-black border-b border-gray-800 relative overflow-hidden">
-  <!-- Matrix Background -->
-  <div class="absolute inset-0 opacity-20">
-    <canvas id="matrix-canvas" class="w-full h-full"></canvas>
+<section class="relative pt-32 pb-24 overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-slate-50">
+  <!-- Animated Background Gradient -->
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-100 via-transparent to-transparent opacity-70"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-cyan-100 via-transparent to-transparent opacity-50"></div>
+
+  <!-- Grid Pattern Overlay -->
+  <div class="absolute inset-0 opacity-[0.03]">
+    <div class="absolute inset-0" style="background-image: linear-gradient(to right, #1e293b 1px, transparent 1px), linear-gradient(to bottom, #1e293b 1px, transparent 1px); background-size: 64px 64px;"></div>
   </div>
-  
+
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="flex justify-center">
-      <div class="w-full max-w-2xl">
-        <!-- Chat Window -->
-        <div class="bg-black rounded-xl shadow-2xl border border-green-500/30 overflow-hidden backdrop-blur-sm">
-          <!-- Chat Header -->
-          <div class="bg-gradient-to-r from-green-900/50 to-green-800/50 px-4 py-3 border-b border-green-500/30">
-            <div class="flex items-center justify-between">
-              <h3 class="font-mono font-bold text-green-400 text-lg tracking-wider">CHAT WINDOW</h3>
-              <div class="flex items-center space-x-2">
-                <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span class="text-xs text-green-300 font-mono">ONLINE</span>
+    <!-- Hero Content -->
+    <div class="text-center mb-16 animate-fade-in">
+      <div class="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full mb-6">
+        <span class="w-2 h-2 bg-blue-600 rounded-full animate-pulse mr-2"></span>
+        <span class="text-sm font-semibold text-blue-900">Powered by Advanced AI Technology</span>
+      </div>
+
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+        Your Gateway to
+        <span class="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent"> AI Chat Solutions</span>
+      </h1>
+
+      <p class="text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
+        Discover, compare, and integrate the world's most powerful AI chatbots. From free tools to enterprise solutions, find your perfect AI assistant.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="/chat" class="group inline-flex items-center px-8 py-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105 font-semibold text-lg">
+          <span>Try Free Chat</span>
+          <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+        <a href="#features" class="inline-flex items-center px-8 py-4 bg-white text-gray-700 rounded-xl hover:bg-gray-50 transition-all duration-200 shadow-md hover:shadow-lg font-semibold text-lg border-2 border-gray-200">
+          <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          <span>Learn More</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Interactive Demo Chat Window -->
+    <div class="max-w-4xl mx-auto animate-slide-up">
+      <div class="bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden backdrop-blur-sm">
+        <!-- Chat Header -->
+        <div class="bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
+                  <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-white text-lg">AI Assistant</h3>
+                <p class="text-blue-100 text-sm">Always ready to help</p>
               </div>
             </div>
+            <div class="flex items-center space-x-2">
+              <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse shadow-lg shadow-green-400/50"></div>
+              <span class="text-sm text-white font-medium">Online</span>
+            </div>
           </div>
+        </div>
 
-          <!-- Chat Messages Container -->
-          <div class="h-80 bg-black/90 relative">
-            <!-- Chat Messages -->
-            <div id="hero-chat-messages" class="h-full p-4 overflow-y-auto">
-              <div class="space-y-4">
-                <!-- Welcome Message -->
-                <div class="flex items-start space-x-2">
-                  <div class="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center text-black text-sm font-bold">
-                    AI
-                  </div>
-                  <div class="bg-green-900/50 border border-green-500/30 rounded-lg p-3 max-w-xs">
-                    <p class="text-sm text-green-300 font-mono">SYSTEM INITIALIZED. AI ASSISTANT ONLINE.</p>
-                  </div>
+        <!-- Chat Messages Container -->
+        <div class="h-96 bg-gradient-to-b from-gray-50 to-white relative">
+          <!-- Chat Messages -->
+          <div id="hero-chat-messages" class="h-full p-6 overflow-y-auto">
+            <div class="space-y-4">
+              <!-- Welcome Message -->
+              <div class="flex items-start space-x-3">
+                <div class="w-9 h-9 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
+                  AI
+                </div>
+                <div class="bg-white border border-gray-200 rounded-2xl rounded-tl-sm p-4 max-w-md shadow-sm">
+                  <p class="text-gray-700 leading-relaxed">Welcome! I'm your AI assistant. I can help you discover the perfect AI chatbot for your needs. Try asking me something!</p>
                 </div>
               </div>
             </div>
-            
-            <!-- Chat Input -->
-            <div class="absolute bottom-0 left-0 right-0 border-t border-green-500/30 p-4 bg-black/90">
-              <div class="flex space-x-2">
-                <input 
-                  type="text" 
-                  id="hero-chat-input"
-                  placeholder="ENTER COMMAND..." 
-                  class="flex-1 px-3 py-2 bg-black border border-green-500/30 rounded text-green-400 placeholder-green-600 focus:outline-none focus:border-green-400 font-mono text-sm"
-                />
-                <button 
-                  id="hero-chat-send"
-                  class="px-4 py-2 bg-green-400 text-black rounded hover:bg-green-300 focus:outline-none transition-colors font-mono font-bold text-sm"
-                >
-                  SEND
-                </button>
-              </div>
-            </div>
           </div>
 
-          <!-- Footer -->
-          <div class="border-t border-green-500/30 p-4 bg-black/90">
-            <div class="text-center text-green-400 font-mono text-sm">
-              AI CHATBOT SYSTEM ACTIVE
+          <!-- Chat Input -->
+          <div class="absolute bottom-0 left-0 right-0 border-t border-gray-200 p-4 bg-white/80 backdrop-blur-sm">
+            <div class="flex space-x-3">
+              <input
+                type="text"
+                id="hero-chat-input"
+                placeholder="Type your message here..."
+                class="flex-1 px-4 py-3 bg-gray-100 border-2 border-gray-200 rounded-xl text-gray-700 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-all text-base"
+              />
+              <button
+                id="hero-chat-send"
+                class="px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 focus:outline-none transition-all shadow-lg hover:shadow-xl hover:scale-105 font-semibold"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                </svg>
+              </button>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Trust Indicators -->
+      <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-gray-900 mb-1">50+</div>
+          <div class="text-sm text-gray-600">AI Models</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-gray-900 mb-1">100%</div>
+          <div class="text-sm text-gray-600">Free to Use</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-gray-900 mb-1">24/7</div>
+          <div class="text-sm text-gray-600">Available</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-gray-900 mb-1">0</div>
+          <div class="text-sm text-gray-600">Setup Required</div>
         </div>
       </div>
     </div>
@@ -75,74 +135,13 @@ import CommunityShowcase from './CommunityShowcase.astro';
 <CommunityShowcase />
 
 <script>
-  // Matrix Rain Effect
-  class MatrixRain {
-    constructor() {
-      this.canvas = document.getElementById('matrix-canvas');
-      if (!this.canvas) return;
-      
-      this.ctx = this.canvas.getContext('2d');
-      this.resizeCanvas();
-      this.drops = [];
-      this.chars = '01';
-      this.fontSize = 14;
-      this.columns = Math.floor(this.canvas.width / this.fontSize);
-      
-      // Initialize drops
-      for (let i = 0; i < this.columns; i++) {
-        this.drops[i] = Math.random() * this.canvas.height;
-      }
-      
-      this.animate();
-      window.addEventListener('resize', () => this.resizeCanvas());
-    }
-    
-    resizeCanvas() {
-      this.canvas.width = this.canvas.offsetWidth;
-      this.canvas.height = this.canvas.offsetHeight;
-      this.columns = Math.floor(this.canvas.width / this.fontSize);
-    }
-    
-    animate() {
-      // Semi-transparent black background for trail effect
-      this.ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-      this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-      
-      // Green text
-      this.ctx.fillStyle = '#00ff41';
-      this.ctx.font = `${this.fontSize}px monospace`;
-      
-      for (let i = 0; i < this.drops.length; i++) {
-        const char = this.chars[Math.floor(Math.random() * this.chars.length)];
-        const x = i * this.fontSize;
-        const y = this.drops[i] * this.fontSize;
-        
-        this.ctx.fillText(char, x, y);
-        
-        // Reset drop to top randomly
-        if (y > this.canvas.height && Math.random() > 0.975) {
-          this.drops[i] = 0;
-        }
-        
-        this.drops[i]++;
-      }
-      
-      requestAnimationFrame(() => this.animate());
-    }
-  }
-
-  // Initialize Matrix Rain when DOM is loaded
+  // Initialize Hero Chat when DOM is loaded
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      new MatrixRain();
-      initHeroChat();
-    });
+    document.addEventListener('DOMContentLoaded', initHeroChat);
   } else {
-    new MatrixRain();
     initHeroChat();
   }
 
-  // Hero Chat Functionality
   function initHeroChat() {
     const messagesContainer = document.getElementById('hero-chat-messages');
     const chatInput = document.getElementById('hero-chat-input');
@@ -151,57 +150,57 @@ import CommunityShowcase from './CommunityShowcase.astro';
     if (!messagesContainer || !chatInput || !sendButton) return;
 
     const responses = [
-      "ANALYZING REQUEST... AI CHATBOTS ARE THE FUTURE OF DIGITAL COMMUNICATION.",
-      "PROCESSING... RECOMMEND EXPLORING FREE AI TOOLS: GOOGLE BARD, CHARACTER.AI, PERPLEXITY.",
-      "SYSTEM RESPONSE: AI TECHNOLOGY ADVANCING RAPIDLY. CHATGPT, CLAUDE, BARD LEADING INNOVATION.",
-       "DATA RETRIEVED: OVER 50 AI CHATBOTS AVAILABLE. EACH WITH UNIQUE CAPABILITIES.",
-       "QUERY PROCESSED: AI ASSISTANTS REVOLUTIONIZING CUSTOMER SERVICE AND PRODUCTIVITY.",
-       "INFORMATION COMPILED: FREE AI TOOLS DEMOCRATIZING ACCESS TO ARTIFICIAL INTELLIGENCE.",
-       "ANALYSIS COMPLETE: ENTERPRISE AI SOLUTIONS TRANSFORMING BUSINESS OPERATIONS.",
-       "SYSTEM UPDATE: AI CHATBOTS BECOMING ESSENTIAL FOR MODERN DIGITAL EXPERIENCES."
-     ];
-     
-     function addMessage(content, isUser = false) {
-       const messageDiv = document.createElement('div');
-       messageDiv.className = 'flex items-start space-x-2';
-       
-       if (isUser) {
-         messageDiv.className += ' justify-end';
-         messageDiv.innerHTML = `
-           <div class="bg-green-400/20 border border-green-400/30 rounded-lg p-3 max-w-xs">
-             <p class="text-sm text-green-300 font-mono">${content.toUpperCase()}</p>
-           </div>
-           <div class="w-8 h-8 bg-green-400/20 border border-green-400/30 rounded-full flex items-center justify-center text-green-400 text-sm font-bold">
-             U
-           </div>
-         `;
-       } else {
-         messageDiv.innerHTML = `
-           <div class="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center text-black text-sm font-bold">
-             AI
-           </div>
-           <div class="bg-green-900/50 border border-green-500/30 rounded-lg p-3 max-w-xs">
-             <p class="text-sm text-green-300 font-mono">${content}</p>
-           </div>
-         `;
-       }
-       
-       messagesContainer.appendChild(messageDiv);
-       messagesContainer.scrollTop = messagesContainer.scrollHeight;
-     }
-    
+      "Great question! AI chatbots are transforming how we interact with technology. There are many excellent options available.",
+      "I'd be happy to help! Popular choices include ChatGPT, Claude, and Google Bard. Each has unique strengths.",
+      "Absolutely! Free AI tools like Perplexity and Character.AI offer amazing capabilities without any cost.",
+      "That's a common question. For business use, Microsoft Copilot and enterprise versions of ChatGPT are excellent choices.",
+      "Good thinking! AI assistants are becoming essential for productivity, customer service, and creative work.",
+      "I can help with that! There are over 50 AI chatbots available, each designed for different use cases.",
+      "Excellent! The AI landscape is rapidly evolving. New models and capabilities are being released regularly.",
+      "Perfect timing! AI chatbots are now accessible to everyone, from individual users to large enterprises."
+    ];
+
+    function addMessage(content, isUser = false) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = 'flex items-start space-x-3';
+
+      if (isUser) {
+        messageDiv.className += ' justify-end';
+        messageDiv.innerHTML = `
+          <div class="bg-blue-600 rounded-2xl rounded-tr-sm p-4 max-w-md shadow-sm">
+            <p class="text-white leading-relaxed">${content}</p>
+          </div>
+          <div class="w-9 h-9 bg-gray-300 rounded-full flex items-center justify-center text-gray-700 text-sm font-bold flex-shrink-0">
+            U
+          </div>
+        `;
+      } else {
+        messageDiv.innerHTML = `
+          <div class="w-9 h-9 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
+            AI
+          </div>
+          <div class="bg-white border border-gray-200 rounded-2xl rounded-tl-sm p-4 max-w-md shadow-sm">
+            <p class="text-gray-700 leading-relaxed">${content}</p>
+          </div>
+        `;
+      }
+
+      messagesContainer.appendChild(messageDiv);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
     function showTypingIndicator() {
       const typingDiv = document.createElement('div');
-      typingDiv.className = 'flex items-start space-x-2 typing-indicator';
+      typingDiv.className = 'flex items-start space-x-3 typing-indicator';
       typingDiv.innerHTML = `
-        <div class="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center text-black text-sm font-bold">
+        <div class="w-9 h-9 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
           AI
         </div>
-        <div class="bg-green-900/50 border border-green-500/30 rounded-lg p-3">
+        <div class="bg-white border border-gray-200 rounded-2xl p-4 shadow-sm">
           <div class="flex space-x-1">
-            <div class="w-2 h-2 bg-green-400 rounded-full animate-bounce"></div>
-            <div class="w-2 h-2 bg-green-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
-            <div class="w-2 h-2 bg-green-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
           </div>
         </div>
       `;
@@ -209,27 +208,23 @@ import CommunityShowcase from './CommunityShowcase.astro';
       messagesContainer.scrollTop = messagesContainer.scrollHeight;
       return typingDiv;
     }
-    
+
     function handleSend() {
       const message = chatInput.value.trim();
       if (!message) return;
-      
-      // Add user message
+
       addMessage(message, true);
       chatInput.value = '';
-      
-      // Show typing indicator
+
       const typingIndicator = showTypingIndicator();
-      
-      // Generate and show AI response after delay
+
       setTimeout(() => {
         typingIndicator.remove();
         const response = responses[Math.floor(Math.random() * responses.length)];
         addMessage(response, false);
-      }, 1000 + Math.random() * 1500);
+      }, 800 + Math.random() * 1000);
     }
-    
-    // Event listeners
+
     sendButton.addEventListener('click', handleSend);
     chatInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
