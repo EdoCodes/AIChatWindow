@@ -1,80 +1,87 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import BlogArticleLayout from '../../components/blog/BlogArticleLayout.astro';
+import ArticleProse from '../../components/blog/ArticleProse.astro';
+
+const tocItems = [
+  { id: 'why-free-ai', label: '1. Why Free AI Chatbots Are Game-Changers' },
+  { id: 'top-6-free', label: '2. Top 6 Free AI Chatbots' },
+  { id: 'comparison-table', label: '3. Feature Comparison Table' },
+  { id: 'how-to-choose', label: '4. How to Choose the Right One' },
+  { id: 'pro-tips', label: '5. Pro Tips for Maximum Results' },
+  { id: 'bottom-line', label: '6. The Bottom Line' },
+  { id: 'faq', label: '7. Frequently Asked Questions' },
+];
+
+const keyTakeaways = [
+  '6 completely free AI chatbots that rival premium services',
+  'Real-world testing results and performance comparisons',
+  'Step-by-step setup guides for each platform',
+  'Pro tips to maximize your free AI experience',
+];
+
+const faqItems = [
+  {
+    question: 'Is Google Gemini (formerly Bard) completely free?',
+    answer: 'Yes. Google Gemini offers a fully free tier with access to the Gemini Pro model, real-time Google Search integration, and no daily message limits for standard queries. The paid Gemini Advanced plan ($19.99/month via Google One) unlocks the more powerful Gemini Ultra 1.0 model, 1TB of storage, and integrations with Google Workspace.',
+  },
+  {
+    question: 'What is the best completely free AI chatbot in 2025?',
+    answer: 'For most users, Google Gemini is the best free AI chatbot in 2025 thanks to its real-time web access, no usage caps, and Google ecosystem integration. Perplexity AI is the best free option for research with citations. Character.AI leads for creative and entertainment use. The "best" free chatbot truly depends on your use case.',
+  },
+  {
+    question: 'Can free AI chatbots compete with paid ones?',
+    answer: 'For everyday tasks — answering questions, drafting emails, brainstorming, summarizing — free AI chatbots now compete well with paid alternatives. The gap shows for complex reasoning, long-context tasks, image generation, and cutting-edge model performance. If you need GPT-4o, Claude 3 Opus, or Gemini Ultra at their full capability, paid plans are necessary. Otherwise, free tiers are genuinely capable.',
+  },
+  {
+    question: 'What is the difference between Perplexity AI free and Pro?',
+    answer: 'Perplexity AI Free gives you unlimited standard searches with AI summaries and citations, powered by its own search model. Perplexity Pro ($20/month) adds access to GPT-4o, Claude 3, and Gemini Ultra for answers, unlimited file uploads, image generation, and higher daily query limits for advanced AI models. The free tier is excellent for research; Pro is for power users.',
+  },
+  {
+    question: 'Is Character.AI free to use?',
+    answer: 'Character.AI offers a free tier that allows unlimited conversations with AI characters (historical figures, fictional characters, custom creations). The paid Character.AI+ plan ($9.99/month) offers faster response times, priority access, and exclusive features. The free version is genuinely usable for creative writing and entertainment without needing to pay.',
+  },
+  {
+    question: 'Which free AI chatbot is best for academic research?',
+    answer: 'Perplexity AI is the top free choice for academic research because every answer includes cited sources that you can verify. Google Gemini is a strong second, especially for queries that benefit from real-time Google Search integration. Avoid using ChatGPT Free (which has a knowledge cutoff) for current research topics.',
+  },
+  {
+    question: 'Do free AI chatbots have daily usage limits?',
+    answer: 'Most free tiers have some form of rate limiting. ChatGPT Free has a limit on GPT-4o queries per day (after which it falls back to GPT-4o mini). Claude Free has a message limit per conversation and resets daily. Google Gemini Free has no hard daily cap for standard queries. Perplexity AI Free has limits on queries that use advanced AI models. For unlimited use, paid plans are recommended.',
+  },
+  {
+    question: 'What is the best free alternative to ChatGPT Plus?',
+    answer: 'Google Gemini is the closest free alternative to ChatGPT Plus — it\'s powerful, fast, and includes web search. For writing tasks, Claude Free (Claude 3 Haiku) is excellent. For coding, GitHub\'s free Copilot tier or the free version of Replit AI are strong options. Hugging Face Chat also offers free access to open-source models like Mistral and Llama.',
+  },
+  {
+    question: 'Are free AI chatbots safe to use?',
+    answer: 'Free AI chatbots are generally safe for everyday use, but be mindful about privacy. Most platforms log conversations and may use them to train future models. Avoid sharing passwords, financial information, medical data, or confidential business information. Check each platform\'s privacy settings — most offer an opt-out of conversation logging. For sensitive work, use a privacy-focused option or ensure your account settings disable training data use.',
+  },
+  {
+    question: 'Can I use multiple free AI chatbots together?',
+    answer: 'Absolutely — many power users adopt a multi-AI strategy. Use Perplexity AI for research, Google Gemini for quick questions and Google integrations, ChatGPT for coding and creative tasks, and Character.AI for entertainment. Since all have free tiers, there\'s no cost to using several. The key is knowing each platform\'s strengths and matching your query to the right tool.',
+  },
+];
 ---
 
-<Layout title="Best Free AI Chatbots in 2025: Complete Guide | AIChatWindow">
-  <Header />
-  
-  <main class="min-h-screen bg-gradient-to-br from-gray-50 to-white py-12">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
-      
-      <!-- Article Header -->
-      <header class="mb-12">
-        <div class="flex items-center space-x-2 mb-4">
-          <a href="/blog" class="text-primary-600 hover:text-primary-700 text-sm font-medium transition-colors">← Back to Blog</a>
-        </div>
-        <div class="flex items-center space-x-2 mb-6">
-          <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">Free Tools</span>
-          <span class="text-gray-500 text-sm">January 15, 2025</span>
-          <span class="text-gray-300">•</span>
-          <span class="text-gray-500 text-sm">8 min read</span>
-          <span class="text-gray-300">•</span>
-          <span class="text-gray-500 text-sm">Updated Weekly</span>
-        </div>
-        <h1 class="text-5xl font-bold text-gray-900 mb-6 leading-tight bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-          Best Free AI Chatbots in 2025: Complete Guide
-        </h1>
-        <p class="text-xl text-gray-600 leading-relaxed mb-8">
-          Discover the top free AI chatbots available in 2025. We've tested and compared the best options 
-          to help you find the perfect AI assistant without spending a dime. Save hundreds of dollars while 
-          accessing powerful AI capabilities.
-        </p>
-        
-        <!-- Key Takeaways Box -->
-        <div class="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-r-lg mb-8">
-          <h3 class="text-lg font-semibold text-blue-900 mb-3">🎯 Key Takeaways</h3>
-          <ul class="text-blue-800 space-y-2 text-sm">
-            <li>• 6 completely free AI chatbots that rival premium services</li>
-            <li>• Real-world testing results and performance comparisons</li>
-            <li>• Step-by-step setup guides for each platform</li>
-            <li>• Pro tips to maximize your free AI experience</li>
-          </ul>
-        </div>
-      </header>
-
-      <!-- Featured Image with Caption -->
-      <div class="mb-12">
-        <figure>
-          <img 
-            src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop" 
-            alt="Person using multiple AI chatbots on laptop screen showing various free AI interfaces"
-            class="w-full h-64 md:h-96 object-cover rounded-xl shadow-2xl"
-            loading="eager"
-          />
-          <figcaption class="text-center text-sm text-gray-500 mt-3 italic">
-            Free AI chatbots have revolutionized access to artificial intelligence in 2025
-          </figcaption>
-        </figure>
-      </div>
-
-      <!-- Table of Contents -->
-      <div class="bg-gray-50 rounded-xl p-6 mb-12 border border-gray-200">
-        <h2 class="text-lg font-semibold text-gray-900 mb-4">📋 Table of Contents</h2>
-        <nav class="space-y-2">
-          <a href="#why-free-ai" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">1. Why Free AI Chatbots Are Game-Changers</a>
-          <a href="#top-6-free" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">2. Top 6 Free AI Chatbots</a>
-          <a href="#comparison-table" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">3. Feature Comparison Table</a>
-          <a href="#how-to-choose" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">4. How to Choose the Right One</a>
-          <a href="#pro-tips" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">5. Pro Tips for Maximum Results</a>
-        </nav>
-      </div>
-
-      <!-- Article Content -->
-      <article class="prose prose-lg max-w-none">
-        
-        <h2 id="why-free-ai">Why Free AI Chatbots Are Game-Changers in 2025</h2>
+<BlogArticleLayout
+  title="Best Free AI Chatbots in 2025: Top 6 Tested & Ranked | AIChatWindow"
+  displayTitle="Best Free AI Chatbots in 2025: Complete Guide"
+  description="We tested the top 6 free AI chatbots in 2025 — Google Gemini, Perplexity AI, Character.AI, and more. Find the best free ChatGPT alternative for your needs with zero cost."
+  breadcrumbItems={[{ label: 'Home', href: '/' }, { label: 'Blog', href: '/blog' }, { label: 'Best Free AI Chatbots 2025' }]}
+  category="Free Tools"
+  date="January 15, 2025"
+  readTime="10 min read"
+  datePublished="2025-01-15"
+  dateModified="2025-03-01"
+  subtitle="We tested the top free AI chatbots so you don't have to. Here's exactly which free AI tools can replace a $20/month paid subscription — and which can't."
+  heroImage="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop"
+  heroImageAlt="Free AI chatbots have revolutionized access to artificial intelligence in 2025"
+  tocItems={tocItems}
+  keyTakeaways={keyTakeaways}
+  faqItems={faqItems}
+>
+  <ArticleProse>
+        <h2 id="why-free-ai" class="scroll-mt-24">Why Free AI Chatbots Are Game-Changers in 2025</h2>
         
         <div class="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-xl mb-8 border border-green-200">
           <p class="text-lg font-medium text-gray-800 mb-4">💡 <strong>Did You Know?</strong></p>
@@ -105,7 +112,7 @@ import Footer from '../../components/Footer.astro';
           </div>
         </div>
 
-        <h2 id="top-6-free">Top 6 Free AI Chatbots You Should Try</h2>
+        <h2 id="top-6-free" class="scroll-mt-24">Top 6 Free AI Chatbots You Should Try</h2>
 
         <!-- Google Bard Section -->
         <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-8 mb-8">
@@ -237,7 +244,8 @@ import Footer from '../../components/Footer.astro';
           </div>
         </div>
 
-        <!-- Continue with other AI chatbots... -->
+        <h2 id="comparison-table" class="scroll-mt-24">Feature Comparison Table</h2>
+
         <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-8 mb-8 border border-blue-200">
           <h3 class="text-xl font-bold text-gray-900 mb-4">🔥 Quick Comparison: Top 3 Free AI Chatbots</h3>
           <div class="overflow-x-auto">
@@ -274,7 +282,7 @@ import Footer from '../../components/Footer.astro';
           </div>
         </div>
 
-        <h2 id="how-to-choose">How to Choose the Right Free AI Chatbot</h2>
+        <h2 id="how-to-choose" class="scroll-mt-24">How to Choose the Right Free AI Chatbot</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
@@ -295,7 +303,7 @@ import Footer from '../../components/Footer.astro';
           </div>
         </div>
 
-        <h2 id="pro-tips">Pro Tips for Maximum Results</h2>
+        <h2 id="pro-tips" class="scroll-mt-24">Pro Tips for Maximum Results</h2>
 
         <div class="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-8 mb-8 border border-green-200">
           <h3 class="text-xl font-bold text-gray-900 mb-6">🚀 Advanced Strategies</h3>
@@ -346,7 +354,7 @@ import Footer from '../../components/Footer.astro';
 
         <h2>Conclusion</h2>
 
-        <div class="bg-gradient-to-r from-primary-500 to-secondary-500 rounded-xl p-8 text-white mb-8">
+        <div class="bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl p-8 text-white mb-8">
           <h3 class="text-2xl font-bold mb-4">🎉 Your Free AI Journey Starts Now</h3>
           <p class="text-lg opacity-90 mb-6">
             Free AI chatbots in 2025 offer incredible value and capabilities. Whether you need help with research, creative projects, or general assistance, there's a free AI chatbot that can meet your needs.
@@ -369,10 +377,48 @@ import Footer from '../../components/Footer.astro';
 
         <p>The key is to experiment with different platforms and find the ones that best match your workflow and requirements. With these free tools at your disposal, you can harness the power of AI without any financial commitment.</p>
 
-      </article>
+        <h2 id="bottom-line" class="scroll-mt-24">The Bottom Line: Best Free AI Chatbots in 2025</h2>
 
+        <div class="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-8 mb-8 border border-green-200">
+          <h3 class="text-xl font-bold text-gray-900 mb-6">Quick Picks by Use Case</h3>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3 p-3 bg-white rounded-lg">
+              <span class="text-xl">🔍</span>
+              <div><p class="font-semibold text-gray-900 text-sm">Best for Research</p><p class="text-xs text-gray-600"><a href="https://perplexity.ai" target="_blank" rel="noopener" class="text-primary-600 hover:underline">Perplexity AI</a> — real-time answers with citations</p></div>
+            </div>
+            <div class="flex items-start gap-3 p-3 bg-white rounded-lg">
+              <span class="text-xl">💬</span>
+              <div><p class="font-semibold text-gray-900 text-sm">Best All-Around Free</p><p class="text-xs text-gray-600"><a href="https://gemini.google.com" target="_blank" rel="noopener" class="text-primary-600 hover:underline">Google Gemini</a> — no cap, web search included</p></div>
+            </div>
+            <div class="flex items-start gap-3 p-3 bg-white rounded-lg">
+              <span class="text-xl">🎭</span>
+              <div><p class="font-semibold text-gray-900 text-sm">Best for Creative Writing</p><p class="text-xs text-gray-600"><a href="https://character.ai" target="_blank" rel="noopener" class="text-primary-600 hover:underline">Character.AI</a> — 1M+ characters, role-play, storytelling</p></div>
+            </div>
+            <div class="flex items-start gap-3 p-3 bg-white rounded-lg">
+              <span class="text-xl">💻</span>
+              <div><p class="font-semibold text-gray-900 text-sm">Best for Coding (Free)</p><p class="text-xs text-gray-600"><a href="https://chatgpt.com" target="_blank" rel="noopener" class="text-primary-600 hover:underline">ChatGPT Free</a> (GPT-4o mini) — capable code generation</p></div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 mt-6">Not sure which one to choose? Read our <a href="/blog/how-to-choose-right-ai-chatbot" class="text-primary-600 hover:underline">complete AI chatbot selection guide</a> for a step-by-step framework.</p>
+        </div>
+
+        <h2 class="scroll-mt-24">Sources & Further Reading</h2>
+        <ul>
+          <li><a href="https://gemini.google.com" target="_blank" rel="noopener" class="text-primary-600 hover:underline">Google Gemini — Official Page</a></li>
+          <li><a href="https://perplexity.ai" target="_blank" rel="noopener" class="text-primary-600 hover:underline">Perplexity AI — Official Page</a></li>
+          <li><a href="https://character.ai" target="_blank" rel="noopener" class="text-primary-600 hover:underline">Character.AI — Official Page</a></li>
+          <li><a href="https://openai.com/chatgpt/free" target="_blank" rel="noopener" class="text-primary-600 hover:underline">ChatGPT Free Tier — OpenAI</a></li>
+          <li><a href="https://huggingface.co/chat" target="_blank" rel="noopener" class="text-primary-600 hover:underline">Hugging Face Chat — Open-Source Models</a></li>
+          <li><a href="/blog/chatgpt-vs-claude-vs-bard-comparison" class="text-primary-600 hover:underline">ChatGPT vs Claude vs Bard: Full Comparison</a></li>
+          <li><a href="/blog/how-to-choose-right-ai-chatbot" class="text-primary-600 hover:underline">How to Choose the Right AI Chatbot</a></li>
+          <li><a href="/blog/ai-chatbot-privacy-security-guide" class="text-primary-600 hover:underline">AI Chatbot Privacy & Security Guide</a></li>
+        </ul>
+
+  </ArticleProse>
+
+  <Fragment slot="after-content">
       <!-- Author Bio -->
-      <div class="mt-12 p-8 bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl border border-gray-200">
+      <div class="mt-12 p-8 bg-gradient-to-r from-gray-50 to-primary-50 rounded-xl border border-gray-200">
         <div class="flex items-center space-x-6">
           <div class="w-20 h-20 bg-primary-500 rounded-full flex items-center justify-center">
             <span class="text-white font-bold text-2xl">AI</span>
@@ -417,7 +463,7 @@ import Footer from '../../components/Footer.astro';
       </div>
 
       <!-- Newsletter Signup -->
-      <div class="mt-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl p-8 text-white text-center">
+      <div class="mt-16 bg-gradient-to-r from-primary-500 to-accent-500 rounded-2xl p-8 text-white text-center">
         <h3 class="text-2xl font-bold mb-4">🚀 Stay Ahead of the AI Curve</h3>
         <p class="text-lg opacity-90 mb-6 max-w-2xl mx-auto">
           Get weekly updates on the latest free AI tools, exclusive guides, and insider tips delivered to your inbox.
@@ -437,56 +483,5 @@ import Footer from '../../components/Footer.astro';
         </form>
         <p class="text-xs opacity-75 mt-3">No spam, unsubscribe anytime. Join 10,000+ AI enthusiasts.</p>
       </div>
-
-    </div>
-  </main>
-
-  <Footer />
-</Layout>
-
-<style>
-  .prose {
-    @apply text-gray-700 leading-relaxed;
-  }
-  
-  .prose h2 {
-    @apply text-3xl font-bold text-gray-900 mt-16 mb-8 scroll-mt-20;
-  }
-  
-  .prose h3 {
-    @apply text-2xl font-bold text-gray-900 mt-12 mb-6;
-  }
-  
-  .prose h4 {
-    @apply text-xl font-bold text-gray-900 mt-8 mb-4;
-  }
-  
-  .prose p {
-    @apply mb-6 text-lg leading-relaxed;
-  }
-  
-  .prose ul, .prose ol {
-    @apply mb-6 pl-6;
-  }
-  
-  .prose li {
-    @apply mb-2;
-  }
-  
-  .prose strong {
-    @apply font-semibold text-gray-900;
-  }
-
-  .prose table {
-    @apply w-full mb-8;
-  }
-  
-  .prose th, .prose td {
-    @apply text-sm;
-  }
-
-  /* Smooth scrolling for anchor links */
-  html {
-    scroll-behavior: smooth;
-  }
-</style>
+  </Fragment>
+</BlogArticleLayout>

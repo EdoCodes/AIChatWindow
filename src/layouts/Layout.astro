@@ -1,9 +1,17 @@
 ---
 export interface Props {
   title: string;
+  description?: string;
+  canonicalURL?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = 'AIChatWindow - Your gateway to AI chat solutions. Discover free, corporate, and premium AI tools. Compare models side-by-side and find the perfect AI assistant.',
+  canonicalURL,
+} = Astro.props;
+const siteURL = 'https://aichatwindow.com';
+const canonical = canonicalURL ?? (siteURL + Astro.url.pathname);
 ---
 
 <!DOCTYPE html>
@@ -11,7 +19,8 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="google-site-verification" content="wkxFBgTwEZhp_gfBVL0jpbPir7ge1pk8TX4ExD9bZTI" />
-    <meta name="description" content="AIChatWindow - Your gateway to AI chat solutions. Discover free, corporate, and premium AI tools. Compare models side-by-side and find the perfect AI assistant." />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
@@ -20,9 +29,13 @@ const { title } = Astro.props;
     <meta name="keywords" content="AI chat, free AI tools, corporate AI tools, paid AI tools, artificial intelligence, chatbots, AI solutions, AIChatWindow" />
     <meta name="author" content="AIChatWindow" />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content="AIChatWindow - Your gateway to AI chat solutions. Explore free, corporate, and premium AI tools all in one place." />
+    <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="AIChatWindow" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

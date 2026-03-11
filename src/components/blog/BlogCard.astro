@@ -1,0 +1,73 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  excerpt: string;
+  category?: string;
+  date?: string;
+  readTime?: string;
+  image: string;
+  featured?: boolean;
+}
+
+const { slug, title, excerpt, category, date, readTime, image, featured = false } = Astro.props;
+const href = `/blog/${slug}`;
+---
+
+{featured ? (
+  <a href={href} class="block bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl hover:border-primary-200 transition-all duration-300 group">
+    <div class="md:flex">
+      <div class="md:w-1/2 overflow-hidden">
+        <img src={image} alt={title} class="w-full h-64 md:h-full min-h-[256px] object-cover group-hover:scale-105 transition-transform duration-500" />
+      </div>
+      <div class="md:w-1/2 p-8 flex flex-col justify-center">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-semibold rounded-full">Featured</span>
+          {category && (
+            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full">{category}</span>
+          )}
+        </div>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors leading-tight">
+          {title}
+        </h2>
+        <p class="text-gray-600 mb-6 leading-relaxed line-clamp-3">
+          {excerpt}
+        </p>
+        <div class="flex items-center justify-between mt-auto">
+          <span class="text-sm text-gray-500">
+            {date} {date && readTime && '·'} {readTime}
+          </span>
+          <span class="inline-flex items-center text-primary-600 font-medium text-sm group-hover:gap-2 transition-all">
+            Read more
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </a>
+) : (
+  <a href={href} class="block bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden hover:shadow-xl hover:border-primary-200 transition-all duration-300 group">
+    <div class="relative overflow-hidden">
+      <img src={image} alt={title} class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" />
+      {category && (
+        <span class="absolute top-3 left-3 px-2 py-1 bg-white/95 text-gray-800 text-xs font-medium rounded-lg shadow-sm">
+          {category}
+        </span>
+      )}
+    </div>
+    <div class="p-6">
+      <h3 class="font-bold text-lg text-gray-900 mb-3 line-clamp-2 group-hover:text-primary-600 transition-colors">
+        {title}
+      </h3>
+      <p class="text-gray-600 text-sm mb-4 line-clamp-3 leading-relaxed">
+        {excerpt}
+      </p>
+      <div class="flex items-center justify-between text-xs text-gray-500">
+        <span>{date}</span>
+        <span>{readTime}</span>
+      </div>
+    </div>
+  </a>
+)}

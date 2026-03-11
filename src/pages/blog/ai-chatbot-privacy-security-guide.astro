@@ -1,36 +1,88 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import BlogArticleLayout from '../../components/blog/BlogArticleLayout.astro';
+import ArticleProse from '../../components/blog/ArticleProse.astro';
+
+const tocItems = [
+  { id: 'privacy-landscape', label: '1. The Privacy Landscape of AI Chatbots' },
+  { id: 'data-collection', label: '2. Understanding Data Collection' },
+  { id: 'privacy-risks', label: '3. Privacy Risks and Concerns' },
+  { id: 'security-measures', label: '4. Security Measures and Best Practices' },
+  { id: 'privacy-alternatives', label: '5. Privacy-Focused Alternatives' },
+  { id: 'protect-privacy', label: '6. How to Protect Your Privacy' },
+  { id: 'enterprise-security', label: '7. Enterprise Security Considerations' },
+  { id: 'regulatory-landscape', label: '8. Regulatory Landscape' },
+  { id: 'bottom-line', label: '9. The Bottom Line' },
+  { id: 'faq', label: '10. Frequently Asked Questions' },
+];
+
+const keyTakeaways = [
+  '73% of AI chatbots store conversation data indefinitely',
+  'Privacy-first alternatives and enterprise security checklist',
+  'Real-world data breach examples and prevention strategies',
+];
+
+const faqItems = [
+  {
+    question: 'Is it safe to share personal information with AI chatbots?',
+    answer: 'You should treat AI chatbots like a public forum — never share passwords, financial account numbers, Social Security numbers, medical records, or confidential business information. While reputable platforms like ChatGPT, Claude, and Gemini use encryption in transit and at rest, they log conversations by default and may use them to train future models. For everyday questions, general advice, and creative tasks, they are safe to use. The risk is in what you choose to share, not in using them at all.',
+  },
+  {
+    question: 'Does ChatGPT save my conversations?',
+    answer: 'Yes, by default. OpenAI stores your ChatGPT conversations and may use them to train future models. You can opt out via Settings → Data Controls → "Improve the model for everyone" (toggle off). You can also use Temporary Chat mode (no history saved) or delete all conversations from Settings. ChatGPT Enterprise and API access have stronger data isolation guarantees — conversations are not used for training by default.',
+  },
+  {
+    question: 'Which AI chatbot is the most private?',
+    answer: 'For maximum privacy: (1) DuckDuckGo AI Chat routes queries through DuckDuckGo\'s servers anonymously and does not share data with AI providers. (2) Local LLMs (Ollama, LM Studio, GPT4All) run entirely on your device — zero data leaves your computer. (3) Mistral AI (mistral.ai) has strong European data privacy commitments under GDPR. Among mainstream tools, Anthropic\'s Claude has strong privacy commitments and clear opt-out policies.',
+  },
+  {
+    question: 'Can AI chatbots be hacked or have their data breached?',
+    answer: 'AI chatbot platforms are high-value targets, but major breaches of core conversation data have been limited. The primary risks are: account takeover (use strong unique passwords and 2FA), prompt injection attacks (malicious content tricking the AI into revealing information from your context), and third-party plugin breaches (be selective about which integrations you authorize). In March 2023, ChatGPT experienced a brief bug that exposed some users\' payment information — OpenAI patched it within hours. Always use 2FA on your accounts.',
+  },
+  {
+    question: 'How do I delete my AI chatbot conversation history?',
+    answer: 'ChatGPT: Settings → Data Controls → Delete all chats, or toggle "Chat history & training" off. Claude: Settings → Privacy → "Delete all conversations." Google Gemini: myactivity.google.com → filter by Gemini → delete. For most platforms, deleting conversations removes them from your view but the data may persist in backups for 30–90 days per their retention policies. For complete deletion requests, submit a data deletion request via each platform\'s privacy portal.',
+  },
+  {
+    question: 'Are AI chatbots GDPR compliant?',
+    answer: 'The major platforms have taken steps toward GDPR compliance: OpenAI offers a Data Processing Agreement (DPA) for business customers and provides data deletion tools. Anthropic offers DPAs for Claude for Work customers. Google Gemini for Google Workspace has EU data residency options. However, GDPR compliance is not automatic — you must ensure your usage complies (obtain appropriate consent, sign DPAs, don\'t process special categories of personal data through free-tier tools). The EU\'s AI Act will add additional requirements from 2026.',
+  },
+  {
+    question: 'What information should I never share with an AI chatbot?',
+    answer: 'Never share: passwords or PINs, bank account or credit card numbers, Social Security / national ID numbers, medical diagnoses or prescription details, legal case details (attorney-client privilege), confidential business strategies or trade secrets, private login credentials, or personal data of others without their consent. Use a test account or anonymized data when evaluating AI tools for business use.',
+  },
+  {
+    question: 'Can my employer see my AI chatbot conversations?',
+    answer: 'If you use an employer-provided device or a company-licensed AI tool (like Microsoft Copilot through your company\'s Microsoft 365 tenant), your employer may have access to your conversations — check your company\'s IT and AI use policies. If using your own account on a personal device, your employer cannot see your conversations. However, if you input confidential company data, the AI provider\'s privacy policy applies. Many companies now have AI acceptable-use policies — follow them.',
+  },
+  {
+    question: 'What is the most secure AI chatbot for business use?',
+    answer: 'For business use, prioritize platforms with: SOC 2 Type II certification, a signed Data Processing Agreement (DPA), encryption at rest and in transit, opt-out from model training by default, and audit logging. Top options: Microsoft Azure OpenAI Service (enterprise-grade, no training on your data), Anthropic Claude for Work, Google Gemini for Workspace, and IBM Watson Assistant. For sensitive regulated industries (healthcare, finance, legal), use a private deployment on your own infrastructure when possible.',
+  },
+  {
+    question: 'Does using AI chatbots comply with HIPAA?',
+    answer: 'Standard consumer AI chatbots (ChatGPT free, Claude free, Gemini free) are NOT HIPAA-compliant and should never be used with Protected Health Information (PHI). For HIPAA-compliant AI, you need: a vendor willing to sign a Business Associate Agreement (BAA), data encryption and access controls, audit logging, and data residency guarantees. Options include Microsoft Azure OpenAI (with appropriate setup), Google Vertex AI with HIPAA compliance enabled, or specialty healthcare AI platforms like Nuance or Amazon HealthLake.',
+  },
+];
 ---
 
-<Layout title="AI Chatbot Privacy & Security: What You Need to Know | AIChatWindow">
-  <Header />
-  
-  <main class="min-h-screen bg-white py-12">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
-      
-      <!-- Article Header -->
-      <header class="mb-12">
-        <div class="flex items-center space-x-2 mb-4">
-          <a href="/blog" class="text-primary-600 hover:text-primary-700 text-sm font-medium">← Back to Blog</a>
-        </div>
-        <div class="flex items-center space-x-2 mb-6">
-          <span class="px-3 py-1 bg-red-100 text-red-800 text-xs font-medium rounded-full">Security</span>
-          <span class="text-gray-500 text-sm">January 8, 2025</span>
-          <span class="text-gray-300">•</span>
-          <span class="text-gray-500 text-sm">10 min read</span>
-          <span class="text-gray-300">•</span>
-          <span class="text-gray-500 text-sm">Security Expert</span>
-        </div>
-        <h1 class="text-5xl font-bold text-gray-900 mb-6 leading-tight bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
-          AI Chatbot Privacy & Security: What You Need to Know
-        </h1>
-        <p class="text-xl text-gray-600 leading-relaxed mb-8">
-          Comprehensive guide to AI chatbot privacy and security. Learn how to protect your data 
-          when using AI assistants and choose privacy-focused alternatives that keep your information safe.
-        </p>
-        
+<BlogArticleLayout
+  title="AI Chatbot Privacy & Security Guide 2025: What Every User Must Know | AIChatWindow"
+  displayTitle="AI Chatbot Privacy & Security: Complete Guide 2025"
+  description="Is your data safe with ChatGPT, Claude, or Gemini? Our AI chatbot privacy guide covers what data they collect, GDPR/HIPAA compliance, how to delete your data, and the most private alternatives."
+  breadcrumbItems={[{ label: 'Home', href: '/' }, { label: 'Blog', href: '/blog' }, { label: 'AI Privacy & Security Guide' }]}
+  category="Security"
+  date="January 8, 2025"
+  readTime="13 min read"
+  datePublished="2025-01-08"
+  dateModified="2025-03-01"
+  subtitle="Is your data actually safe with AI chatbots? We analyzed the privacy policies of ChatGPT, Claude, Gemini, and others so you don't have to. Here's what they collect — and how to protect yourself."
+  heroImage="https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop"
+  heroImageAlt="Protecting your privacy in the age of AI requires understanding the risks and taking proactive measures"
+  tocItems={tocItems}
+  keyTakeaways={keyTakeaways}
+  faqItems={faqItems}
+>
+  <ArticleProse>
         <!-- Security Alert Box -->
         <div class="bg-red-50 border-l-4 border-red-400 p-6 rounded-r-lg mb-8">
           <h3 class="text-lg font-semibold text-red-900 mb-3">🚨 Critical Security Insights</h3>
@@ -41,22 +93,6 @@ import Footer from '../../components/Footer.astro';
             <li>• Real-world data breach examples and prevention</li>
           </ul>
         </div>
-      </header>
-
-      <!-- Featured Image -->
-      <div class="mb-12">
-        <figure>
-          <img 
-            src="https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop" 
-            alt="Digital security shield protecting AI chatbot conversations and data privacy"
-            class="w-full h-64 md:h-96 object-cover rounded-xl shadow-2xl"
-            loading="eager"
-          />
-          <figcaption class="text-center text-sm text-gray-500 mt-3 italic">
-            Protecting your privacy in the age of AI requires understanding the risks and taking proactive measures
-          </figcaption>
-        </figure>
-      </div>
 
       <!-- Privacy Risk Assessment -->
       <div class="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-8 mb-12 border border-orange-200">
@@ -80,31 +116,13 @@ import Footer from '../../components/Footer.astro';
         </div>
       </div>
 
-      <!-- Table of Contents -->
-      <div class="bg-gray-50 rounded-xl p-6 mb-12 border border-gray-200">
-        <h2 class="text-lg font-semibold text-gray-900 mb-4">📋 Table of Contents</h2>
-        <nav class="space-y-2">
-          <a href="#privacy-landscape" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">1. The Privacy Landscape of AI Chatbots</a>
-          <a href="#data-collection" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">2. Understanding Data Collection</a>
-          <a href="#privacy-risks" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">3. Privacy Risks and Concerns</a>
-          <a href="#security-measures" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">4. Security Measures and Best Practices</a>
-          <a href="#privacy-alternatives" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">5. Privacy-Focused Alternatives</a>
-          <a href="#protect-privacy" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">6. How to Protect Your Privacy</a>
-          <a href="#enterprise-security" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">7. Enterprise Security Considerations</a>
-          <a href="#regulatory-landscape" class="block text-primary-600 hover:text-primary-700 text-sm transition-colors">8. Regulatory Landscape</a>
-        </nav>
-      </div>
-
-      <!-- Article Content -->
-      <article class="prose prose-lg max-w-none">
-
-        <h2 id="privacy-landscape" class="scroll-mt-20">The Privacy Landscape of AI Chatbots</h2>
+        <h2 id="privacy-landscape" class="scroll-mt-24">The Privacy Landscape of AI Chatbots</h2>
         
         <p>As AI chatbots become increasingly integrated into our daily lives, understanding their privacy and security implications has never been more critical. From customer service interactions to personal assistants, these AI systems handle vast amounts of sensitive information.</p>
 
         <p>In this comprehensive guide, we'll explore the privacy risks, security measures, and best practices for using AI chatbots safely while maintaining your digital privacy.</p>
 
-        <h2 id="data-collection" class="scroll-mt-20">Understanding Data Collection in AI Chatbots</h2>
+        <h2 id="data-collection" class="scroll-mt-24">Understanding Data Collection in AI Chatbots</h2>
 
         <h3>What Data Do AI Chatbots Collect?</h3>
         
@@ -130,7 +148,7 @@ import Footer from '../../components/Footer.astro';
           <li><strong>Research:</strong> Academic and commercial AI research</li>
         </ol>
 
-        <h2 id="privacy-risks" class="scroll-mt-20">Privacy Risks and Concerns</h2>
+        <h2 id="privacy-risks" class="scroll-mt-24">Privacy Risks and Concerns</h2>
 
         <h3>Data Retention and Storage</h3>
         
@@ -151,7 +169,7 @@ import Footer from '../../components/Footer.astro';
         
         <p>AI chatbot platforms are attractive targets for cybercriminals due to the valuable personal data they contain. Recent incidents have highlighted the importance of robust security measures.</p>
 
-        <h2 id="security-measures" class="scroll-mt-20">Security Measures and Best Practices</h2>
+        <h2 id="security-measures" class="scroll-mt-24">Security Measures and Best Practices</h2>
 
         <h3>Encryption and Data Protection</h3>
         
@@ -175,7 +193,7 @@ import Footer from '../../components/Footer.astro';
           <li>Secure API endpoints</li>
         </ul>
 
-        <h2 id="privacy-alternatives" class="scroll-mt-20">Privacy-Focused AI Chatbot Alternatives</h2>
+        <h2 id="privacy-alternatives" class="scroll-mt-24">Privacy-Focused AI Chatbot Alternatives</h2>
 
         <h3>Open-Source Options</h3>
         
@@ -189,7 +207,7 @@ import Footer from '../../components/Footer.astro';
         
         <p><strong>Brave Leo:</strong> Built-in browser AI with privacy protections.</p>
 
-        <h2 id="protect-privacy" class="scroll-mt-20">How to Protect Your Privacy</h2>
+        <h2 id="protect-privacy" class="scroll-mt-24">How to Protect Your Privacy</h2>
 
         <h3>Before Using Any AI Chatbot</h3>
         
@@ -218,7 +236,7 @@ import Footer from '../../components/Footer.astro';
           <li>Monitor for suspicious activity</li>
         </ul>
 
-        <h2 id="enterprise-security" class="scroll-mt-20">Enterprise Security Considerations</h2>
+        <h2 id="enterprise-security" class="scroll-mt-24">Enterprise Security Considerations</h2>
 
         <h3>Business Data Protection</h3>
         
@@ -240,7 +258,7 @@ import Footer from '../../components/Footer.astro';
           <li><strong>Incident Response:</strong> Plans for security breaches</li>
         </ol>
 
-        <h2 id="regulatory-landscape" class="scroll-mt-20">Regulatory Landscape</h2>
+        <h2 id="regulatory-landscape" class="scroll-mt-24">Regulatory Landscape</h2>
 
         <h3>Current Regulations</h3>
         
@@ -259,7 +277,7 @@ import Footer from '../../components/Footer.astro';
           <li><strong>Right to Opt-Out:</strong> Refuse certain data processing activities</li>
         </ul>
 
-        <h2 id="future-privacy" class="scroll-mt-20">Future of AI Chatbot Privacy</h2>
+        <h2 id="future-privacy" class="scroll-mt-24">Future of AI Chatbot Privacy</h2>
 
         <h3>Emerging Technologies</h3>
         
@@ -281,7 +299,7 @@ import Footer from '../../components/Footer.astro';
           <li>Standardized privacy certifications</li>
         </ul>
 
-        <h2 id="faq" class="scroll-mt-20">People Also Ask</h2>
+        <h2 id="faq" class="scroll-mt-24">People Also Ask</h2>
 
         <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-8">
           <div class="mb-6">
@@ -305,7 +323,7 @@ import Footer from '../../components/Footer.astro';
           </div>
         </div>
 
-        <h2 id="conclusion" class="scroll-mt-20">Conclusion</h2>
+        <h2 id="conclusion" class="scroll-mt-24">Conclusion</h2>
 
         <div class="bg-gradient-to-r from-red-50 to-orange-50 rounded-xl p-8 mb-8 border border-red-200">
           <h3 class="text-xl font-bold text-gray-900 mb-4">🔒 Key Takeaways for Safe AI Chatbot Usage</h3>
@@ -329,8 +347,42 @@ import Footer from '../../components/Footer.astro';
 
         <p>As AI technology continues to evolve, so too must our approach to privacy and security. By staying informed and taking proactive steps, we can enjoy the benefits of AI chatbots while maintaining control over our personal data.</p>
 
-      </article>
+        <h2 id="bottom-line" class="scroll-mt-24">The Bottom Line: AI Chatbot Privacy in 2025</h2>
 
+        <div class="bg-red-50 border border-red-200 rounded-xl p-8 mb-8">
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Privacy Risk Levels by Platform</h3>
+          <div class="space-y-3">
+            <div class="flex items-center gap-4 p-3 bg-white rounded-lg">
+              <span class="w-20 text-center text-xs font-bold bg-red-100 text-red-800 py-1 px-2 rounded-full">HIGH RISK</span>
+              <p class="text-sm text-gray-700">Free tiers of ChatGPT, Claude, Gemini (train on your data by default). Never use for sensitive information without opting out.</p>
+            </div>
+            <div class="flex items-center gap-4 p-3 bg-white rounded-lg">
+              <span class="w-20 text-center text-xs font-bold bg-yellow-100 text-yellow-800 py-1 px-2 rounded-full">MED RISK</span>
+              <p class="text-sm text-gray-700">Paid tiers with opt-outs configured (ChatGPT Plus, Claude Pro, Gemini Advanced). Reasonable for general professional use.</p>
+            </div>
+            <div class="flex items-center gap-4 p-3 bg-white rounded-lg">
+              <span class="w-20 text-center text-xs font-bold bg-green-100 text-green-800 py-1 px-2 rounded-full">LOW RISK</span>
+              <p class="text-sm text-gray-700">Enterprise agreements with DPA (<a href="https://azure.microsoft.com/en-us/products/ai-services/openai-service" target="_blank" rel="noopener" class="text-primary-600 hover:underline">Azure OpenAI</a>, Claude for Work), local LLMs via <a href="https://ollama.com" target="_blank" rel="noopener" class="text-primary-600 hover:underline">Ollama</a>, or <a href="https://duckduckgo.com/aichat" target="_blank" rel="noopener" class="text-primary-600 hover:underline">DuckDuckGo AI Chat</a>.</p>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 mt-6">For enterprise deployment guidance, see our <a href="/blog/enterprise-ai-chatbot-implementation-guide" class="text-primary-600 hover:underline">Enterprise AI Chatbot Implementation Guide</a>.</p>
+        </div>
+
+        <h2 class="scroll-mt-24">Sources & Further Reading</h2>
+        <ul>
+          <li><a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener" class="text-primary-600 hover:underline">OpenAI Privacy Policy</a></li>
+          <li><a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener" class="text-primary-600 hover:underline">Anthropic (Claude) Privacy Policy</a></li>
+          <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="text-primary-600 hover:underline">Google Privacy Policy (covering Gemini)</a></li>
+          <li><a href="https://gdpr.eu/what-is-gdpr/" target="_blank" rel="noopener" class="text-primary-600 hover:underline">GDPR.eu — What is GDPR?</a></li>
+          <li><a href="https://www.hhs.gov/hipaa/index.html" target="_blank" rel="noopener" class="text-primary-600 hover:underline">HHS — HIPAA Official Information</a></li>
+          <li><a href="https://ollama.com" target="_blank" rel="noopener" class="text-primary-600 hover:underline">Ollama — Run LLMs Locally (Privacy-First)</a></li>
+          <li><a href="/blog/enterprise-ai-chatbot-implementation-guide" class="text-primary-600 hover:underline">Enterprise AI Chatbot Implementation Guide</a></li>
+          <li><a href="/blog/how-to-choose-right-ai-chatbot" class="text-primary-600 hover:underline">How to Choose the Right AI Chatbot</a></li>
+        </ul>
+
+  </ArticleProse>
+
+  <Fragment slot="after-content">
       <!-- Author Bio -->
       <div class="mt-12 p-8 bg-gradient-to-r from-gray-50 to-red-50 rounded-xl border border-gray-200">
         <div class="flex items-center space-x-6">
@@ -397,48 +449,5 @@ import Footer from '../../components/Footer.astro';
         </form>
         <p class="text-xs opacity-75 mt-3">No spam, unsubscribe anytime. Join 8,000+ security-conscious users.</p>
       </div>
-
-    </div>
-  </main>
-
-  <Footer />
-</Layout>
-
-<style>
-  .prose {
-    @apply text-gray-700 leading-relaxed;
-  }
-
-  .prose h2 {
-    @apply text-3xl font-bold text-gray-900 mt-16 mb-8 scroll-mt-20;
-  }
-
-  .prose h3 {
-    @apply text-2xl font-bold text-gray-900 mt-12 mb-6;
-  }
-
-  .prose h4 {
-    @apply text-xl font-bold text-gray-900 mt-8 mb-4;
-  }
-
-  .prose p {
-    @apply mb-6 text-lg leading-relaxed;
-  }
-
-  .prose ul, .prose ol {
-    @apply mb-6 pl-6;
-  }
-
-  .prose li {
-    @apply mb-2;
-  }
-
-  .prose strong {
-    @apply font-semibold text-gray-900;
-  }
-
-  /* Smooth scrolling for anchor links */
-  html {
-    scroll-behavior: smooth;
-  }
-</style>
+  </Fragment>
+</BlogArticleLayout>

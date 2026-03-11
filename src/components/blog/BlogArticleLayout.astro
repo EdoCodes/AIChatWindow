@@ -1,0 +1,206 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../Header.astro';
+import Footer from '../Footer.astro';
+
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title: string;
+  displayTitle?: string;
+  description?: string;
+  breadcrumbItems: { label: string; href?: string }[];
+  category?: string;
+  date?: string;
+  readTime?: string;
+  subtitle?: string;
+  heroImage?: string;
+  heroImageAlt?: string;
+  tocItems?: { id: string; label: string }[];
+  keyTakeaways?: string[];
+  faqItems?: FaqItem[];
+  author?: string;
+  datePublished?: string;
+  dateModified?: string;
+}
+
+const {
+  title,
+  displayTitle,
+  description,
+  breadcrumbItems,
+  category,
+  date,
+  readTime,
+  subtitle,
+  heroImage,
+  heroImageAlt = '',
+  tocItems = [],
+  keyTakeaways = [],
+  faqItems = [],
+  author = 'AIChatWindow Expert Team',
+  datePublished,
+  dateModified,
+} = Astro.props;
+const heading = displayTitle ?? title;
+
+const siteURL = 'https://aichatwindow.com';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: heading,
+  description: description ?? subtitle ?? '',
+  author: { '@type': 'Organization', name: author },
+  publisher: {
+    '@type': 'Organization',
+    name: 'AIChatWindow',
+    url: siteURL,
+  },
+  ...(heroImage ? { image: heroImage } : {}),
+  ...(datePublished ? { datePublished } : {}),
+  ...(dateModified ? { dateModified } : {}),
+  mainEntityOfPage: { '@type': 'WebPage', '@id': siteURL },
+};
+
+const faqSchema = faqItems.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+} : null;
+---
+
+<Layout title={title} description={description ?? subtitle ?? ''}>
+  <Header />
+  <main class="min-h-screen bg-white">
+    <!-- Breadcrumb + Hero strip -->
+    <div class="bg-gradient-to-r from-primary-600 via-primary-700 to-accent-600 text-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+        <nav class="flex items-center gap-2 text-sm flex-wrap" aria-label="Breadcrumb">
+          {breadcrumbItems.map((item, i) => [
+            i > 0 ? <span class="text-primary-200">›</span> : null,
+            item.href ? <a href={item.href} class="text-primary-100 hover:text-white transition-colors">{item.label}</a> : <span class="text-white font-semibold">{item.label}</span>
+          ])}
+        </nav>
+      </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <!-- Article header -->
+      <header class="mb-12">
+        <div class="flex flex-wrap items-center gap-2 mb-6">
+          {category && (
+            <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-semibold rounded-full uppercase tracking-wide">
+              {category}
+            </span>
+          )}
+          {(date || readTime) && (
+            <span class="text-gray-500 text-sm flex items-center gap-2">
+              {date && <time datetime={datePublished}>{date}</time>}
+              {date && readTime && <span class="text-gray-300">•</span>}
+              {readTime && <span>{readTime}</span>}
+            </span>
+          )}
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6 tracking-tight">
+          {heading}
+        </h1>
+        {subtitle && (
+          <p class="text-xl text-gray-600 leading-relaxed mb-6">
+            {subtitle}
+          </p>
+        )}
+        {keyTakeaways.length > 0 && (
+          <div class="bg-primary-50 border-l-4 border-primary-500 p-6 rounded-r-xl mb-8">
+            <h3 class="text-lg font-semibold text-gray-900 mb-3">What you'll learn</h3>
+            <ul class="text-gray-700 space-y-2 text-sm">
+              {keyTakeaways.map((item) => (
+                <li class="flex items-start gap-2"><span class="text-primary-600 mt-0.5">•</span>{item}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </header>
+
+      <!-- Hero image -->
+      {heroImage && (
+        <figure class="mb-12">
+          <img
+            src={heroImage}
+            alt={heroImageAlt}
+            class="w-full h-64 md:h-96 object-cover rounded-2xl shadow-xl"
+            loading="eager"
+          />
+          {heroImageAlt && (
+            <figcaption class="text-center text-sm text-gray-500 mt-3 italic">{heroImageAlt}</figcaption>
+          )}
+        </figure>
+      )}
+
+      <!-- Two-column: TOC + content -->
+      <div class="flex flex-col lg:flex-row gap-12">
+        {tocItems.length > 0 && (
+          <aside class="lg:w-64 flex-shrink-0 lg:sticky lg:top-24 lg:self-start">
+            <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+              <h2 class="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">Table of Contents</h2>
+              <nav class="space-y-2">
+                {tocItems.map((item) => (
+                  <a
+                    href={`#${item.id}`}
+                    class="block text-sm text-primary-600 hover:text-primary-700 hover:underline transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          </aside>
+        )}
+        <div class="flex-1 min-w-0">
+          <slot />
+
+          <!-- FAQ / People Also Ask -->
+          {faqItems.length > 0 && (
+            <section id="faq" class="mt-16">
+              <h2 class="text-3xl font-bold text-gray-900 mb-2 scroll-mt-24">Frequently Asked Questions</h2>
+              <p class="text-gray-500 text-sm mb-8">People also ask about this topic</p>
+              <div class="space-y-4">
+                {faqItems.map((item, i) => (
+                  <details class="group bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                      <h3 class="text-base font-semibold text-gray-900 pr-4">{item.question}</h3>
+                      <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-700 leading-relaxed border-t border-gray-100 pt-4">
+                      {item.answer}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </section>
+          )}
+
+          <slot name="after-content" />
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<!-- Structured Data: Article -->
+<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
+<!-- Structured Data: FAQ -->
+{faqSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+)}

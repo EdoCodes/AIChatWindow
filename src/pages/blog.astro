@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import BlogCard from '../components/blog/BlogCard.astro';
 
 const blogPosts = [
   {
@@ -85,15 +86,19 @@ const categories = ['All', 'Free Tools', 'Comparisons', 'Enterprise', 'Security'
   <main class="min-h-screen bg-gradient-to-br from-gray-50 to-white py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
       
-      <!-- Blog Header -->
-      <div class="text-center mb-12">
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">
-          AI Chatbot Blog
-        </h1>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-          Stay updated with the latest AI chatbot news, in-depth reviews, comparisons, 
-          and expert guides to help you navigate the world of artificial intelligence.
-        </p>
+      <!-- Blog Header - Redesigned -->
+      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary-600 via-primary-700 to-accent-600 p-10 md:p-14 mb-14 text-white shadow-xl">
+        <div class="relative z-10">
+          <span class="inline-block px-4 py-1.5 bg-white/25 rounded-full text-sm font-bold mb-4 backdrop-blur-sm border border-white/30">✨ News & Guides</span>
+          <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
+            AI Chatbot Blog
+          </h1>
+          <p class="text-lg md:text-xl text-primary-100 max-w-2xl leading-relaxed">
+            Latest AI chatbot news, in-depth reviews, comparisons, and expert guides 
+            to help you navigate the world of artificial intelligence.
+          </p>
+        </div>
+        <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-white/10 rounded-full blur-3xl" aria-hidden="true"></div>
       </div>
 
       <!-- Category Filter -->
@@ -114,96 +119,41 @@ const categories = ['All', 'Free Tools', 'Comparisons', 'Enterprise', 'Security'
 
       <!-- Featured Post -->
       <div class="mb-16">
-        <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
-          <div class="md:flex">
-            <div class="md:w-1/2">
-              <img 
-                src={blogPosts[0].image} 
-                alt={blogPosts[0].title}
-                class="w-full h-64 md:h-full object-cover"
-              />
-            </div>
-            <div class="md:w-1/2 p-8">
-              <div class="flex items-center space-x-2 mb-4">
-                <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-medium rounded-full">
-                  Featured
-                </span>
-                <span class="px-3 py-1 bg-gray-100 text-gray-800 text-xs font-medium rounded-full">
-                  {blogPosts[0].category}
-                </span>
-              </div>
-              <h2 class="text-2xl font-bold text-gray-900 mb-4">
-                <a href={`/blog/${blogPosts[0].slug}`} class="hover:text-primary-600 transition-colors">
-                  {blogPosts[0].title}
-                </a>
-              </h2>
-              <p class="text-gray-600 mb-6 leading-relaxed">
-                {blogPosts[0].excerpt}
-              </p>
-              <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-4 text-sm text-gray-500">
-                  <span>{blogPosts[0].date}</span>
-                  <span>•</span>
-                  <span>{blogPosts[0].readTime}</span>
-                  <span>•</span>
-                  <span>{blogPosts[0].author}</span>
-                </div>
-                <a 
-                  href={`/blog/${blogPosts[0].slug}`}
-                  class="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-sm font-medium"
-                >
-                  Read More
-                  <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <BlogCard
+          slug={blogPosts[0].slug}
+          title={blogPosts[0].title}
+          excerpt={blogPosts[0].excerpt}
+          category={blogPosts[0].category}
+          date={blogPosts[0].date}
+          readTime={blogPosts[0].readTime}
+          image={blogPosts[0].image}
+          featured={true}
+        />
       </div>
 
       <!-- Blog Posts Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-        {blogPosts.slice(1).map(post => (
-          <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300 group">
-            <div class="relative">
-              <img 
-                src={post.image} 
-                alt={post.title}
-                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              <div class="absolute top-3 left-3">
-                <span class="px-2 py-1 bg-white bg-opacity-90 text-gray-800 text-xs font-medium rounded-full">
-                  {post.category}
-                </span>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="font-bold text-lg text-gray-900 mb-3 line-clamp-2">
-                <a href={`/blog/${post.slug}`} class="hover:text-primary-600 transition-colors">
-                  {post.title}
-                </a>
-              </h3>
-              <p class="text-gray-600 text-sm mb-4 line-clamp-3">
-                {post.excerpt}
-              </p>
-              <div class="flex items-center justify-between text-xs text-gray-500">
-                <span>{post.date}</span>
-                <span>{post.readTime}</span>
-              </div>
-            </div>
-          </article>
+        {blogPosts.slice(1).map((post) => (
+          <BlogCard
+            slug={post.slug}
+            title={post.title}
+            excerpt={post.excerpt}
+            category={post.category}
+            date={post.date}
+            readTime={post.readTime}
+            image={post.image}
+          />
         ))}
       </div>
 
-      <!-- Newsletter Signup -->
-      <div class="bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl p-8 text-white text-center">
-        <h2 class="text-2xl font-bold mb-4">Stay Updated with AI Trends</h2>
-        <p class="text-lg opacity-90 mb-6 max-w-2xl mx-auto">
+      <!-- Newsletter Signup - Redesigned -->
+      <div class="relative overflow-hidden bg-gradient-to-br from-primary-600 via-accent-500 to-primary-700 rounded-2xl p-10 text-white text-center shadow-2xl">
+        <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" aria-hidden="true"></div>
+        <h2 class="text-2xl md:text-3xl font-bold mb-4 relative z-10">Stay Updated with AI Trends</h2>
+        <p class="text-lg text-primary-100 mb-6 max-w-2xl mx-auto relative z-10">
           Get the latest AI chatbot news, reviews, and guides delivered to your inbox weekly.
         </p>
-        <form class="max-w-md mx-auto flex gap-3">
+        <form class="max-w-md mx-auto flex gap-3 relative z-10">
           <input 
             type="email" 
             placeholder="Enter your email"
