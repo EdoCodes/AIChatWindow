@@ -55,6 +55,12 @@ export async function GET() {
     
     // Blog posts
     {
+      url: '/blog/ai-chatbots-corporate-world-2026',
+      changefreq: 'monthly',
+      priority: '0.9',
+      lastmod: '2026-03-10'
+    },
+    {
       url: '/blog/best-free-ai-chatbots-2025',
       changefreq: 'monthly',
       priority: '0.8',
@@ -94,7 +100,7 @@ export async function GET() {
       url: '/blog/proprofs-chat-comprehensive-review-2025',
       changefreq: 'monthly',
       priority: '0.8',
-      lastmod: '2025-01-20'
+      lastmod: '2026-03-10'
     },
 
     // Additional important pages
