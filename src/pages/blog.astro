@@ -86,29 +86,27 @@ const categories = ['All', 'Free Tools', 'Comparisons', 'Enterprise', 'Security'
   <main class="min-h-screen bg-gradient-to-br from-gray-50 to-white py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
       
-      <!-- Blog Header - Redesigned -->
-      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary-600 via-primary-700 to-accent-600 p-10 md:p-14 mb-14 text-white shadow-xl">
-        <div class="relative z-10">
-          <span class="inline-block px-4 py-1.5 bg-white/25 rounded-full text-sm font-bold mb-4 backdrop-blur-sm border border-white/30">✨ News & Guides</span>
-          <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
+      <!-- Blog Header -->
+      <div class="rounded-xl bg-gray-900 px-8 py-10 md:px-12 mb-12 text-white">
+        <div>
+          <span class="inline-block px-3 py-1 bg-blue-600 rounded text-xs font-semibold mb-4 uppercase tracking-wide">News & Guides</span>
+          <h1 class="text-3xl md:text-4xl font-bold mb-3 tracking-tight">
             AI Chatbot Blog
           </h1>
-          <p class="text-lg md:text-xl text-primary-100 max-w-2xl leading-relaxed">
-            Latest AI chatbot news, in-depth reviews, comparisons, and expert guides 
-            to help you navigate the world of artificial intelligence.
+          <p class="text-base text-gray-400 max-w-2xl leading-relaxed">
+            In-depth AI chatbot reviews, comparisons, and expert guides to help you choose the right AI tools.
           </p>
         </div>
-        <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-white/10 rounded-full blur-3xl" aria-hidden="true"></div>
       </div>
 
       <!-- Category Filter -->
-      <div class="flex flex-wrap justify-center gap-3 mb-12">
+      <div class="flex flex-wrap justify-center gap-2 mb-10">
         {categories.map(category => (
           <button 
-            class={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 ${
+            class={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${
               category === 'All' 
-                ? 'bg-black text-white' 
-                : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-100'
+                ? 'bg-gray-900 text-white' 
+                : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 hover:border-gray-300'
             }`}
             onclick={`filterPosts('${category}')`}
           >
@@ -146,22 +144,21 @@ const categories = ['All', 'Free Tools', 'Comparisons', 'Enterprise', 'Security'
         ))}
       </div>
 
-      <!-- Newsletter Signup - Redesigned -->
-      <div class="relative overflow-hidden bg-gradient-to-br from-primary-600 via-accent-500 to-primary-700 rounded-2xl p-10 text-white text-center shadow-2xl">
-        <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" aria-hidden="true"></div>
-        <h2 class="text-2xl md:text-3xl font-bold mb-4 relative z-10">Stay Updated with AI Trends</h2>
-        <p class="text-lg text-primary-100 mb-6 max-w-2xl mx-auto relative z-10">
+      <!-- Newsletter Signup -->
+      <div class="bg-gray-900 rounded-xl px-8 py-8 text-white text-center">
+        <h2 class="text-xl font-bold mb-2">Stay Updated with AI Trends</h2>
+        <p class="text-sm text-gray-400 mb-5 max-w-lg mx-auto">
           Get the latest AI chatbot news, reviews, and guides delivered to your inbox weekly.
         </p>
-        <form class="max-w-md mx-auto flex gap-3 relative z-10">
+        <form class="max-w-sm mx-auto flex gap-2">
           <input 
             type="email" 
-            placeholder="Enter your email"
-            class="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+            placeholder="Your email address"
+            class="flex-1 px-3 py-2 rounded-lg text-gray-900 text-sm focus:outline-none"
           />
           <button 
             type="submit"
-            class="px-6 py-3 bg-white text-primary-600 rounded-lg hover:bg-gray-100 transition-colors font-medium"
+            class="px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap"
           >
             Subscribe
           </button>

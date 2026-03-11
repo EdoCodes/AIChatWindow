@@ -88,60 +88,51 @@ const faqItems = [
 >
   <ArticleProse>
         <!-- Rating Box -->
-        <div class="bg-gradient-to-r from-green-50 to-blue-50 border-l-4 border-green-400 p-6 rounded-r-lg mb-8">
+        <div class="border-l-4 border-green-500 bg-gray-50 p-5 rounded-r-lg mb-8">
           <div class="flex items-center justify-between mb-4">
-            <h3 class="text-lg font-semibold text-green-900">⭐ Overall Rating</h3>
-            <div class="flex items-center space-x-2">
-              <div class="flex space-x-1">
-                {[1,2,3,4,5].map(() => (
-                  <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-              <span class="text-xl font-bold text-green-700">4.6/5</span>
-            </div>
+            <h3 class="text-base font-semibold text-gray-900">Overall Rating</h3>
+            <span class="text-xl font-bold text-gray-900">4.6 / 5</span>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-            <div class="text-center">
-              <div class="font-bold text-green-700">Excellent</div>
-              <div class="text-green-600">Features & Functionality</div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
+            <div class="text-center p-2 bg-white rounded-lg border border-gray-200">
+              <div class="font-bold text-gray-900 text-sm">Excellent</div>
+              <div class="text-xs text-gray-500">Features &amp; Functionality</div>
             </div>
-            <div class="text-center">
-              <div class="font-bold text-blue-700">Outstanding</div>
-              <div class="text-blue-600">Ease of Use</div>
+            <div class="text-center p-2 bg-white rounded-lg border border-gray-200">
+              <div class="font-bold text-gray-900 text-sm">Outstanding</div>
+              <div class="text-xs text-gray-500">Ease of Use</div>
             </div>
-            <div class="text-center">
-              <div class="font-bold text-purple-700">Superior</div>
-              <div class="text-purple-600">Customer Support</div>
+            <div class="text-center p-2 bg-white rounded-lg border border-gray-200">
+              <div class="font-bold text-gray-900 text-sm">Superior</div>
+              <div class="text-xs text-gray-500">Customer Support</div>
             </div>
           </div>
         </div>
 
       <!-- Quick Summary -->
-      <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-8 mb-12">
-        <h2 class="text-2xl font-bold text-gray-900 mb-6">📋 Quick Summary</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-white rounded-lg border border-gray-200 p-5 mb-10">
+        <h2 class="text-base font-bold text-gray-900 mb-4">Quick Summary</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h3 class="font-semibold text-gray-900 mb-4">✅ Key Strengths</h3>
-            <ul class="space-y-2 text-gray-700">
-              <li>• Comprehensive live chat platform with advanced features</li>
-              <li>• Easy setup and intuitive interface</li>
-              <li>• Robust customization options</li>
-              <li>• Mobile apps for iOS and Android</li>
-              <li>• Excellent customer support and training</li>
-              <li>• Advanced analytics and reporting capabilities</li>
-              <li>• Multi-language support</li>
-              <li>• Seamless integrations with popular tools</li>
+            <h3 class="text-sm font-semibold text-gray-800 mb-3">Key Strengths</h3>
+            <ul class="space-y-1.5 text-sm text-gray-700">
+              <li>Comprehensive live chat with advanced features</li>
+              <li>Easy setup and intuitive interface</li>
+              <li>Robust customization options</li>
+              <li>Mobile apps for iOS and Android</li>
+              <li>Excellent customer support and training</li>
+              <li>Advanced analytics and reporting</li>
+              <li>Multi-language support</li>
+              <li>Seamless integrations with popular tools</li>
             </ul>
           </div>
           <div>
-            <h3 class="font-semibold text-gray-900 mb-4">⚠️ Considerations</h3>
-            <ul class="space-y-2 text-gray-700">
-              <li>• Primarily focused on live chat (not AI chatbots)</li>
-              <li>• Requires human agents for operation</li>
-              <li>• Best suited for businesses with dedicated support teams</li>
-              <li>• Learning curve for advanced features</li>
+            <h3 class="text-sm font-semibold text-gray-800 mb-3">Considerations</h3>
+            <ul class="space-y-1.5 text-sm text-gray-700">
+              <li>Primarily focused on live chat (not AI chatbots)</li>
+              <li>Requires human agents for operation</li>
+              <li>Best suited for businesses with dedicated support teams</li>
+              <li>Learning curve for advanced features</li>
             </ul>
           </div>
         </div>

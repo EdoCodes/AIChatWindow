@@ -7,162 +7,137 @@ import Footer from '../components/Footer.astro';
 <Layout title="Free AI Tools - AIChatWindow">
   <Header />
   
-  <main class="min-h-screen bg-gradient-to-br from-gray-50 to-white py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+  <main class="min-h-screen bg-gray-50 py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
       
       <!-- Page Header -->
-      <div class="text-center mb-12">
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">
-          Free AI Chat Tools
-        </h1>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-          Discover powerful AI chat tools that are completely free to use. 
-          No registration required, no hidden costs - just start chatting!
+      <div class="mb-10">
+        <h1 class="text-3xl font-bold text-gray-900 mb-2">Free AI Chat Tools</h1>
+        <p class="text-base text-gray-500">
+          Powerful AI chat tools that are completely free. No registration, no hidden costs.
         </p>
       </div>
 
       <!-- Free Tools Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
         
         <!-- Google Bard -->
-        <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300">
+        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition-all duration-200">
           <div class="relative">
-            <img src="https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Google Bard" class="w-full h-48 object-cover">
-            <div class="absolute top-3 right-3">
-              <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
-                Free
-              </span>
+            <img src="https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Google Gemini" class="w-full h-40 object-cover">
+            <div class="absolute top-2 right-2">
+              <span class="px-2 py-0.5 bg-green-100 text-green-800 text-xs font-semibold rounded">Free</span>
             </div>
           </div>
-          <div class="p-6">
-            <h3 class="font-bold text-lg text-gray-900 mb-2">Google Bard</h3>
-            <p class="text-gray-600 text-sm mb-4">
-              Google's experimental AI chatbot powered by LaMDA. Great for creative writing and brainstorming.
+          <div class="p-4">
+            <h3 class="font-bold text-base text-gray-900 mb-1">Google Gemini</h3>
+            <p class="text-gray-500 text-xs mb-3">
+              Google's AI chatbot with real-time web search. Great for research and brainstorming.
             </p>
             <div class="flex items-center justify-between">
-              <span class="text-sm text-gray-500">50M+ users</span>
-              <a href="https://bard.google.com" target="_blank" class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
-                Try Now
+              <span class="text-xs text-gray-400">50M+ users</span>
+              <a href="https://bard.google.com" target="_blank" class="px-3 py-1.5 bg-blue-600 text-white text-xs font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+                Try Free
               </a>
             </div>
           </div>
         </div>
 
         <!-- Perplexity AI -->
-        <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300">
+        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition-all duration-200">
           <div class="relative">
-            <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Perplexity AI" class="w-full h-48 object-cover">
-            <div class="absolute top-3 right-3">
-              <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
-                Free
-              </span>
+            <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Perplexity AI" class="w-full h-40 object-cover">
+            <div class="absolute top-2 right-2">
+              <span class="px-2 py-0.5 bg-green-100 text-green-800 text-xs font-semibold rounded">Free</span>
             </div>
           </div>
-          <div class="p-6">
-            <h3 class="font-bold text-lg text-gray-900 mb-2">Perplexity AI</h3>
-            <p class="text-gray-600 text-sm mb-4">
-              AI-powered search engine with real-time web sources and citations for accurate answers.
-            </p>
+          <div class="p-4">
+            <h3 class="font-bold text-base text-gray-900 mb-1">Perplexity AI</h3>
+            <p class="text-gray-500 text-xs mb-3">AI-powered search with real-time web sources and citations for accurate answers.</p>
             <div class="flex items-center justify-between">
-              <span class="text-sm text-gray-500">5M+ users</span>
-              <a href="https://perplexity.ai" target="_blank" class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
-                Try Now
+              <span class="text-xs text-gray-400">5M+ users</span>
+              <a href="https://perplexity.ai" target="_blank" class="px-3 py-1.5 bg-blue-600 text-white text-xs font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+                Try Free
               </a>
             </div>
           </div>
         </div>
 
         <!-- Character.AI -->
-        <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300">
+        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition-all duration-200">
           <div class="relative">
-            <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Character.AI" class="w-full h-48 object-cover">
-            <div class="absolute top-3 right-3">
-              <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
-                Free
-              </span>
+            <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Character.AI" class="w-full h-40 object-cover">
+            <div class="absolute top-2 right-2">
+              <span class="px-2 py-0.5 bg-green-100 text-green-800 text-xs font-semibold rounded">Free</span>
             </div>
           </div>
-          <div class="p-6">
-            <h3 class="font-bold text-lg text-gray-900 mb-2">Character.AI</h3>
-            <p class="text-gray-600 text-sm mb-4">
-              Create and chat with AI characters. Perfect for creative writing and roleplay.
-            </p>
+          <div class="p-4">
+            <h3 class="font-bold text-base text-gray-900 mb-1">Character.AI</h3>
+            <p class="text-gray-500 text-xs mb-3">Create and chat with AI characters. Perfect for creative writing and roleplay.</p>
             <div class="flex items-center justify-between">
-              <span class="text-sm text-gray-500">20M+ users</span>
-              <a href="https://character.ai" target="_blank" class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
-                Try Now
+              <span class="text-xs text-gray-400">20M+ users</span>
+              <a href="https://character.ai" target="_blank" class="px-3 py-1.5 bg-blue-600 text-white text-xs font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+                Try Free
               </a>
             </div>
           </div>
         </div>
 
         <!-- Hugging Face Chat -->
-        <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300">
+        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition-all duration-200">
           <div class="relative">
-            <img src="https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Hugging Face Chat" class="w-full h-48 object-cover">
-            <div class="absolute top-3 right-3">
-              <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
-                Free
-              </span>
+            <img src="https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Hugging Face Chat" class="w-full h-40 object-cover">
+            <div class="absolute top-2 right-2">
+              <span class="px-2 py-0.5 bg-green-100 text-green-800 text-xs font-semibold rounded">Free</span>
             </div>
           </div>
-          <div class="p-6">
-            <h3 class="font-bold text-lg text-gray-900 mb-2">Hugging Face Chat</h3>
-            <p class="text-gray-600 text-sm mb-4">
-              Open-source AI models including DialoGPT, BlenderBot, and more for free.
-            </p>
+          <div class="p-4">
+            <h3 class="font-bold text-base text-gray-900 mb-1">Hugging Face Chat</h3>
+            <p class="text-gray-500 text-xs mb-3">Open-source AI models including Mistral, Llama, and more for free.</p>
             <div class="flex items-center justify-between">
-              <span class="text-sm text-gray-500">2M+ users</span>
-              <a href="https://huggingface.co/chat" target="_blank" class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
-                Try Now
+              <span class="text-xs text-gray-400">2M+ users</span>
+              <a href="https://huggingface.co/chat" target="_blank" class="px-3 py-1.5 bg-blue-600 text-white text-xs font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+                Try Free
               </a>
             </div>
           </div>
         </div>
 
         <!-- Poe by Quora -->
-        <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300">
+        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition-all duration-200">
           <div class="relative">
-            <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Poe by Quora" class="w-full h-48 object-cover">
-            <div class="absolute top-3 right-3">
-              <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
-                Free
-              </span>
+            <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Poe by Quora" class="w-full h-40 object-cover">
+            <div class="absolute top-2 right-2">
+              <span class="px-2 py-0.5 bg-green-100 text-green-800 text-xs font-semibold rounded">Free</span>
             </div>
           </div>
-          <div class="p-6">
-            <h3 class="font-bold text-lg text-gray-900 mb-2">Poe by Quora</h3>
-            <p class="text-gray-600 text-sm mb-4">
-              Access multiple AI models including GPT-4, Claude, and others in one platform.
-            </p>
+          <div class="p-4">
+            <h3 class="font-bold text-base text-gray-900 mb-1">Poe by Quora</h3>
+            <p class="text-gray-500 text-xs mb-3">Access GPT-4, Claude, and other AI models in one unified platform.</p>
             <div class="flex items-center justify-between">
-              <span class="text-sm text-gray-500">10M+ users</span>
-              <a href="https://poe.com" target="_blank" class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
-                Try Now
+              <span class="text-xs text-gray-400">10M+ users</span>
+              <a href="https://poe.com" target="_blank" class="px-3 py-1.5 bg-blue-600 text-white text-xs font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+                Try Free
               </a>
             </div>
           </div>
         </div>
 
         <!-- You.com -->
-        <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300">
+        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition-all duration-200">
           <div class="relative">
-            <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="You.com" class="w-full h-48 object-cover">
-            <div class="absolute top-3 right-3">
-              <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
-                Free
-              </span>
+            <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="You.com" class="w-full h-40 object-cover">
+            <div class="absolute top-2 right-2">
+              <span class="px-2 py-0.5 bg-green-100 text-green-800 text-xs font-semibold rounded">Free</span>
             </div>
           </div>
-          <div class="p-6">
-            <h3 class="font-bold text-lg text-gray-900 mb-2">You.com</h3>
-            <p class="text-gray-600 text-sm mb-4">
-              AI-powered search engine with chat capabilities and real-time information.
-            </p>
+          <div class="p-4">
+            <h3 class="font-bold text-base text-gray-900 mb-1">You.com</h3>
+            <p class="text-gray-500 text-xs mb-3">AI-powered search with chat capabilities and real-time information.</p>
             <div class="flex items-center justify-between">
-              <span class="text-sm text-gray-500">3M+ users</span>
-              <a href="https://you.com" target="_blank" class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
-                Try Now
+              <span class="text-xs text-gray-400">3M+ users</span>
+              <a href="https://you.com" target="_blank" class="px-3 py-1.5 bg-blue-600 text-white text-xs font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+                Try Free
               </a>
             </div>
           </div>
@@ -171,35 +146,41 @@ import Footer from '../components/Footer.astro';
       </div>
 
       <!-- Features Section -->
-      <div class="bg-white rounded-xl shadow-lg p-8 mb-12">
-        <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Why Choose Free AI Tools?</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="text-center">
-            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div class="bg-white rounded-lg border border-gray-200 p-6 mb-10">
+        <h2 class="text-lg font-semibold text-gray-900 mb-5">Why Choose Free AI Tools?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h3 class="font-semibold text-gray-900 mb-2">No Cost</h3>
-            <p class="text-gray-600 text-sm">Access powerful AI without any subscription fees or hidden costs.</p>
+            <div>
+              <h3 class="font-semibold text-gray-900 text-sm mb-1">No Cost</h3>
+              <p class="text-gray-500 text-xs">Access powerful AI without any subscription fees.</p>
+            </div>
           </div>
-          <div class="text-center">
-            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <h3 class="font-semibold text-gray-900 mb-2">Instant Access</h3>
-            <p class="text-gray-600 text-sm">Start chatting immediately without lengthy registration processes.</p>
+            <div>
+              <h3 class="font-semibold text-gray-900 text-sm mb-1">Instant Access</h3>
+              <p class="text-gray-500 text-xs">Start chatting immediately without registration.</p>
+            </div>
           </div>
-          <div class="text-center">
-            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 class="font-semibold text-gray-900 mb-2">No Commitment</h3>
-            <p class="text-gray-600 text-sm">Try different tools without any long-term commitments or contracts.</p>
+            <div>
+              <h3 class="font-semibold text-gray-900 text-sm mb-1">No Commitment</h3>
+              <p class="text-gray-500 text-xs">Try tools without long-term contracts.</p>
+            </div>
           </div>
         </div>
       </div>

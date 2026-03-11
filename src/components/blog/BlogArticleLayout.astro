@@ -436,40 +436,79 @@ const extendedFaqItems = faqItems.slice(5);
   /* ─── Tables ─── */
   .content table {
     width: 100% !important;
-    border-collapse: separate !important;
+    border-collapse: collapse !important;
     border-spacing: 0 !important;
-    margin: 32px 0 !important;
-    font-size: 15px !important;
-    border-radius: 10px !important;
+    margin: 28px 0 !important;
+    font-size: 14px !important;
+    border-radius: 8px !important;
     overflow: hidden !important;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.07) !important;
+    box-shadow: none !important;
     border: 1px solid #e5e7eb !important;
   }
-  .content thead { background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%) !important; }
+  .content thead { background: #1e293b !important; }
   .content th {
-    padding: 14px 18px !important;
+    padding: 11px 16px !important;
     text-align: left !important;
-    font-weight: 700 !important;
-    color: #ffffff !important;
-    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #f1f5f9 !important;
+    font-size: 12px !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.5px !important;
+    letter-spacing: 0.06em !important;
     border: none !important;
     background: transparent !important;
   }
   .content tbody tr:nth-child(odd) { background-color: #ffffff !important; }
-  .content tbody tr:nth-child(even) { background-color: #f8fafc !important; }
-  .content tbody tr:hover { background-color: #eef6ff !important; }
+  .content tbody tr:nth-child(even) { background-color: #f9fafb !important; }
+  .content tbody tr:hover { background-color: #f0f7ff !important; transition: background 0.15s; }
   .content td {
-    padding: 13px 18px !important;
+    padding: 11px 16px !important;
     border: none !important;
-    border-bottom: 1px solid #e5e7eb !important;
+    border-bottom: 1px solid #f3f4f6 !important;
     color: #374151 !important;
     line-height: 1.5 !important;
     background: transparent !important;
+    vertical-align: middle !important;
   }
-  .content td:first-child { font-weight: 600 !important; color: #1f2937 !important; }
+  .content td:first-child { font-weight: 600 !important; color: #111827 !important; }
   .content tr:last-child td { border-bottom: none !important; }
+
+  /* ─── Table Wrapper — strip gradient backgrounds ─── */
+  .content .overflow-x-auto { border-radius: 8px; overflow: hidden; }
+
+  /* ─── Inline Callout Boxes ─── */
+  .content [class*="bg-gradient-to-r"],
+  .content [class*="bg-gradient-to-br"] {
+    background: #f8fafc !important;
+    border: 1px solid #e5e7eb !important;
+  }
+
+  /* ─── Action Buttons inside content ─── */
+  .content a[class*="bg-primary"],
+  .content a[class*="bg-blue-"],
+  .content a[href][class*="rounded-lg"][class*="text-white"],
+  .content a[href][class*="rounded-xl"][class*="text-white"] {
+    padding: 7px 14px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    border-radius: 6px !important;
+    box-shadow: none !important;
+    letter-spacing: 0 !important;
+    background: #2563eb !important;
+    color: #fff !important;
+  }
+  .content a[class*="bg-primary"]:hover,
+  .content a[class*="bg-blue-"]:hover,
+  .content a[href][class*="rounded-lg"][class*="text-white"]:hover,
+  .content a[href][class*="rounded-xl"][class*="text-white"]:hover {
+    background: #1d4ed8 !important;
+  }
+
+  /* ─── Feature/Stat cards in content — compact ─── */
+  .content .shadow-lg { box-shadow: 0 1px 4px rgba(0,0,0,0.06) !important; }
+  .content .shadow-md { box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important; }
+  .content .shadow-sm { box-shadow: 0 1px 2px rgba(0,0,0,0.04) !important; }
+  .content .rounded-3xl { border-radius: 12px !important; }
+  .content .rounded-2xl { border-radius: 10px !important; }
 
   /* ─── People Also Ask ─── */
   .paa-section { margin: 56px 0 40px; }
