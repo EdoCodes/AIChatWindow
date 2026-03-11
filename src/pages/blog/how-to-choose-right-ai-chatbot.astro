@@ -1,6 +1,7 @@
 ---
 import BlogArticleLayout from '../../components/blog/BlogArticleLayout.astro';
 import ArticleProse from '../../components/blog/ArticleProse.astro';
+import BlogAfterContent from '../../components/blog/BlogAfterContent.astro';
 
 const tocItems = [
   { id: 'decision-framework', label: '1. The AI Decision Framework' },
@@ -506,71 +507,13 @@ const faqItems = [
   </ArticleProse>
 
   <Fragment slot="after-content">
-      <!-- Author Bio -->
-      <div class="mt-12 p-8 bg-gradient-to-r from-gray-50 to-primary-50 rounded-xl border border-gray-200">
-        <div class="flex items-center space-x-6">
-          <div class="w-20 h-20 bg-primary-500 rounded-full flex items-center justify-center">
-            <span class="text-white font-bold text-2xl">AI</span>
-          </div>
-          <div>
-            <h4 class="text-xl font-bold text-gray-900 mb-2">AIChatWindow Expert Team</h4>
-            <p class="text-gray-600 mb-3">AI selection experts who have evaluated hundreds of chatbots to help users make informed decisions about AI tools. Our systematic testing methodology ensures reliable recommendations.</p>
-            <div class="flex space-x-4 text-sm text-gray-500">
-              <span>📊 100+ Tools Tested</span>
-              <span>⭐ 4.9/5 Expert Rating</span>
-              <span>🔄 Updated Weekly</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Related Articles -->
-      <div class="mt-16">
-        <h3 class="text-3xl font-bold text-gray-900 mb-8 text-center">📚 Related Articles</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <a href="/blog/best-free-ai-chatbots-2025" class="group block bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300">
-            <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop" alt="Best Free AI Chatbots" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
-            <div class="p-6">
-              <h4 class="font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">Best Free AI Chatbots in 2025</h4>
-              <p class="text-gray-600 text-sm">Discover the top free AI chatbots available right now without spending a dime.</p>
-              <div class="mt-4 flex items-center text-primary-600 text-sm font-medium">
-                Read More <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-              </div>
-            </div>
-          </a>
-          <a href="/blog/enterprise-ai-chatbot-implementation-guide" class="group block bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300">
-            <img src="https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop" alt="Enterprise Implementation" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
-            <div class="p-6">
-              <h4 class="font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">Enterprise AI Implementation Guide</h4>
-              <p class="text-gray-600 text-sm">Complete guide to implementing AI chatbots in enterprise environments.</p>
-              <div class="mt-4 flex items-center text-primary-600 text-sm font-medium">
-                Read More <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <!-- Newsletter Signup -->
-      <div class="mt-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-2xl p-8 text-white text-center">
-        <h3 class="text-2xl font-bold mb-4">🎯 Get AI Selection Tips</h3>
-        <p class="text-lg opacity-90 mb-6 max-w-2xl mx-auto">
-          Receive expert AI chatbot recommendations, comparison guides, and selection strategies to help you choose the perfect AI tool for your needs.
-        </p>
-        <form class="max-w-md mx-auto flex gap-3">
-          <input
-            type="email"
-            placeholder="Enter your email"
-            class="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
-          />
-          <button
-            type="submit"
-            class="px-6 py-3 bg-white text-green-600 rounded-lg hover:bg-gray-100 transition-colors font-medium"
-          >
-            Subscribe Free
-          </button>
-        </form>
-        <p class="text-xs opacity-75 mt-3">No spam, unsubscribe anytime. Join 5,000+ readers.</p>
-      </div>
+    <BlogAfterContent
+      relatedArticles={[
+        { href: '/blog/best-free-ai-chatbots-2025', title: 'Best Free AI Chatbots in 2025', description: 'Top free AI chatbots tested — no subscription needed.', image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop' },
+        { href: '/blog/chatgpt-vs-claude-vs-bard-comparison', title: 'ChatGPT vs Claude vs Gemini', description: '100+ tests across the three leading AI chatbots.', image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop' },
+      ]}
+      newsletterHeading="Get AI Tool Recommendations"
+      newsletterSubtitle="Weekly comparisons, guides, and expert picks for the best AI tools — free."
+    />
   </Fragment>
 </BlogArticleLayout>

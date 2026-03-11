@@ -1,6 +1,7 @@
 ---
 import BlogArticleLayout from '../../components/blog/BlogArticleLayout.astro';
 import ArticleProse from '../../components/blog/ArticleProse.astro';
+import BlogAfterContent from '../../components/blog/BlogAfterContent.astro';
 
 const tocItems = [
   { id: 'privacy-landscape', label: '1. The Privacy Landscape of AI Chatbots' },
@@ -383,71 +384,13 @@ const faqItems = [
   </ArticleProse>
 
   <Fragment slot="after-content">
-      <!-- Author Bio -->
-      <div class="mt-12 p-8 bg-gradient-to-r from-gray-50 to-red-50 rounded-xl border border-gray-200">
-        <div class="flex items-center space-x-6">
-          <div class="w-20 h-20 bg-primary-500 rounded-full flex items-center justify-center">
-            <span class="text-white font-bold text-2xl">AI</span>
-          </div>
-          <div>
-            <h4 class="text-xl font-bold text-gray-900 mb-2">AIChatWindow Security Team</h4>
-            <p class="text-gray-600 mb-3">Privacy and security experts dedicated to helping users navigate AI technology safely and responsibly. Our team monitors the latest security threats and privacy developments.</p>
-            <div class="flex space-x-4 text-sm text-gray-500">
-              <span>🔒 30+ Security Audits</span>
-              <span>⭐ 4.8/5 Reader Trust</span>
-              <span>📊 Weekly Updates</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Related Articles -->
-      <div class="mt-16">
-        <h3 class="text-3xl font-bold text-gray-900 mb-8 text-center">📚 Related Security Guides</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <a href="/blog/enterprise-ai-chatbot-implementation-guide" class="group block bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300">
-            <img src="https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop" alt="Enterprise implementation" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
-            <div class="p-6">
-              <h4 class="font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">Enterprise AI Chatbot Implementation Guide</h4>
-              <p class="text-gray-600 text-sm">Learn how to implement AI chatbots with enterprise-grade security and compliance.</p>
-              <div class="mt-4 flex items-center text-primary-600 text-sm font-medium">
-                Read Guide <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-              </div>
-            </div>
-          </a>
-          <a href="/blog/how-to-choose-right-ai-chatbot" class="group block bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300">
-            <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop" alt="Choosing AI chatbot" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
-            <div class="p-6">
-              <h4 class="font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">How to Choose the Right AI Chatbot</h4>
-              <p class="text-gray-600 text-sm">Comprehensive guide including security and privacy considerations for selection.</p>
-              <div class="mt-4 flex items-center text-primary-600 text-sm font-medium">
-                Read More <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <!-- Newsletter Signup -->
-      <div class="mt-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl p-8 text-white text-center">
-        <h3 class="text-2xl font-bold mb-4">🔐 Stay Protected with Security Updates</h3>
-        <p class="text-lg opacity-90 mb-6 max-w-2xl mx-auto">
-          Get weekly security alerts, privacy tips, and the latest AI safety news delivered to your inbox.
-        </p>
-        <form class="max-w-md mx-auto flex gap-3">
-          <input
-            type="email"
-            placeholder="Enter your email"
-            class="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
-          />
-          <button
-            type="submit"
-            class="px-6 py-3 bg-white text-red-600 rounded-lg hover:bg-gray-100 transition-colors font-medium"
-          >
-            Subscribe Free
-          </button>
-        </form>
-        <p class="text-xs opacity-75 mt-3">No spam, unsubscribe anytime. Join 8,000+ security-conscious users.</p>
-      </div>
+    <BlogAfterContent
+      relatedArticles={[
+        { href: '/blog/enterprise-ai-chatbot-implementation-guide', title: 'Enterprise AI Chatbot Implementation Guide', description: 'Compliance checklist, platform comparison, and ROI framework.', image: 'https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop' },
+        { href: '/blog/how-to-choose-right-ai-chatbot', title: 'How to Choose the Right AI Chatbot', description: 'Step-by-step selection guide including privacy and security scoring.', image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop' },
+      ]}
+      newsletterHeading="AI Privacy & Security Updates"
+      newsletterSubtitle="Weekly alerts on AI data practices, policy changes, and security vulnerabilities."
+    />
   </Fragment>
 </BlogArticleLayout>
