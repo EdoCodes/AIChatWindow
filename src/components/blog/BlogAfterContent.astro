@@ -62,13 +62,16 @@ const {
 
 <!-- Newsletter Signup -->
 <section class="newsletter-section">
-  <h3 class="newsletter-heading">{newsletterHeading}</h3>
-  <p class="newsletter-subtitle">{newsletterSubtitle}</p>
-  <form class="newsletter-form">
-    <input type="email" placeholder="Your email address" class="newsletter-input" />
-    <button type="submit" class="newsletter-btn">Subscribe Free</button>
-  </form>
-  <p class="newsletter-note">No spam. Unsubscribe any time.</p>
+  <div class="newsletter-inner">
+    <div class="newsletter-text">
+      <h3 class="newsletter-heading">{newsletterHeading}</h3>
+      <p class="newsletter-subtitle">{newsletterSubtitle}</p>
+    </div>
+    <form class="newsletter-form">
+      <input type="email" placeholder="Enter your email" class="newsletter-input" />
+      <button type="submit" class="newsletter-btn">Subscribe Free</button>
+    </form>
+  </div>
 </section>
 
 <style>
@@ -203,50 +206,69 @@ const {
   /* ─── Newsletter ─── */
   .newsletter-section {
     margin-top: 64px;
-    padding: 40px;
-    background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
-    border-radius: 12px;
-    text-align: center;
-    color: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
   }
+  .newsletter-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 32px;
+    padding: 32px 36px;
+    background: #f8fafc;
+  }
+  @media (max-width: 640px) {
+    .newsletter-inner {
+      grid-template-columns: 1fr;
+      padding: 24px 20px;
+      gap: 20px;
+    }
+  }
+  .newsletter-text {}
   .newsletter-heading {
-    font-size: 24px;
+    font-size: 17px;
     font-weight: 800;
-    margin: 0 0 10px 0;
+    margin: 0 0 6px 0;
+    color: #0f172a;
     font-family: 'Inter', sans-serif;
     letter-spacing: -0.02em;
   }
   .newsletter-subtitle {
-    font-size: 15px;
-    opacity: 0.85;
-    margin: 0 0 24px 0;
-    max-width: 460px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.6;
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.55;
     font-family: 'Inter', sans-serif;
   }
   .newsletter-form {
     display: flex;
-    gap: 10px;
-    max-width: 420px;
-    margin: 0 auto 12px;
+    gap: 8px;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  @media (max-width: 640px) {
+    .newsletter-form { width: 100%; }
   }
   .newsletter-input {
-    flex: 1;
-    padding: 11px 16px;
+    padding: 9px 14px;
     border-radius: 8px;
-    border: none;
-    font-size: 14px;
+    border: 1px solid #d1d5db;
+    font-size: 13px;
     font-family: 'Inter', sans-serif;
     color: #111827;
     outline: none;
+    background: #fff;
+    width: 200px;
+    transition: border-color 0.2s;
   }
+  .newsletter-input:focus { border-color: #2563eb; }
+  @media (max-width: 640px) { .newsletter-input { flex: 1; width: auto; } }
   .newsletter-btn {
-    padding: 11px 20px;
-    background: #ffffff;
-    color: #1d4ed8;
-    font-size: 14px;
+    padding: 9px 16px;
+    background: #1d4ed8;
+    color: #fff;
+    font-size: 13px;
     font-weight: 700;
     border: none;
     border-radius: 8px;
@@ -255,12 +277,9 @@ const {
     transition: background 0.2s;
     white-space: nowrap;
   }
-  .newsletter-btn:hover { background: #eff6ff; }
+  .newsletter-btn:hover { background: #1e40af; }
   .newsletter-note {
-    font-size: 12px;
-    opacity: 0.7;
-    margin: 0;
-    font-family: 'Inter', sans-serif;
+    display: none;
   }
 
   /* Responsive */

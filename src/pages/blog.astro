@@ -62,7 +62,7 @@ const blogPosts = [
     date: '2025-01-05',
     readTime: '9 min read',
     category: 'Trends',
-    image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop',
+    image: 'https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop',
     author: 'AIChatWindow Team'
   },
   {
@@ -72,7 +72,7 @@ const blogPosts = [
     date: '2025-01-03',
     readTime: '11 min read',
     category: 'Guides',
-    image: 'https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop',
+    image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop',
     author: 'AIChatWindow Team'
   }
 ];
@@ -145,24 +145,35 @@ const categories = ['All', 'Free Tools', 'Comparisons', 'Enterprise', 'Security'
       </div>
 
       <!-- Newsletter Signup -->
-      <div class="bg-gray-900 rounded-xl px-8 py-8 text-white text-center">
-        <h2 class="text-xl font-bold mb-2">Stay Updated with AI Trends</h2>
-        <p class="text-sm text-gray-400 mb-5 max-w-lg mx-auto">
-          Get the latest AI chatbot news, reviews, and guides delivered to your inbox weekly.
-        </p>
-        <form class="max-w-sm mx-auto flex gap-2">
-          <input 
-            type="email" 
-            placeholder="Your email address"
-            class="flex-1 px-3 py-2 rounded-lg text-gray-900 text-sm focus:outline-none"
-          />
-          <button 
-            type="submit"
-            class="px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap"
-          >
-            Subscribe
-          </button>
-        </form>
+      <div class="border border-gray-200 rounded-2xl overflow-hidden mb-8">
+        <div class="bg-white px-8 py-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-1">Weekly Newsletter</p>
+            <h2 class="text-lg font-bold text-gray-900 mb-1">Stay Updated with AI Trends</h2>
+            <p class="text-sm text-gray-500 max-w-sm">
+              The latest AI chatbot reviews, comparisons, and guides — delivered every week.
+            </p>
+          </div>
+          <form class="flex gap-2 flex-shrink-0">
+            <input 
+              type="email" 
+              placeholder="Your email address"
+              class="px-4 py-2.5 rounded-lg border border-gray-200 text-gray-900 text-sm focus:outline-none focus:border-blue-400 w-52"
+            />
+            <button 
+              type="submit"
+              class="px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+        <div class="bg-gray-50 border-t border-gray-100 px-8 py-3 flex items-center gap-2">
+          <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+          <p class="text-xs text-gray-400">No spam. Unsubscribe at any time. Your data is never shared.</p>
+        </div>
       </div>
 
     </div>

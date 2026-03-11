@@ -12,62 +12,266 @@ interface Props {
 
 const { slug, title, excerpt, category, date, readTime, image, featured = false } = Astro.props;
 const href = `/blog/${slug}`;
+
+function formatDate(dateStr?: string) {
+  if (!dateStr) return '';
+  const d = new Date(dateStr);
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
 ---
 
 {featured ? (
-  <a href={href} class="block bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl hover:border-primary-200 transition-all duration-300 group">
-    <div class="md:flex">
-      <div class="md:w-1/2 overflow-hidden">
-        <img src={image} alt={title} class="w-full h-64 md:h-full min-h-[256px] object-cover group-hover:scale-105 transition-transform duration-500" />
+  <a href={href} class="featured-card group">
+    <div class="featured-image-wrap">
+      <img src={image} alt={title} class="featured-img" loading="eager" />
+      <div class="featured-overlay"></div>
+      {category && <span class="featured-cat">{category}</span>}
+    </div>
+    <div class="featured-body">
+      <div class="featured-meta">
+        <span class="featured-badge">Featured</span>
+        <span class="featured-dot">·</span>
+        <span>{formatDate(date)}</span>
+        {readTime && <><span class="featured-dot">·</span><span>{readTime}</span></>}
       </div>
-      <div class="md:w-1/2 p-8 flex flex-col justify-center">
-        <div class="flex items-center gap-2 mb-4">
-          <span class="px-3 py-1 bg-primary-100 text-primary-800 text-xs font-semibold rounded-full">Featured</span>
-          {category && (
-            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full">{category}</span>
-          )}
-        </div>
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors leading-tight">
-          {title}
-        </h2>
-        <p class="text-gray-600 mb-6 leading-relaxed line-clamp-3">
-          {excerpt}
-        </p>
-        <div class="flex items-center justify-between mt-auto">
-          <span class="text-sm text-gray-500">
-            {date} {date && readTime && '·'} {readTime}
-          </span>
-          <span class="inline-flex items-center text-primary-600 font-medium text-sm group-hover:gap-2 transition-all">
-            Read more
-            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </span>
-        </div>
-      </div>
+      <h2 class="featured-title">{title}</h2>
+      <p class="featured-excerpt">{excerpt}</p>
+      <span class="featured-cta">
+        Read article
+        <svg class="cta-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </span>
     </div>
   </a>
 ) : (
-  <a href={href} class="block bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden hover:shadow-xl hover:border-primary-200 transition-all duration-300 group">
-    <div class="relative overflow-hidden">
-      <img src={image} alt={title} class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" />
-      {category && (
-        <span class="absolute top-3 left-3 px-2 py-1 bg-white/95 text-gray-800 text-xs font-medium rounded-lg shadow-sm">
-          {category}
-        </span>
-      )}
+  <a href={href} class="post-card group">
+    <div class="post-image-wrap">
+      <img src={image} alt={title} class="post-img" loading="lazy" />
+      {category && <span class="post-cat">{category}</span>}
     </div>
-    <div class="p-6">
-      <h3 class="font-bold text-lg text-gray-900 mb-3 line-clamp-2 group-hover:text-primary-600 transition-colors">
-        {title}
-      </h3>
-      <p class="text-gray-600 text-sm mb-4 line-clamp-3 leading-relaxed">
-        {excerpt}
-      </p>
-      <div class="flex items-center justify-between text-xs text-gray-500">
-        <span>{date}</span>
-        <span>{readTime}</span>
+    <div class="post-body">
+      <h3 class="post-title">{title}</h3>
+      <p class="post-excerpt">{excerpt}</p>
+      <div class="post-footer">
+        <span class="post-date">{formatDate(date)}</span>
+        {readTime && <span class="post-read">{readTime}</span>}
       </div>
     </div>
   </a>
 )}
+
+<style>
+  /* ─── Featured Card ─── */
+  .featured-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+    text-decoration: none;
+    transition: box-shadow 0.25s, transform 0.25s;
+  }
+  .featured-card:hover {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.10);
+    transform: translateY(-2px);
+  }
+  @media (max-width: 768px) {
+    .featured-card { grid-template-columns: 1fr; }
+  }
+  .featured-image-wrap {
+    position: relative;
+    overflow: hidden;
+    min-height: 280px;
+  }
+  .featured-img {
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  .featured-card:hover .featured-img { transform: scale(1.04); }
+  .featured-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .featured-cat {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(255,255,255,0.92);
+    color: #111827;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+  }
+  .featured-body {
+    padding: 36px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+  }
+  @media (max-width: 768px) {
+    .featured-body { padding: 24px; }
+  }
+  .featured-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .featured-badge {
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 3px 8px;
+    border-radius: 5px;
+  }
+  .featured-dot { color: #d1d5db; }
+  .featured-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.3;
+    margin: 0 0 14px 0;
+    letter-spacing: -0.02em;
+    transition: color 0.2s;
+  }
+  .featured-card:hover .featured-title { color: #1d4ed8; }
+  .featured-excerpt {
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.65;
+    margin: 0 0 24px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .featured-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1d4ed8;
+    letter-spacing: 0.01em;
+  }
+  .cta-arrow {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.2s;
+  }
+  .featured-card:hover .cta-arrow { transform: translateX(3px); }
+
+  /* ─── Regular Post Card ─── */
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+    text-decoration: none;
+    transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+  }
+  .post-card:hover {
+    box-shadow: 0 8px 28px rgba(0,0,0,0.09);
+    transform: translateY(-3px);
+    border-color: #bfdbfe;
+  }
+  .post-image-wrap {
+    position: relative;
+    overflow: hidden;
+    height: 196px;
+  }
+  .post-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.45s ease;
+  }
+  .post-card:hover .post-img { transform: scale(1.05); }
+  .post-cat {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(255,255,255,0.93);
+    color: #1d4ed8;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 3px 8px;
+    border-radius: 5px;
+    backdrop-filter: blur(4px);
+  }
+  .post-body {
+    padding: 20px 22px 18px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .post-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.45;
+    margin: 0 0 10px 0;
+    letter-spacing: -0.01em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 0.2s;
+  }
+  .post-card:hover .post-title { color: #1d4ed8; }
+  .post-excerpt {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0 0 16px 0;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .post-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid #f3f4f6;
+  }
+  .post-date {
+    font-size: 12px;
+    color: #9ca3af;
+    font-weight: 500;
+  }
+  .post-read {
+    font-size: 12px;
+    color: #9ca3af;
+    font-weight: 500;
+    background: #f3f4f6;
+    padding: 2px 8px;
+    border-radius: 99px;
+  }
+</style>
