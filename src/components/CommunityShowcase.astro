@@ -1,463 +1,187 @@
 ---
 ---
 
-<section class="py-24 bg-gradient-to-br from-gray-50 to-blue-50">
+<section class="py-20 bg-gray-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
-    <div class="text-center mb-16">
-      <div class="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full mb-6">
-        <span class="text-sm font-semibold text-blue-900">Popular AI Tools</span>
-      </div>
-      <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">From the Community</h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Discover the most popular AI chat tools and platforms used by millions worldwide.
-        From free alternatives to enterprise solutions.
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">Loyalty Program Guides</h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        In-depth guides to help you earn more, tier up faster, and maximize every stay
       </p>
     </div>
 
-    <!-- Filter Controls -->
-    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-4">
-      <!-- Category Tabs -->
-      <div class="flex flex-wrap gap-3">
-        <button class="px-6 py-3 bg-blue-600 text-white rounded-xl text-sm font-semibold transition-all duration-200 hover:bg-blue-700 shadow-lg hover:shadow-xl">
-          All Tools (24)
-        </button>
-        <button class="px-6 py-3 bg-white text-gray-700 rounded-xl text-sm font-semibold hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 border-2 border-gray-200 hover:border-blue-200">
-          Free Tools (12)
-        </button>
-        <button class="px-6 py-3 bg-white text-gray-700 rounded-xl text-sm font-semibold hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 border-2 border-gray-200 hover:border-blue-200">
-          Premium (8)
-        </button>
-        <button class="px-6 py-3 bg-white text-gray-700 rounded-xl text-sm font-semibold hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 border-2 border-gray-200 hover:border-blue-200">
-          Enterprise (4)
-        </button>
-      </div>
+    <!-- Article Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-      <!-- Sort Dropdown -->
-      <div class="flex items-center space-x-3">
-        <span class="text-sm font-medium text-gray-600">Sort by:</span>
-        <select class="px-4 py-2.5 bg-white border-2 border-gray-200 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-          <option>Most Popular</option>
-          <option>Recently Added</option>
-          <option>Highest Rated</option>
-          <option>Free First</option>
-        </select>
-      </div>
-    </div>
-
-    <!-- Featured Tools Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-12">
-      
-      <!-- ChatGPT -->
-      <div class="bg-white rounded-2xl shadow-lg border-2 border-gray-200 overflow-hidden hover:shadow-2xl hover:border-blue-200 transition-all duration-300 group">
+      <!-- Card 1 -->
+      <article class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
         <div class="relative">
-          <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="ChatGPT Interface" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-          <div class="absolute top-3 right-3 flex gap-2">
-            <span class="px-3 py-1 bg-green-500 text-white text-xs font-semibold rounded-full shadow-lg">
-              Premium
-            </span>
-            <span class="px-3 py-1 bg-blue-500 text-white text-xs font-semibold rounded-full shadow-lg">
-              Popular
-            </span>
-          </div>
-          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-full">
-            <div class="flex items-center space-x-1">
-              {[1,2,3,4,5].map(() => (
-                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
-              <span class="text-white text-sm font-semibold ml-1">4.8</span>
-            </div>
-          </div>
+          <img src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Luxury hotel rooftop" class="w-full h-64 object-cover">
         </div>
         <div class="p-6">
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="font-bold text-lg text-gray-900">ChatGPT</h3>
-            <span class="text-sm text-gray-500 font-medium">OpenAI</span>
-          </div>
-          <p class="text-gray-600 text-sm mb-5 line-clamp-2 leading-relaxed">
-            The most advanced AI chatbot with GPT-4 technology. Perfect for conversations, writing, coding, and creative tasks.
+          <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold uppercase tracking-wide rounded-sm mb-3">
+            Complete Guide
+          </span>
+          <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">
+            Frasers Hospitality Rewards: Complete Guide to the World's Premier Serviced Residence Loyalty Program 2026
+          </h3>
+          <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+            The complete guide to Frasers Hospitality Rewards — the loyalty program for Fraser Suites, Fraser Place, Fraser Residence, Capri by Fraser...
           </p>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-              <span class="text-xs text-gray-500 font-medium">100M+ users</span>
-              <span class="text-xs text-gray-300">•</span>
-              <span class="text-xs text-gray-500 font-medium">$20/mo</span>
-            </div>
-            <a href="https://chat.openai.com" target="_blank" class="px-5 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-all duration-200 shadow-md hover:shadow-lg">
-              Try Now
-            </a>
+          <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+            <span>FrequentStayer Editorial</span>
+            <span>Mar 4, 2026</span>
           </div>
+          <a href="#" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+            View program details
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
         </div>
-      </div>
+      </article>
 
-      <!-- Claude -->
-      <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 group">
+      <!-- Card 2 -->
+      <article class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
         <div class="relative">
-          <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Claude AI Interface" class="w-full h-48 object-cover">
-          <div class="absolute top-3 right-3 flex gap-2">
-            <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded-full">
-              Premium
-            </span>
-          </div>
-          <div class="absolute bottom-3 left-3">
-            <div class="flex items-center space-x-1">
-              {[1,2,3,4,5].map(() => (
-                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
-              <span class="text-white text-sm font-medium ml-1">4.7</span>
-            </div>
-          </div>
+          <img src="https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Fine dining experience" class="w-full h-64 object-cover">
         </div>
         <div class="p-6">
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="font-bold text-lg text-gray-900">Claude</h3>
-            <span class="text-sm text-gray-500">by Anthropic</span>
-          </div>
-          <p class="text-gray-600 text-sm mb-4 line-clamp-2">
-            Constitutional AI assistant focused on being helpful, harmless, and honest. Excellent for analysis and reasoning.
+          <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold uppercase tracking-wide rounded-sm mb-3">
+            Complete Guide
+          </span>
+          <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">
+            Club One Las Vegas: Complete Guide to the Circa, The D & Golden Gate Loyalty Program 2026
+          </h3>
+          <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+            The complete guide to Club One — the unified loyalty program for Circa Resort & Casino, The D Las Vegas, and Golden Gate Hotel & Casino in downtown Las Vegas. Learn about tier levels...
           </p>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-              <span class="text-xs text-gray-500">10M+ users</span>
-              <span class="text-xs text-gray-300">•</span>
-              <span class="text-xs text-gray-500">Free + $20/mo</span>
-            </div>
-            <a href="https://claude.ai" target="_blank" class="px-4 py-2 bg-black text-white text-sm rounded-lg hover:bg-gray-800 transition-colors duration-200">
-              Try Now
-            </a>
+          <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+            <span>FrequentStayer Editorial</span>
+            <span>Mar 4, 2026</span>
           </div>
+          <a href="#" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+            View program details
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
         </div>
-      </div>
+      </article>
 
-      <!-- Google Bard -->
-      <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 group">
+      <!-- Card 3 -->
+      <article class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
         <div class="relative">
-          <img src="https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Google Bard Interface" class="w-full h-48 object-cover">
-          <div class="absolute top-3 right-3 flex gap-2">
-            <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
-              Free
-            </span>
-          </div>
-          <div class="absolute bottom-3 left-3">
-            <div class="flex items-center space-x-1">
-              {[1,2,3,4].map(() => (
-                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
-              <svg class="w-4 h-4 text-gray-300 fill-current" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <span class="text-white text-sm font-medium ml-1">4.2</span>
-            </div>
-          </div>
+          <img src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Luxury resort pool" class="w-full h-64 object-cover">
         </div>
         <div class="p-6">
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="font-bold text-lg text-gray-900">Google Bard</h3>
-            <span class="text-sm text-gray-500">by Google</span>
-          </div>
-          <p class="text-gray-600 text-sm mb-4 line-clamp-2">
-            Google's experimental AI chatbot powered by LaMDA. Great for creative writing and brainstorming sessions.
+          <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold uppercase tracking-wide rounded-sm mb-3">
+            Complete Guide
+          </span>
+          <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">
+            Sahara Las Vegas Infinity Rewards: Complete Loyalty Program Guide 2026
+          </h3>
+          <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+            The complete guide to Infinity Rewards at Sahara Las Vegas — the north Strip casino hotel offering great value, Moroccan-themed luxury, and a loyalty program that rewards both gaming and...
           </p>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-              <span class="text-xs text-gray-500">50M+ users</span>
-              <span class="text-xs text-gray-300">•</span>
-              <span class="text-xs text-gray-500">Free</span>
-            </div>
-            <a href="https://bard.google.com" target="_blank" class="px-4 py-2 bg-black text-white text-sm rounded-lg hover:bg-gray-800 transition-colors duration-200">
-              Try Now
-            </a>
+          <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+            <span>FrequentStayer Editorial</span>
+            <span>Mar 4, 2026</span>
           </div>
+          <a href="#" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+            View program details
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
         </div>
-      </div>
+      </article>
 
-      <!-- Microsoft Copilot -->
-      <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 group">
+      <!-- Card 4 -->
+      <article class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
         <div class="relative">
-          <img src="https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Microsoft Copilot Interface" class="w-full h-48 object-cover">
-          <div class="absolute top-3 right-3 flex gap-2">
-            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
-              Enterprise
-            </span>
-          </div>
-          <div class="absolute bottom-3 left-3">
-            <div class="flex items-center space-x-1">
-              {[1,2,3,4].map(() => (
-                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
-              <svg class="w-4 h-4 text-gray-300 fill-current" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              <span class="text-white text-sm font-medium ml-1">4.3</span>
-            </div>
-          </div>
+          <img src="https://images.pexels.com/photos/2869499/pexels-photo-2869499.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Airport terminal" class="w-full h-64 object-cover">
         </div>
         <div class="p-6">
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="font-bold text-lg text-gray-900">Microsoft Copilot</h3>
-            <span class="text-sm text-gray-500">by Microsoft</span>
-          </div>
-          <p class="text-gray-600 text-sm mb-4 line-clamp-2">
-            AI-powered assistant integrated with Microsoft 365. Perfect for productivity and business workflows.
+          <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold uppercase tracking-wide rounded-sm mb-3">
+            Complete Guide
+          </span>
+          <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">
+            Airport Hotels Rewards: Complete Guide to Global Airport Accommodation Loyalty 2026
+          </h3>
+          <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+            The complete guide to Airport Hotels Rewards — the loyalty program designed for frequent travelers staying at airport hotels worldwide. Earn points, enjoy tier benefits...
           </p>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-              <span class="text-xs text-gray-500">25M+ users</span>
-              <span class="text-xs text-gray-300">•</span>
-              <span class="text-xs text-gray-500">$30/mo</span>
-            </div>
-            <a href="https://copilot.microsoft.com" target="_blank" class="px-4 py-2 bg-black text-white text-sm rounded-lg hover:bg-gray-800 transition-colors duration-200">
-              Try Now
-            </a>
+          <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+            <span>FrequentStayer Editorial</span>
+            <span>Mar 4, 2026</span>
           </div>
+          <a href="#" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+            View program details
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
         </div>
-      </div>
+      </article>
 
-      <!-- Perplexity AI -->
-      <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 group">
+      <!-- Card 5 -->
+      <article class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
         <div class="relative">
-          <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Perplexity AI Interface" class="w-full h-48 object-cover">
-          <div class="absolute top-3 right-3 flex gap-2">
-            <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
-              Free
-            </span>
-            <span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs font-medium rounded-full">
-              Research
-            </span>
-          </div>
-          <div class="absolute bottom-3 left-3">
-            <div class="flex items-center space-x-1">
-              {[1,2,3,4].map(() => (
-                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
-              <svg class="w-4 h-4 text-gray-300 fill-current" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              <span class="text-white text-sm font-medium ml-1">4.4</span>
-            </div>
-          </div>
+          <img src="https://images.pexels.com/photos/2096983/pexels-photo-2096983.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Hotel bar lounge" class="w-full h-64 object-cover">
         </div>
         <div class="p-6">
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="font-bold text-lg text-gray-900">Perplexity AI</h3>
-            <span class="text-sm text-gray-500">by Perplexity</span>
-          </div>
-          <p class="text-gray-600 text-sm mb-4 line-clamp-2">
-            AI-powered search engine that provides accurate answers with real-time web sources and citations.
+          <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold uppercase tracking-wide rounded-sm mb-3">
+            Complete Guide
+          </span>
+          <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">
+            Boutique Hotel Rewards: Complete Guide to Independent Luxury Hotels Loyalty Program 2026
+          </h3>
+          <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+            The complete guide to Boutique Hotel Rewards — the loyalty program celebrating independent luxury hotels. Discover unique properties, exclusive perks, and personalized experiences...
           </p>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-              <span class="text-xs text-gray-500">5M+ users</span>
-              <span class="text-xs text-gray-300">•</span>
-              <span class="text-xs text-gray-500">Free + $20/mo</span>
-            </div>
-            <a href="https://perplexity.ai" target="_blank" class="px-4 py-2 bg-black text-white text-sm rounded-lg hover:bg-gray-800 transition-colors duration-200">
-              Try Now
-            </a>
+          <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+            <span>FrequentStayer Editorial</span>
+            <span>Mar 4, 2026</span>
           </div>
+          <a href="#" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+            View program details
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
         </div>
-      </div>
+      </article>
 
-      <!-- Character.AI -->
-      <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 group">
+      <!-- Card 6 -->
+      <article class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
         <div class="relative">
-          <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Character.AI Interface" class="w-full h-48 object-cover">
-          <div class="absolute top-3 right-3 flex gap-2">
-            <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
-              Free
-            </span>
-            <span class="px-2 py-1 bg-pink-100 text-pink-800 text-xs font-medium rounded-full">
-              Creative
-            </span>
-          </div>
-          <div class="absolute bottom-3 left-3">
-            <div class="flex items-center space-x-1">
-              {[1,2,3,4].map(() => (
-                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
-              <svg class="w-4 h-4 text-gray-300 fill-current" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              <span class="text-white text-sm font-medium ml-1">4.1</span>
-            </div>
-          </div>
+          <img src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Luxury hotel bedroom" class="w-full h-64 object-cover">
         </div>
         <div class="p-6">
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="font-bold text-lg text-gray-900">Character.AI</h3>
-            <span class="text-sm text-gray-500">by Character.AI</span>
-          </div>
-          <p class="text-gray-600 text-sm mb-4 line-clamp-2">
-            Create and chat with AI characters. Perfect for creative writing, roleplay, and entertainment.
+          <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold uppercase tracking-wide rounded-sm mb-3">
+            Complete Guide
+          </span>
+          <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">
+            Premium Suites Rewards: Complete Guide to Extended Stay Luxury Loyalty Program 2026
+          </h3>
+          <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+            The complete guide to Premium Suites Rewards — the loyalty program for extended stay hotels offering suite accommodations. Perfect for long-term travelers seeking comfort and value...
           </p>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-              <span class="text-xs text-gray-500">20M+ users</span>
-              <span class="text-xs text-gray-300">•</span>
-              <span class="text-xs text-gray-500">Free + $10/mo</span>
-            </div>
-            <a href="https://character.ai" target="_blank" class="px-4 py-2 bg-black text-white text-sm rounded-lg hover:bg-gray-800 transition-colors duration-200">
-              Try Now
-            </a>
+          <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+            <span>FrequentStayer Editorial</span>
+            <span>Mar 4, 2026</span>
           </div>
+          <a href="#" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+            View program details
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
         </div>
-      </div>
+      </article>
 
-      <!-- Replika -->
-      <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 group">
-        <div class="relative">
-          <img src="https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Replika Interface" class="w-full h-48 object-cover">
-          <div class="absolute top-3 right-3 flex gap-2">
-            <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded-full">
-              Premium
-            </span>
-            <span class="px-2 py-1 bg-pink-100 text-pink-800 text-xs font-medium rounded-full">
-              Personal
-            </span>
-          </div>
-          <div class="absolute bottom-3 left-3">
-            <div class="flex items-center space-x-1">
-              {[1,2,3,4].map(() => (
-                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
-              <svg class="w-4 h-4 text-gray-300 fill-current" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              <span class="text-white text-sm font-medium ml-1">4.0</span>
-            </div>
-          </div>
-        </div>
-        <div class="p-6">
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="font-bold text-lg text-gray-900">Replika</h3>
-            <span class="text-sm text-gray-500">by Luka Inc.</span>
-          </div>
-          <p class="text-gray-600 text-sm mb-4 line-clamp-2">
-            Your AI companion for emotional support and personal conversations. Learns and adapts to your personality.
-          </p>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-              <span class="text-xs text-gray-500">10M+ users</span>
-              <span class="text-xs text-gray-300">•</span>
-              <span class="text-xs text-gray-500">Free + $20/mo</span>
-            </div>
-            <a href="https://replika.ai" target="_blank" class="px-4 py-2 bg-black text-white text-sm rounded-lg hover:bg-gray-800 transition-colors duration-200">
-              Try Now
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Jasper Chat -->
-      <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 group">
-        <div class="relative">
-          <img src="https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Jasper Chat Interface" class="w-full h-48 object-cover">
-          <div class="absolute top-3 right-3 flex gap-2">
-            <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded-full">
-              Premium
-            </span>
-            <span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs font-medium rounded-full">
-              Business
-            </span>
-          </div>
-          <div class="absolute bottom-3 left-3">
-            <div class="flex items-center space-x-1">
-              {[1,2,3,4].map(() => (
-                <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
-              <svg class="w-4 h-4 text-gray-300 fill-current" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              <span class="text-white text-sm font-medium ml-1">4.5</span>
-            </div>
-          </div>
-        </div>
-        <div class="p-6">
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="font-bold text-lg text-gray-900">Jasper Chat</h3>
-            <span class="text-sm text-gray-500">by Jasper AI</span>
-          </div>
-          <p class="text-gray-600 text-sm mb-4 line-clamp-2">
-            AI writing assistant specialized in marketing copy, content creation, and business communications.
-          </p>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-              <span class="text-xs text-gray-500">1M+ users</span>
-              <span class="text-xs text-gray-300">•</span>
-              <span class="text-xs text-gray-500">$49/mo</span>
-            </div>
-            <a href="https://jasper.ai" target="_blank" class="px-4 py-2 bg-black text-white text-sm rounded-lg hover:bg-gray-800 transition-colors duration-200">
-              Try Now
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Load More Section -->
-    <div class="text-center">
-      <button class="px-8 py-4 bg-white border-2 border-blue-200 text-blue-600 rounded-xl hover:bg-blue-50 hover:border-blue-300 transition-all duration-200 font-semibold text-lg shadow-md hover:shadow-lg">
-        Load More AI Tools
-      </button>
-      <p class="text-sm text-gray-600 mt-4 font-medium">Showing 8 of 50+ AI chat tools</p>
-    </div>
-
-    <!-- Quick Stats -->
-    <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
-      <div class="text-center bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200">
-        <div class="text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">50+</div>
-        <div class="text-sm text-gray-600 font-medium">AI Tools Listed</div>
-      </div>
-      <div class="text-center bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200">
-        <div class="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">200M+</div>
-        <div class="text-sm text-gray-600 font-medium">Total Users</div>
-      </div>
-      <div class="text-center bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200">
-        <div class="text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-2">4.3</div>
-        <div class="text-sm text-gray-600 font-medium">Average Rating</div>
-      </div>
-      <div class="text-center bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200">
-        <div class="text-4xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-2">24/7</div>
-        <div class="text-sm text-gray-600 font-medium">Always Available</div>
-      </div>
     </div>
   </div>
 </section>
-
-<script>
-  // Filter functionality
-  document.addEventListener('DOMContentLoaded', () => {
-    const filterButtons = document.querySelectorAll('button[class*="px-6 py-3"]');
-
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        filterButtons.forEach(btn => {
-          btn.classList.remove('bg-blue-600', 'text-white', 'shadow-lg', 'hover:shadow-xl');
-          btn.classList.add('bg-white', 'text-gray-700', 'border-2', 'border-gray-200', 'hover:bg-blue-50', 'hover:text-blue-600', 'hover:border-blue-200');
-        });
-
-        button.classList.remove('bg-white', 'text-gray-700', 'border-2', 'border-gray-200', 'hover:bg-blue-50', 'hover:text-blue-600', 'hover:border-blue-200');
-        button.classList.add('bg-blue-600', 'text-white', 'shadow-lg', 'hover:shadow-xl');
-
-        console.log('Filter clicked:', button.textContent);
-      });
-    });
-  });
-</script>
